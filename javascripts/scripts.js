@@ -59,7 +59,7 @@ rows.forEach(([x,y,w,h],i) => {
   button.className = 'seat-button';
   button.type = 'button';
   button.setAttribute('aria-label', 'Выбрать сиденье ' + (i+1));
-  Object.assign(button.style, {left:x+'%', top:y+'%', width:w+'%', height:h+'%'});
+  Object.assign(button.style, {left:x+'%', top:`calc(${y}% - 1cm)`, width:w+'%', height:h+'%'});
   button.addEventListener('click', () => {
     buttons.querySelectorAll('.is-selected').forEach(el => el.classList.remove('is-selected'));
     button.classList.add('is-selected');
