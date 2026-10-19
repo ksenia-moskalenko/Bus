@@ -393,7 +393,7 @@ html { scroll-behavior: smooth; }
 .distance-lab__readout-label { font-size:clamp(11px,.82vw,15px); }
 .distance-lab__readout strong { font-size:clamp(24px,2.3vw,43px); letter-spacing:-.055em; line-height:1.04; font-weight:650; }
 .distance-lab__readout > span:last-child { font-size:clamp(15px,1.1vw,20px); line-height:1.25; }
-.distance-lab__bottom { border-top:1px solid #111; color:#555; }
+.distance-lab__bottom { border-bottom:1px solid #111; border-top:0; color:#555; padding:14px 0 16px; margin-bottom:22px; }
 @media(max-width:900px) {
   .distance-lab__intro { grid-template-columns:1fr; }
   .distance-lab__canvas { grid-template-columns:1fr; }
