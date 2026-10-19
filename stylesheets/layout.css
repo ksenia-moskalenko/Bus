@@ -552,3 +552,12 @@ body::-webkit-scrollbar {
   transform-origin: left bottom;
   transform: translateY(calc(var(--title-exit, 0) * 110%)) scaleY(1.48);
 }
+
+/* Fill the full right column horizontally AND stretch letterforms vertically. */
+.hero-title {
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  transform: translateY(calc(var(--title-exit, 0) * 110%)) scaleY(1.48);
+  font-stretch: normal;
+}
