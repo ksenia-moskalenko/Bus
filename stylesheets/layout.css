@@ -44,7 +44,7 @@ body { margin: 0; background: var(--page-bg); color: #050505; }
   left: auto;
   margin: 0;
   text-align: right;
-  font-size: clamp(90px, 18.3vw, 350px);
+  font-size: clamp(110px, 21.5vw, 420px);
   font-weight: 900;
   letter-spacing: -0.055em;
   line-height: .79;
