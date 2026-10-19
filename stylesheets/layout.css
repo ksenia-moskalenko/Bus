@@ -53,7 +53,7 @@ body {
   flex-direction: column;
   gap: 13px;
   white-space: nowrap;
-  font-size: clamp(18px, 1.55vw, 27px);
+  font-size: clamp(12px, 1vw, 18px);
   line-height: 1;
   letter-spacing: -0.025em;
 }
@@ -68,7 +68,7 @@ body {
 .prompt-line {
   display: block;
   width: 1px;
-  height: 61px;
+  height: 30px;
   background: currentColor;
   opacity: calc(1 - var(--bus-enter, 0));
 }
@@ -118,9 +118,10 @@ body {
 }
 .bus-image {
   display: block;
-  width: 100%;
+  width: 96%;
   height: auto;
   object-fit: contain;
+  margin-inline: auto;
   filter: grayscale(100%);
   transform: translateY(6px);
 }
@@ -1255,7 +1256,7 @@ body::-webkit-scrollbar {
   bottom: 0;
   line-height: 1;
   transform-origin: left bottom;
-  transform: translateY(calc(var(--title-exit, 0) * 110%)) scaleY(1.48);
+  transform: translateY(calc(var(--title-exit, 0) * 110%)) scaleY(1.27);
 }
 
 /* Fill the full right column horizontally AND stretch letterforms vertically. */
@@ -1272,8 +1273,8 @@ body::-webkit-scrollbar {
   width: max-content;
   max-width: none;
   font-size: clamp(90px, 14vw, 280px);
-  transform: translateY(calc(var(--title-exit, 0) * 110%))
-    scaleX(var(--hero-scale-x, 1)) scaleY(1.48);
+  transform: translateY(calc(var(--title-exit, 0) * 100%))
+    scaleX(var(--hero-scale-x, 1)) scaleY(1.27);
 }
 
 /* Align hero lettering baseline with the bottom edge of the left frame. */
