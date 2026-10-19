@@ -288,11 +288,11 @@ updateSectionNav();
   if (!title) return;
   const frame = title.parentElement;
   function fit() {
-    title.style.setProperty('--hero-fit-size', '100px');
+    title.style.setProperty('--hero-scale-x', '1');
     const available = frame.clientWidth;
-    const measured = title.getBoundingClientRect().width;
+    const measured = title.offsetWidth;
     if (available > 0 && measured > 0) {
-      title.style.setProperty('--hero-fit-size', (100 * available / measured * .992).toFixed(2) + 'px');
+      title.style.setProperty('--hero-scale-x', (available / measured).toFixed(5));
     }
   }
   window.addEventListener('resize', fit);
