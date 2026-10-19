@@ -90,3 +90,35 @@ rows.forEach(([x,y,w,h],i) => {
   });
   buttons.append(button);
 });
+
+/* Навигация по лонгриду и подсветка текущего раздела. */
+const navLinks = [...document.querySelectorAll('.section-nav__link')];
+const navSections = navLinks.map(link => document.getElementById(link.dataset.section));
+function updateSectionNav() {
+  const focusLine = window.scrollY + window.innerHeight * .42;
+  let active = 0;
+  navSections.forEach((section, index) => {
+    if (section && section.offsetTop <= focusLine) active = index;
+  });
+  navLinks.forEach((link, index) => {
+    const selected = index === active;
+    link.classList.toggle('is-active', selected);
+    if (selected) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+}
+navLinks.forEach((link, index) => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    const section = navSections[index];
+    if (!section) return;
+    const destination = index === 0
+      ? story.offsetTop + Math.max(0, story.offsetHeight - window.innerHeight) * .75
+      : section.offsetTop;
+    window.scrollTo({ top: destination, behavior: 'smooth' });
+    history.replaceState(null, '', '#' + link.dataset.section);
+  });
+});
+addEventListener('scroll', updateSectionNav, { passive: true });
+addEventListener('resize', updateSectionNav);
+updateSectionNav();
