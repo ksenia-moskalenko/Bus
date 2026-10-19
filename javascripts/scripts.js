@@ -122,3 +122,90 @@ navLinks.forEach((link, index) => {
 addEventListener('scroll', updateSectionNav, { passive: true });
 addEventListener('resize', updateSectionNav);
 updateSectionNav();
+
+
+/* Эксперимент по проксемике: перетаскиваем пассажира в границах схемы. */
+(() => {
+  const svg = document.getElementById('distance-map');
+  if (!svg) return;
+  const dot = document.getElementById('distance-dot');
+  const inner = document.getElementById('distance-inner');
+  const outer = document.getElementById('distance-outer');
+  const stem = document.getElementById('distance-stem');
+  const direction = document.getElementById('distance-direction');
+  const message = document.getElementById('distance-message');
+  const detail = document.getElementById('distance-detail');
+  const factors = [
+    { name: 'БАГАЖ', x: 275, y: 175, message: 'Багаж занимает твою зону.', detail: 'Чужие вещи на соседнем сиденье заставляют держаться дальше.' },
+    { name: 'ДРУГИЕ ЛЮДИ', x: 525, y: 175, message: 'Чужие границы становятся ближе.', detail: 'Когда рядом незнакомцы, хочется оставить себе хотя бы немного пространства.' },
+    { name: 'ОКНО', x: 275, y: 330, message: 'У окна спокойнее.', detail: 'С одной стороны никто не сядет: личное пространство кажется защищённее.' },
+    { name: 'ВЫХОД', x: 525, y: 330, message: 'Выход даёт контроль.', detail: 'Близость к двери помогает быстрее выйти, но рядом чаще проходят люди.' },
+    { name: 'МЕСТО', x: 400, y: 395, message: 'Место становится твоим.', detail: 'Даже одно сиденье задаёт временную границу между тобой и остальными.' }
+  ];
+  let position = { x: 400, y: 255 };
+  let dragging = false;
+  const clampMap = (value, min, max) => Math.max(min, Math.min(max, value));
+  function render(x, y) {
+    const dx = x - 400, dy = y - 255;
+    const length = Math.hypot(dx, dy);
+    const scale = length > 115 ? 115 / length : 1;
+    position = { x: 400 + dx * scale, y: 255 + dy * scale };
+    const px = position.x, py = position.y;
+    dot.setAttribute('cx', px); dot.setAttribute('cy', py);
+    stem.setAttribute('x1', px); stem.setAttribute('y1', py);
+    stem.setAttribute('x2', px); stem.setAttribute('y2', py + 44);
+    // Оба контура следуют за точкой, но с разной скоростью;
+    // внешняя зона сужается ближе к людям и багажу.
+    inner.setAttribute('cx', 400 + (px - 400) * .55);
+    inner.setAttribute('cy', 255 + (py - 255) * .55);
+    outer.setAttribute('cx', 400 + (px - 400) * .28);
+    outer.setAttribute('cy', 255 + (py - 255) * .28);
+    const nearPeople = Math.max(0, (px - 400) / 115);
+    const nearBag = Math.max(0, (400 - px) / 115);
+    inner.setAttribute('r', (91 - 17 * nearPeople - 8 * nearBag + 8 * Math.max(0, (py - 255) / 115)).toFixed(1));
+    outer.setAttribute('r', (135 - 24 * nearPeople - 13 * nearBag).toFixed(1));
+    if (length < 18) {
+      direction.textContent = 'ЦЕНТР';
+      message.textContent = 'Пока всё в равновесии.';
+      detail.textContent = 'Сдвинь точку к одному из факторов, чтобы увидеть, как он влияет на ощущение пространства.';
+      dot.setAttribute('aria-valuetext', 'В центре');
+      return;
+    }
+    let nearest = factors[0], best = Infinity;
+    factors.forEach(factor => {
+      const distance = Math.hypot(px - factor.x, py - factor.y);
+      if (distance < best) { best = distance; nearest = factor; }
+    });
+    direction.textContent = nearest.name;
+    message.textContent = nearest.message;
+    detail.textContent = nearest.detail;
+    dot.setAttribute('aria-valuetext', nearest.name.toLowerCase());
+  }
+  function pointFromEvent(event) {
+    const p = svg.createSVGPoint();
+    p.x = event.clientX; p.y = event.clientY;
+    const matrix = svg.getScreenCTM();
+    return matrix ? p.matrixTransform(matrix.inverse()) : position;
+  }
+  dot.addEventListener('pointerdown', event => {
+    dragging = true;
+    dot.setPointerCapture(event.pointerId);
+    event.preventDefault();
+  });
+  dot.addEventListener('pointermove', event => {
+    if (!dragging) return;
+    const p = pointFromEvent(event);
+    render(p.x, p.y);
+  });
+  const finish = () => { dragging = false; };
+  dot.addEventListener('pointerup', finish);
+  dot.addEventListener('pointercancel', finish);
+  dot.addEventListener('lostpointercapture', finish);
+  dot.addEventListener('keydown', event => {
+    const moves = { ArrowLeft: [-10,0], ArrowRight: [10,0], ArrowUp: [0,-10], ArrowDown: [0,10] };
+    if (!moves[event.key]) return;
+    event.preventDefault();
+    render(position.x + moves[event.key][0], position.y + moves[event.key][1]);
+  });
+  render(400, 255);
+})();
