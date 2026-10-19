@@ -281,3 +281,21 @@ updateSectionNav();
   }));
   resetPanel();
 })();
+
+// Fit the full title exactly inside the right column on any viewport/font load.
+(function fitHeroTitle() {
+  const title = document.querySelector('.hero-title');
+  if (!title) return;
+  const frame = title.parentElement;
+  function fit() {
+    title.style.setProperty('--hero-fit-size', '100px');
+    const available = frame.clientWidth;
+    const measured = title.getBoundingClientRect().width;
+    if (available > 0 && measured > 0) {
+      title.style.setProperty('--hero-fit-size', (100 * available / measured * .992).toFixed(2) + 'px');
+    }
+  }
+  window.addEventListener('resize', fit);
+  if (document.fonts) document.fonts.ready.then(fit);
+  fit();
+})();
