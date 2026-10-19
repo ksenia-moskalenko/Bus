@@ -32,7 +32,7 @@ body { margin: 0; background: var(--page-bg); color: #050505; }
   transform: translateY(calc(var(--title-exit, 0) * 110%));
 }
 .seat-experience {
-  position: absolute; left: 0; right: 0; top: 20%; bottom: 4%;
+  position: absolute; left: 0; right: 0; top: 20%; bottom: 10%;
   display: flex; flex-direction: column; justify-content: flex-end;
   gap: clamp(12px, 2vh, 25px);
   z-index: 2; pointer-events: none;
