@@ -461,3 +461,30 @@ html { scroll-behavior: smooth; }
 .occupied-passenger { background:none !important; inset:0; display:flex; align-items:center; justify-content:center; filter:none; overflow:visible; }
 .occupied-passenger svg { width:100%; height:100%; max-height:100%; display:block; overflow:visible; filter:drop-shadow(0 0 2px white) drop-shadow(0 0 2px white); }
 .occupied-passenger svg use { fill:#000; }
+
+
+/* Компактные карточки + постоянная нижняя плашка результата, как под автобусом */
+.neighbor-game__content { min-height:100svh; }
+.neighbor-game__heading { padding:clamp(16px,2vw,32px) 0 clamp(16px,2vw,30px); }
+.neighbor-game .neighbor-game__heading h2 { font-size:clamp(46px,6vw,105px); }
+.neighbor-card { min-height:0; height:clamp(255px,24vw,345px); padding:clamp(11px,1.1vw,20px); transform:none; }
+.neighbor-card:hover,.neighbor-card:focus-visible,.neighbor-card.is-selected { transform:none; }
+.neighbor-card__portrait { height:clamp(100px,11vw,160px); min-height:0; margin-bottom:0; }
+.neighbor-card__portrait svg { width:min(100%,135px); }
+.neighbor-card__name { font-size:clamp(20px,1.55vw,29px); margin-top:auto; }
+.neighbor-card__hint { font-size:clamp(11px,.85vw,15px); margin-top:6px; }
+.neighbor-card__action { margin-top:11px; padding:9px 18px; font-size:clamp(11px,.8vw,14px); }
+.neighbor-reveal { display:block; margin-top:clamp(12px,1.5vw,23px); min-height:clamp(135px,13vw,205px); padding:clamp(15px,1.6vw,26px); background:var(--page-bg,#f0f1ed); color:#111; border:1px solid #111; animation:none; box-sizing:border-box; }
+.neighbor-reveal[hidden] { display:block; }
+.neighbor-reveal__meta { font-size:clamp(11px,.8vw,14px); }
+.neighbor-reveal__body { margin:clamp(12px,1.3vw,22px) 0 10px; }
+.neighbor-reveal__caption { margin-bottom:5px; font-size:clamp(10px,.8vw,13px); }
+.neighbor-reveal__rating { gap:16px; margin:4px 0 10px; }
+.neighbor-reveal__rating strong { font-size:clamp(36px,4.3vw,70px); letter-spacing:-.06em; }
+.neighbor-reveal__track { height:10px; border-width:1px; }
+.neighbor-reveal__body > strong { font-size:clamp(17px,1.55vw,26px); line-height:1.08; letter-spacing:-.03em; }
+.neighbor-reveal__body p { max-width:none; margin:8px 0 0; font-size:clamp(14px,1.05vw,19px); line-height:1.3; min-height:1.3em; }
+.neighbor-reveal__bottom { font-size:clamp(10px,.8vw,14px); }
+.neighbor-game__footer { padding-top:16px; }
+@media(max-width:950px) { .neighbor-card { height:285px; min-height:0; } .neighbor-card__portrait { height:125px; } .neighbor-reveal__rating { flex-direction:row; } }
+@media(max-width:600px) { .neighbor-card { height:230px; min-height:0; } .neighbor-card__portrait { height:90px; } .neighbor-card__portrait svg { width:90px; } .neighbor-card__name { font-size:19px; } .neighbor-card__hint { font-size:11px; } .neighbor-reveal__rating { flex-direction:row; } }
