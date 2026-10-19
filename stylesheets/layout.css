@@ -74,10 +74,10 @@ body {
 }
 .hero-title {
   position: absolute;
-  bottom: -0.025em;
+  bottom: 0.035em;
   right: 0;
   margin: 0;
-  font-size: clamp(70px, 14vw, 230px);
+  font-size: clamp(55px, 9.2vw, 175px);
   font-weight: 900;
   letter-spacing: -0.055em;
   line-height: 0.79;
@@ -208,7 +208,7 @@ body {
     height: 45px;
   }
   .hero-title {
-    font-size: 18vw;
+    font-size: 12vw;
   }
   .seat-experience {
     top: 27%;
