@@ -1,57 +1,68 @@
-/* Первый экран. Сетка: четыре колонки с промежутком 20px. */
 :root { --page-bg: #f0f1ed; --grid-gap: 20px; }
 html, body { min-height: 100%; }
 body { margin: 0; background: var(--page-bg); color: #050505; }
-.hero {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: var(--grid-gap);
-  min-height: 100svh;
-  position: relative;
-  overflow: hidden;
+.scroll-story { height: 230svh; }
+.story-stage {
+  position: sticky; top: 0; height: 100svh; overflow: hidden;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--grid-gap);
 }
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
+.story-stage::before {
+  content: ""; position: absolute; top: 0; bottom: 0;
   left: calc((100% - 3 * var(--grid-gap)) / 4 + var(--grid-gap) / 2);
-  width: 1px;
-  background: #111;
+  width: 1px; background: #111; z-index: 3; pointer-events: none;
 }
-.hero__left { grid-column: 1; }
-.hero__right { grid-column: 2 / -1; position: relative; min-width: 0; }
-.hero__scroll-hint {
-  position: absolute;
-  top: 4.4vh;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 13px;
-  white-space: nowrap;
-  font-size: clamp(18px, 1.55vw, 27px);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.025em;
+.story-left { grid-column: 1; }
+.story-right { grid-column: 2 / -1; position: relative; min-width: 0; }
+.story-prompt {
+  position: absolute; z-index: 4; top: 4.4vh; left: 50%;
+  transform: translateX(-50%); display: flex; align-items: center;
+  flex-direction: column; gap: 13px; white-space: nowrap;
+  font-size: clamp(18px, 1.55vw, 27px); line-height: 1;
+  letter-spacing: -.025em;
 }
-.hero__scroll-line { display: block; width: 1px; height: 61px; background: currentColor; }
-.hero__title {
-  position: absolute;
-  bottom: -0.025em;
-  right: 0;
-  left: auto;
-  margin: 0;
-  text-align: right;
-  font-size: clamp(110px, 21.5vw, 420px);
-  font-weight: 900;
-  letter-spacing: -0.055em;
-  line-height: .79;
-  white-space: nowrap;
+.prompt-start { opacity: calc(1 - var(--transition, 0)); }
+.prompt-select { position: absolute; top: 0; opacity: var(--transition, 0); }
+.prompt-line { display: block; width: 1px; height: 61px; background: currentColor; }
+.hero-title {
+  position: absolute; bottom: -.025em; right: 0; margin: 0;
+  font-size: clamp(110px, 21.5vw, 420px); font-weight: 900;
+  letter-spacing: -.055em; line-height: .79; white-space: nowrap;
+  opacity: calc(1 - var(--transition, 0));
+  transform: translateY(calc(var(--transition, 0) * 45px));
 }
-@media (max-width: 700px) {
-  .hero__scroll-hint { top: 35px; font-size: 15px; }
-  .hero__scroll-line { height: 45px; }
-  .hero__title { font-size: 18vw; }
+.seat-experience {
+  position: absolute; left: 0; right: 0; top: 24%; bottom: 4%;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  gap: clamp(12px, 2vh, 25px);
+  opacity: var(--transition, 0);
+  transform: translateX(calc((1 - var(--transition, 0)) * 110%));
+  pointer-events: none;
+}
+.story-stage.is-interactive .seat-experience { pointer-events: auto; }
+.bus-interactive { position: relative; width: 100%; margin: auto 0 0; }
+.bus-image { display: block; width: 100%; height: auto; object-fit: contain; }
+.seat-buttons { position: absolute; inset: 0; }
+.seat-button {
+  position: absolute; border: 2px solid transparent; border-radius: 24%;
+  background: transparent; cursor: pointer; transform: translate(-50%, -50%);
+  transition: background .2s, border-color .2s, box-shadow .2s;
+}
+.seat-button:hover, .seat-button:focus-visible {
+  background: rgba(255,255,255,.3); border-color: white;
+  box-shadow: 0 0 0 2px #063b96; outline: none;
+}
+.seat-button.is-selected { background: rgba(255,255,255,.4); border-color: #fff; box-shadow: 0 0 0 3px #005bff; }
+.seat-result {
+  flex: 0 0 auto; border: 1px solid #111; padding: clamp(14px, 1.8vw, 28px);
+  min-height: 110px; background: var(--page-bg);
+}
+.result-number { display: block; font-size: clamp(12px, 1vw, 16px); margin-bottom: 12px; }
+.seat-result p { margin: 0; font-size: clamp(17px, 1.55vw, 27px); line-height: 1.2; }
+@media(max-width:700px) {
+  .story-prompt { top: 35px; font-size: 15px; }
+  .prompt-line { height: 45px; }
+  .hero-title { font-size: 18vw; }
+  .seat-experience { top: 27%; bottom: 6%; }
+  .seat-result { min-height: 150px; }
 }
