@@ -429,3 +429,27 @@ html { scroll-behavior: smooth; }
 @keyframes neighbor-open { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
 @media(max-width:950px) { .neighbor-game__cards { grid-template-columns:repeat(2,minmax(0,1fr)); } .neighbor-game__heading { display:block; } .neighbor-game__heading p { margin-top:35px; } .neighbor-card { min-height:230px; } }
 @media(max-width:600px) { .neighbor-game__content { padding:18px 14px 105px; } .neighbor-game__cards { gap:7px; } .neighbor-card { min-height:200px; padding:13px; } .neighbor-card__name { font-size:24px; } .neighbor-game .neighbor-game__heading h2 { font-size:55px; } .neighbor-game__top span:last-child { display:none; } }
+
+
+/* Карточки пассажиров: светлые фреймы, персонажи сверху, рейтинг после выбора */
+.neighbor-game::before { background:rgba(240,241,237,.12); }
+.neighbor-game__heading { padding:clamp(20px,3vw,45px) 0 clamp(22px,3vw,48px); }
+.neighbor-game__cards { gap:clamp(10px,1.5vw,25px); }
+.neighbor-card { background:#fff; border:1px solid #fff; color:#111; min-height:clamp(365px,35vw,570px); padding:clamp(14px,1.4vw,26px); }
+.neighbor-card:hover,.neighbor-card:focus-visible,.neighbor-card.is-selected { background:#fff; color:#111; border-color:#111; transform:translateY(-5px); }
+.neighbor-card__portrait { width:100%; height:clamp(145px,16vw,275px); display:flex; align-items:center; justify-content:center; margin-bottom:auto; }
+.neighbor-card__portrait svg { width:min(100%,200px); height:100%; }
+.neighbor-card__number { font-size:clamp(10px,.8vw,14px); color:#666; }
+.neighbor-card__name { margin-top:15px; font-size:clamp(24px,2.1vw,42px); }
+.neighbor-card__hint { font-size:clamp(13px,.95vw,17px); }
+.neighbor-card__action { text-align:center; align-self:center; background:#111; color:white; border:0; padding:13px 22px; font-size:clamp(13px,1vw,18px); font-weight:600; margin-top:20px; }
+.neighbor-card:hover .neighbor-card__action { background:#d0d0d0; color:#111; }
+.neighbor-reveal { background:#fff; color:#111; }
+.neighbor-reveal__caption { display:block; font-size:clamp(11px,.85vw,16px); margin-bottom:12px; }
+.neighbor-reveal__rating { display:flex; align-items:center; gap:clamp(20px,4vw,65px); margin-bottom:clamp(30px,4vw,70px); }
+.neighbor-reveal__rating strong { font-size:clamp(80px,12vw,220px); line-height:.9; font-weight:750; letter-spacing:-.09em; white-space:nowrap; }
+.neighbor-reveal__track { flex:1; min-width:50px; height:clamp(18px,2vw,35px); border:2px solid #111; border-radius:50px; overflow:hidden; }
+.neighbor-reveal__track span { display:block; width:0; height:100%; background:#111; transition:width .7s cubic-bezier(.2,.8,.2,1); }
+.neighbor-reveal__body > strong { font-size:clamp(27px,3.3vw,65px); }
+@media(max-width:950px) { .neighbor-card { min-height:330px; } .neighbor-card__portrait { height:170px; } }
+@media(max-width:600px) { .neighbor-card { min-height:280px; } .neighbor-card__portrait { height:115px; } .neighbor-card__name { font-size:22px; } .neighbor-card__hint { font-size:12px; } .neighbor-reveal__rating { flex-direction:column; align-items:stretch; } }
