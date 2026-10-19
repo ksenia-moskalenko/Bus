@@ -230,36 +230,65 @@ updateSectionNav();
     sleeper: { title: 'ТВОЁ ПЛЕЧО ТЕПЕРЬ ПОДУШКА.', text: 'Он засыпает почти сразу и постепенно заваливается на тебя. До своей остановки придётся сидеть очень аккуратно.', score: 'СВОБОДА ДВИЖЕНИЯ 30 / 100 · КОМФОРТ 55 / 100', percent: 55 }
   };
   const opened = new Set();
-  const close = () => {
-    panel.hidden = true;
+  const tag = document.getElementById('neighbor-reveal-tag');
+  const title = document.getElementById('neighbor-reveal-title');
+  const description = document.getElementById('neighbor-reveal-text');
+  const score = document.getElementById('neighbor-reveal-score');
+  const percent = document.getElementById('neighbor-reveal-percent');
+  const fill = document.getElementById('neighbor-reveal-fill');
+  const caption = panel.querySelector('.neighbor-reveal__caption');
+  const typeText = (text, node, token) => {
+    let index = 0;
+    const write = () => {
+      if (token !== activeToken) return;
+      index = Math.min(index + 2, text.length);
+      node.textContent = text.slice(0, index);
+      if (index < text.length) typingTimer = setTimeout(write, 22);
+    };
+    write();
+  };
+  let activeToken = 0;
+  let typingTimer = null;
+  const resetPanel = () => {
+    activeToken++;
+    clearTimeout(typingTimer);
     cards.forEach(card => { card.classList.remove('is-selected'); card.setAttribute('aria-expanded', 'false'); });
+    tag.textContent = '03 / ВЫБОР ПОПУТЧИКА';
+    caption.textContent = 'РЕЙТИНГ КОМФОРТАБЕЛЬНОСТИ';
+    title.textContent = 'КТО СЯДЕТ РЯДОМ?';
+    description.textContent = 'Выбери пассажира сверху — здесь появится история твоей поездки.';
+    score.textContent = 'ОЖИДАНИЕ ПОПУТЧИКА';
+    percent.textContent = '—';
+    fill.style.width = '0%';
   };
   cards.forEach((card, index) => card.addEventListener('click', () => {
-    const key = card.dataset.neighbor;
-    const item = scenarios[key];
+    const item = scenarios[card.dataset.neighbor];
     if (!item) return;
-    opened.add(key);
+    activeToken++;
+    clearTimeout(typingTimer);
+    const token = activeToken;
+    opened.add(card.dataset.neighbor);
     cards.forEach(other => {
-      const active = other === card;
-      other.classList.toggle('is-selected', active);
-      other.setAttribute('aria-expanded', String(active));
+      const selected = other === card;
+      other.classList.toggle('is-selected', selected);
+      other.setAttribute('aria-expanded', String(selected));
     });
-    document.getElementById('neighbor-reveal-tag').textContent = 'ТВОЯ ПОЕЗДКА / 0' + (index + 1);
-    document.getElementById('neighbor-reveal-title').textContent = item.title;
-    document.getElementById('neighbor-reveal-text').textContent = item.text;
-    document.getElementById('neighbor-reveal-score').textContent = item.score;
-    document.getElementById('neighbor-reveal-percent').textContent = item.percent + '%';
-    const fill = document.getElementById('neighbor-reveal-fill');
+    tag.textContent = 'ТВОЯ ПОЕЗДКА / 0' + (index + 1);
+    caption.textContent = 'РЕЙТИНГ КОМФОРТАБЕЛЬНОСТИ ПОЕЗДКИ';
+    percent.textContent = item.percent + '%';
     fill.style.width = '0%';
-    requestAnimationFrame(() => { fill.style.width = item.percent + '%'; });
+    requestAnimationFrame(() => { if (token === activeToken) fill.style.width = item.percent + '%'; });
+    title.textContent = item.title;
+    description.textContent = '';
+    score.textContent = item.score;
     document.getElementById('neighbor-progress').textContent = String(opened.size);
-    panel.hidden = false;
+    typeText(item.text, description, token);
     if (window.matchMedia('(max-width: 950px)').matches) panel.scrollIntoView({behavior:'smooth',block:'nearest'});
   }));
-  document.getElementById('neighbor-close').addEventListener('click', close);
+  document.getElementById('neighbor-close').addEventListener('click', resetPanel);
   document.getElementById('neighbor-again').addEventListener('click', () => {
-    close();
-    cards[0].focus({preventScroll:true});
+    resetPanel();
     document.getElementById('neighbor-cards').scrollIntoView({behavior:'smooth',block:'center'});
   });
+  resetPanel();
 })();
