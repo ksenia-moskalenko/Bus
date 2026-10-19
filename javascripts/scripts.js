@@ -275,7 +275,7 @@ updateSectionNav();
     requestAnimationFrame(() => { if (token === activeToken) fill.style.width = item.percent + '%'; });
     title.textContent = item.title;
     description.textContent = '';
-    document.getElementById('neighbor-progress').textContent = String(opened.size);
+
     typeText(item.text, description, token);
     if (window.matchMedia('(max-width: 950px)').matches) panel.scrollIntoView({behavior:'smooth',block:'nearest'});
   }));
