@@ -561,3 +561,11 @@ body::-webkit-scrollbar {
   transform: translateY(calc(var(--title-exit, 0) * 110%)) scaleY(1.48);
   font-stretch: normal;
 }
+
+/* Independent X/Y scaling: glyphs, not just the heading box, fill the frame. */
+.hero-title {
+  width: max-content;
+  max-width: none;
+  font-size: clamp(90px, 14vw, 280px);
+  transform: translateY(calc(var(--title-exit, 0) * 110%)) scaleX(var(--hero-scale-x, 1)) scaleY(1.48);
+}
