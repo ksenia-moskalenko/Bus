@@ -148,17 +148,20 @@ body {
 }
 .occupied-passenger {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: clamp(36px, 4.2vw, 70px);
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
+  inset: 0;
   display: block;
   pointer-events: none;
-  background: rgba(240, 241, 237, .94);
-  border-radius: 50%;
+  background-image: url("../images/passengers.png");
+  background-repeat: no-repeat;
+  background-size: 600% 100%;
+  filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 2px #fff);
 }
-.occupied-passenger svg { width: 100%; height: 100%; display: block; }
+.passenger-sleeping { background-position: 0% 50%; }
+.passenger-mother { background-position: 20% 50%; }
+.passenger-grandma { background-position: 40% 50%; }
+.passenger-grandpa { background-position: 60% 50%; }
+.passenger-bag { background-position: 80% 50%; }
+.passenger-headphones { background-position: 100% 50%; }
 .seat-button.is-occupied:hover,
 .seat-button.is-occupied:focus-visible {
   background: transparent;
