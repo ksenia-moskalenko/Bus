@@ -453,3 +453,11 @@ html { scroll-behavior: smooth; }
 .neighbor-reveal__body > strong { font-size:clamp(27px,3.3vw,65px); }
 @media(max-width:950px) { .neighbor-card { min-height:330px; } .neighbor-card__portrait { height:170px; } }
 @media(max-width:600px) { .neighbor-card { min-height:280px; } .neighbor-card__portrait { height:115px; } .neighbor-card__name { font-size:22px; } .neighbor-card__hint { font-size:12px; } .neighbor-reveal__rating { flex-direction:column; align-items:stretch; } }
+
+
+/* Контурные персонажи, перенесённые из присланного листа аватаров */
+.neighbor-card__portrait svg { width:min(100%,210px); height:100%; overflow:visible; fill:#000; stroke:none; }
+.neighbor-card__portrait svg use { fill:#000; }
+.occupied-passenger { background:none !important; inset:0; display:flex; align-items:center; justify-content:center; filter:none; overflow:visible; }
+.occupied-passenger svg { width:100%; height:100%; max-height:100%; display:block; overflow:visible; filter:drop-shadow(0 0 2px white) drop-shadow(0 0 2px white); }
+.occupied-passenger svg use { fill:#000; }
