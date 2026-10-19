@@ -40,8 +40,10 @@ body { margin: 0; background: var(--page-bg); color: #050505; }
 .hero__title {
   position: absolute;
   bottom: -0.025em;
-  left: 0;
+  right: 0;
+  left: auto;
   margin: 0;
+  text-align: right;
   font-size: clamp(90px, 18.3vw, 350px);
   font-weight: 900;
   letter-spacing: -0.055em;
