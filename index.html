@@ -1,19 +1,35 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Автобус</title>
-    <link rel="stylesheet" href="stylesheets/style.css" />
-    <script defer type="module" src="javascripts/scripts.js"></script>
-  </head>
-  <body>
-    <main class="hero" aria-label="Первый экран лонгрида Автобус">
-      <div class="hero__left" aria-hidden="true"></div>
-      <section class="hero__right">
-        <div class="hero__scroll-hint">листай вниз<span class="hero__scroll-line" aria-hidden="true"></span></div>
-        <h1 class="hero__title">АВТОБУС</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Автобус</title>
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <script defer src="javascripts/scripts.js"></script>
+</head>
+<body>
+  <main class="scroll-story">
+    <div class="story-stage">
+      <div class="story-left" aria-hidden="true"></div>
+      <section class="story-right" aria-label="Выбор места в автобусе">
+        <div class="story-prompt">
+          <span class="prompt-start">листай вниз</span>
+          <span class="prompt-select">ВЫБЕРИ МЕСТО</span>
+          <span class="prompt-line" aria-hidden="true"></span>
+        </div>
+        <h1 class="hero-title">АВТОБУС</h1>
+        <div class="seat-experience">
+          <div class="bus-interactive" aria-label="Схема сидений автобуса">
+            <img class="bus-image" src="images/bus-interior.png" alt="Салон автобуса сверху с рядами синих сидений" />
+            <div class="seat-buttons" id="seat-buttons"></div>
+          </div>
+          <div class="seat-result" aria-live="polite">
+            <span class="result-number" id="result-number">01 / ВЫБОР МЕСТА</span>
+            <p id="result-text">Нажми на любое синее сиденье, чтобы узнать, что тебя ждёт в поездке.</p>
+          </div>
+        </div>
       </section>
-    </main>
-  </body>
+    </div>
+  </main>
+</body>
 </html>
