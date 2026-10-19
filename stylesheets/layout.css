@@ -535,3 +535,7 @@ body::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
+
+/* Hero lettering fits the right-hand frame edge to edge. */
+.hero-title { left:0; right:auto; bottom:-0.085em; font-size:var(--hero-fit-size, 12vw); line-height:1; letter-spacing:-.055em; }
+@media(max-width:700px) { .hero-title { font-size:var(--hero-fit-size, 12vw); } }
