@@ -375,3 +375,28 @@ html { scroll-behavior: smooth; }
   .proxemics-editorial__interlude { grid-template-columns: 1fr auto; }
   .proxemics-editorial__annotation { display: none; }
 }
+
+
+/* Интерактивная схема дистанции */
+.distance-lab { margin: clamp(80px, 12vw, 200px) 0 clamp(80px, 10vw, 150px); border-top: 1px solid #111; }
+.distance-lab__head, .distance-lab__bottom { display:flex; justify-content:space-between; gap:16px; padding:17px 0; font-size:clamp(11px,.82vw,15px); font-weight:550; }
+.distance-lab__intro { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:end; padding:35px 0 10px; }
+.distance-lab__intro h3 { margin:0; font-size:clamp(52px,7vw,132px); letter-spacing:-.075em; line-height:.88; font-weight:650; }
+.distance-lab__intro p { margin:0 0 8px; max-width:420px; font-size:clamp(17px,1.45vw,25px); line-height:1.2; letter-spacing:-.025em; }
+.distance-lab__canvas { display:grid; grid-template-columns:minmax(0,1fr) minmax(170px, .34fr); gap:0; align-items:center; }
+#distance-map { width:100%; display:block; overflow:visible; user-select:none; touch-action:none; }
+.distance-lab__labels { font-size:22px; font-family:inherit; }
+#distance-dot { cursor:grab; outline:none; touch-action:none; }
+#distance-dot:active { cursor:grabbing; }
+#distance-dot:focus-visible { stroke:#777; stroke-width:5; }
+.distance-lab__readout { display:flex; flex-direction:column; gap:17px; padding:20px 0 20px 25px; border-left:1px solid #111; }
+.distance-lab__readout-label { font-size:clamp(11px,.82vw,15px); }
+.distance-lab__readout strong { font-size:clamp(24px,2.3vw,43px); letter-spacing:-.055em; line-height:1.04; font-weight:650; }
+.distance-lab__readout > span:last-child { font-size:clamp(15px,1.1vw,20px); line-height:1.25; }
+.distance-lab__bottom { border-top:1px solid #111; color:#555; }
+@media(max-width:900px) {
+  .distance-lab__intro { grid-template-columns:1fr; }
+  .distance-lab__canvas { grid-template-columns:1fr; }
+  .distance-lab__readout { border-left:0; border-top:1px solid #111; padding:20px 0 28px; }
+  .distance-lab__bottom { flex-wrap:wrap; }
+}
