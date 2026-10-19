@@ -97,12 +97,23 @@
       <div class="proxemics-editorial__footer"><span>АВТОБУС / ИССЛЕДОВАНИЕ ДИСТАНЦИИ</span><span>02 — 03</span></div>
     </div>
   </section>
-  <section class="longread-section" id="rating-section" aria-labelledby="rating-heading">
-    <div class="longread-section__inner">
-      <span class="longread-section__eyebrow">03 / ИГРА-РЕЙТИНГ</span>
-      <h2 id="rating-heading">Рейтинг соседей</h2>
-      <p>Кто окажется рядом: человек в наушниках, пассажир с огромной сумкой или тот, кто смотрит видео на полной громкости?</p>
-      <p class="longread-section__note">Интерактивный рейтинг соседей — следующий раздел лонгрида.</p>
+  <section class="longread-section neighbor-game" id="rating-section" aria-labelledby="rating-heading">
+    <div class="neighbor-game__backdrop" aria-hidden="true"></div>
+    <div class="neighbor-game__content">
+      <div class="neighbor-game__top"><span>03 / РЕЙТИНГ СОСЕДЕЙ</span><span>СОСЕД — ЭТО ЛОТЕРЕЯ</span></div>
+      <div class="neighbor-game__heading"><h2 id="rating-heading">Кто сядет<br>рядом?</h2><p>Четыре пассажира. Четыре причины пересесть. Выбери соседа и узнай, что тебя ждёт.</p></div>
+      <div class="neighbor-game__cards" id="neighbor-cards">
+        <button class="neighbor-card" type="button" data-neighbor="headphones" aria-expanded="false"><span class="neighbor-card__number">01 / ПАССАЖИР</span><span class="neighbor-card__name">В наушниках</span><span class="neighbor-card__hint">На вид — идеальный сосед</span><span class="neighbor-card__action">ОТКРЫТЬ ↗</span></button>
+        <button class="neighbor-card" type="button" data-neighbor="bag" aria-expanded="false"><span class="neighbor-card__number">02 / ПАССАЖИР</span><span class="neighbor-card__name">С большой сумкой</span><span class="neighbor-card__hint">Вроде бы просто багаж</span><span class="neighbor-card__action">ОТКРЫТЬ ↗</span></button>
+        <button class="neighbor-card" type="button" data-neighbor="talker" aria-expanded="false"><span class="neighbor-card__number">03 / ПАССАЖИР</span><span class="neighbor-card__name">Общительный</span><span class="neighbor-card__hint">Улыбается и смотрит на тебя</span><span class="neighbor-card__action">ОТКРЫТЬ ↗</span></button>
+        <button class="neighbor-card" type="button" data-neighbor="sleeper" aria-expanded="false"><span class="neighbor-card__number">04 / ПАССАЖИР</span><span class="neighbor-card__name">Сонный</span><span class="neighbor-card__hint">Кажется, сейчас уснёт</span><span class="neighbor-card__action">ОТКРЫТЬ ↗</span></button>
+      </div>
+      <div class="neighbor-reveal" id="neighbor-reveal" aria-live="polite" hidden>
+        <div class="neighbor-reveal__meta"><span id="neighbor-reveal-tag">СЮРПРИЗ / 01</span><button id="neighbor-close" type="button" aria-label="Закрыть карточку">ЗАКРЫТЬ ×</button></div>
+        <div class="neighbor-reveal__body"><strong id="neighbor-reveal-title"></strong><p id="neighbor-reveal-text"></p></div>
+        <div class="neighbor-reveal__bottom"><span id="neighbor-reveal-score"></span><button type="button" id="neighbor-again">ВЫБРАТЬ ДРУГОГО ↗</button></div>
+      </div>
+      <div class="neighbor-game__footer"><span>НЕ СУДИ О СОСЕДЕ ПО ВНЕШНОСТИ</span><span>ВЫБРАНО <span id="neighbor-progress">0</span> / 4</span></div>
     </div>
   </section>
 </body>
