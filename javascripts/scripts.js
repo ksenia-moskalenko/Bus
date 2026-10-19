@@ -57,39 +57,25 @@ function typeText(text) {
 // Постоянные пассажиры. Индексы соответствуют массиву rows.
 const occupiedSeats = new Map([
   [0, 'sleeping'],
-  [8, 'mother'],
-  [12, 'grandma'],
-  [17, 'grandpa'],
-  [23, 'bag'],
+  [9, 'mother'],
+  [17, 'grandma'],
+  [20, 'grandpa'],
+  [22, 'bag'],
   [27, 'headphones']
 ]);
-
-// Линейные пиктограммы в стиле присланного листа персонажей.
-// Отдельный SVG для каждого пассажира, не часть фотографии автобуса.
-function passengerIcon(kind) {
-  const head = '<path d="M22 30 Q22 14 40 14 Q58 14 58 30 L56 45 Q51 56 40 57 Q29 56 24 45 Z"/>';
-  const shoulders = '<path d="M26 55 Q14 60 13 70 Q40 76 67 70 Q66 60 54 55"/>';
-  const hair = {
-    sleeping: '<path d="M22 31 Q25 12 40 14 Q56 13 58 32 M28 25 Q40 15 51 27"/><path d="M19 61 Q28 52 38 60 Q46 54 55 62"/><path d="M61 12 L66 5 M67 12 L73 5"/>',
-    mother: '<path d="M22 31 Q18 12 40 12 Q60 12 59 31 M24 25 Q39 16 56 25"/><path d="M20 31 Q13 46 21 56 M60 31 Q68 46 60 56"/><circle cx="61" cy="52" r="12"/><path d="M51 49 Q61 37 71 49 M53 63 Q61 58 69 63"/>',
-    grandma: '<path d="M22 31 Q15 23 24 16 Q20 5 34 9 Q43 0 52 10 Q65 11 58 30"/><path d="M23 31 Q40 19 57 31"/><circle cx="32" cy="37" r="8"/><circle cx="49" cy="37" r="8"/><path d="M40 37 L41 37"/>',
-    grandpa: '<path d="M22 30 Q20 14 40 13 Q60 14 58 30"/><path d="M22 31 Q29 21 40 28 Q49 21 58 31"/><circle cx="32" cy="38" r="8"/><circle cx="49" cy="38" r="8"/><path d="M40 38 L41 38 M33 51 Q40 56 47 51"/>',
-    bag: '<path d="M22 30 Q22 14 40 14 Q58 14 58 30"/><path d="M22 27 L58 27"/><rect x="51" y="49" width="22" height="23" rx="3"/><path d="M57 49 L57 43 Q62 38 67 43 L67 49"/>',
-    headphones: '<path d="M19 34 L19 28 Q19 7 40 7 Q61 7 61 28 L61 34"/><rect x="15" y="29" width="10" height="21" rx="4"/><rect x="55" y="29" width="10" height="21" rx="4"/>'
-  };
-  return '<svg viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#111" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round">' + shoulders + head + (hair[kind] || '') + '</g></svg>';
-}
 
 rows.forEach(([x,y,w,h],i) => {
   const button = document.createElement('button');
   button.className = 'seat-button';
   button.type = 'button';
   button.setAttribute('aria-label', 'Выбрать сиденье ' + (i+1));
-  Object.assign(button.style, {left:x+'%', top:`calc(${y}% - 1cm)`, width:w+'%', height:h+'%'});
+  Object.assign(button.style, {left:x+'%', top:y+'%', width:w+'%', height:h+'%'});
   if (occupiedSeats.has(i)) {
     const passenger = document.createElement('span');
     passenger.className = 'occupied-passenger';
-    passenger.innerHTML = passengerIcon(occupiedSeats.get(i));
+    const kind = occupiedSeats.get(i);
+    passenger.classList.add('passenger-' + kind);
+    passenger.setAttribute('aria-hidden', 'true');
     button.append(passenger);
     button.classList.add('is-occupied');
     button.disabled = true;
