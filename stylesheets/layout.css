@@ -122,6 +122,7 @@ body {
   height: auto;
   object-fit: contain;
   filter: grayscale(100%);
+  transform: translateY(6px);
 }
 .seat-buttons {
   position: absolute;
