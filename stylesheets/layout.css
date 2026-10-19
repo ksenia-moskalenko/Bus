@@ -1278,6 +1278,6 @@ body::-webkit-scrollbar {
 
 /* Align hero lettering baseline with the bottom edge of the left frame. */
 .hero-title {
-  bottom: -8px;
-  left: -5px;
+  bottom: -11px;
+  left: -8px;
 }
