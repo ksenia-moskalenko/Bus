@@ -404,7 +404,7 @@ html { scroll-behavior: smooth; }
 
 /* Рейтинг соседей — карточки с неожиданным раскрытием */
 .neighbor-game { position:relative; isolation:isolate; display:block; padding:0; min-height:100svh; overflow:hidden; }
-.neighbor-game__backdrop { position:absolute; inset:0; z-index:-2; background: url("../images/bus-interior.png") center/cover no-repeat; filter: grayscale(1) blur(17px); transform:scale(1.07); opacity:.65; }
+.neighbor-game__backdrop { position:absolute; inset:0; z-index:-2; background: url("../images/neighbors-background.jpg") center/cover no-repeat; filter: grayscale(1) blur(17px); transform:scale(1.07); opacity:.65; }
 .neighbor-game::before { content:""; position:absolute; inset:0; z-index:-1; background:rgba(240,241,237,.45); }
 .neighbor-game__content { padding:clamp(18px,2vw,38px); min-height:100svh; box-sizing:border-box; display:flex; flex-direction:column; }
 .neighbor-game__top,.neighbor-game__footer { display:flex; justify-content:space-between; gap:15px; font-size:clamp(11px,.85vw,15px); font-weight:650; letter-spacing:-.02em; }
@@ -488,3 +488,6 @@ html { scroll-behavior: smooth; }
 .neighbor-game__footer { padding-top:16px; }
 @media(max-width:950px) { .neighbor-card { height:285px; min-height:0; } .neighbor-card__portrait { height:125px; } .neighbor-reveal__rating { flex-direction:row; } }
 @media(max-width:600px) { .neighbor-card { height:230px; min-height:0; } .neighbor-card__portrait { height:90px; } .neighbor-card__portrait svg { width:90px; } .neighbor-card__name { font-size:19px; } .neighbor-card__hint { font-size:11px; } .neighbor-reveal__rating { flex-direction:row; } }
+
+/* Используем присланный уже размытый фон без повторного размытия */
+.neighbor-game__backdrop { filter: grayscale(1); opacity: 1; transform: scale(1.02); }
