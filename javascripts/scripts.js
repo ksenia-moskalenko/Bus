@@ -217,26 +217,10 @@ updateSectionNav();
   const panel = document.getElementById('neighbor-reveal');
   if (!cards.length || !panel) return;
   const scenarios = {
-    headphones: {
-      title: 'ОПА. ТЫ ТОЖЕ СЛУШАЕШЬ ЕГО МУЗЫКУ.',
-      text: 'Он в наушниках. Казалось бы, идеальный сосед. Но басы пробиваются наружу так, что ты уже знаешь весь припев. И нет, это не твой плейлист.',
-      score: 'КОМФОРТ −60 / ТИШИНА −100'
-    },
-    bag: {
-      title: 'ЕГО СУМКА КУПИЛА ВТОРОЙ БИЛЕТ?',
-      text: 'Человек садится рядом, а сумку ставит между вами. Она медленно захватывает твоё сиденье. Через две остановки у тебя осталось полтора локтя пространства.',
-      score: 'ЛИЧНОЕ ПРОСТРАНСТВО −80'
-    },
-    talker: {
-      title: 'ТЕПЕРЬ ТЫ ЗНАЕШЬ ВСЮ ЕГО ЖИЗНЬ.',
-      text: '«А вы до конечной?» — начало разговора, который уже не остановить. Ты узнаёшь про дачу, ремонт, погоду и двоюродную сестру, хотя просто ехала домой.',
-      score: 'СОЦИАЛЬНАЯ БАТАРЕЯ −95'
-    },
-    sleeper: {
-      title: 'ТВОЁ ПЛЕЧО ТЕПЕРЬ ПОДУШКА.',
-      text: 'Сначала он просто клюёт носом. Потом медленно наклоняется в твою сторону. На следующем повороте вы уже едете как старые друзья.',
-      score: 'СВОБОДА ДВИЖЕНИЯ −70'
-    }
+    headphones: { title: 'В НАУШНИКАХ. НО ТЫ ТОЖЕ СЛЫШИШЬ.', text: 'Басы пробиваются наружу, и к третьей остановке ты уже знаешь припев. Музыкальное сопровождение поездки выбрали за тебя.', score: 'ТИШИНА 10 / 100 · КОМФОРТ 38 / 100', percent: 38 },
+    bag: { title: 'СУМКА ЗАНЯЛА ПОЛОВИНУ ТВОЕГО МЕСТА.', text: 'Сначала багаж стоит в проходе. Через минуту он уже на твоей стороне сиденья. Личное пространство сокращается.', score: 'ПРОСТРАНСТВО 20 / 100 · КОМФОРТ 46 / 100', percent: 46 },
+    talker: { title: 'ТЕПЕРЬ ТЫ ЗНАЕШЬ ВСЮ ЕГО ЖИЗНЬ.', text: 'Один вопрос о конечной остановке превращается в разговор на двадцать минут. Ты просто хотела посмотреть в окно.', score: 'ТИШИНА 0 / 100 · КОМФОРТ 24 / 100', percent: 24 },
+    sleeper: { title: 'ТВОЁ ПЛЕЧО ТЕПЕРЬ ПОДУШКА.', text: 'Он засыпает почти сразу и постепенно заваливается на тебя. До своей остановки придётся сидеть очень аккуратно.', score: 'СВОБОДА ДВИЖЕНИЯ 30 / 100 · КОМФОРТ 55 / 100', percent: 55 }
   };
   const opened = new Set();
   const close = () => {
@@ -253,10 +237,14 @@ updateSectionNav();
       other.classList.toggle('is-selected', active);
       other.setAttribute('aria-expanded', String(active));
     });
-    document.getElementById('neighbor-reveal-tag').textContent = 'СЮРПРИЗ / 0' + (index + 1);
+    document.getElementById('neighbor-reveal-tag').textContent = 'ТВОЯ ПОЕЗДКА / 0' + (index + 1);
     document.getElementById('neighbor-reveal-title').textContent = item.title;
     document.getElementById('neighbor-reveal-text').textContent = item.text;
     document.getElementById('neighbor-reveal-score').textContent = item.score;
+    document.getElementById('neighbor-reveal-percent').textContent = item.percent + '%';
+    const fill = document.getElementById('neighbor-reveal-fill');
+    fill.style.width = '0%';
+    requestAnimationFrame(() => { fill.style.width = item.percent + '%'; });
     document.getElementById('neighbor-progress').textContent = String(opened.size);
     panel.hidden = false;
     if (window.matchMedia('(max-width: 950px)').matches) panel.scrollIntoView({behavior:'smooth',block:'nearest'});
