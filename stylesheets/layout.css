@@ -26,7 +26,7 @@ body { margin: 0; background: var(--page-bg); color: #050505; }
 .prompt-line { display: block; width: 1px; height: 61px; background: currentColor; }
 .hero-title {
   position: absolute; bottom: -.025em; right: 0; margin: 0;
-  font-size: clamp(110px, 21.5vw, 420px); font-weight: 900;
+  font-size: clamp(70px, 14vw, 230px); font-weight: 900;
   letter-spacing: -.055em; line-height: .79; white-space: nowrap;
   opacity: calc(1 - var(--transition, 0));
   transform: translateY(calc(var(--transition, 0) * 45px));
