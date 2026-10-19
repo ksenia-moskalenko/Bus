@@ -76,6 +76,13 @@ rows.forEach(([x,y,w,h],i) => {
     const kind = occupiedSeats.get(i);
     passenger.classList.add('passenger-' + kind);
     passenger.setAttribute('aria-hidden', 'true');
+    const avatar = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    avatar.setAttribute('viewBox', '0 0 150 150');
+    const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    const avatarKind = { sleeping: 'sleeper', mother: 'mother', grandma: 'grandma', grandpa: 'talker', bag: 'bag', headphones: 'headphones' }[kind];
+    use.setAttribute('href', 'images/avatars.svg#' + avatarKind);
+    avatar.append(use);
+    passenger.append(avatar);
     button.append(passenger);
     button.classList.add('is-occupied');
     button.disabled = true;
