@@ -491,3 +491,26 @@ html { scroll-behavior: smooth; }
 
 /* Используем присланный уже размытый фон без повторного размытия */
 .neighbor-game__backdrop { filter: grayscale(1); opacity: 1; transform: scale(1.02); }
+
+
+/* Compact neighbor game: denser cards and a shallow typed-story panel */
+.neighbor-game { min-height:0; }
+.neighbor-game__content { min-height:0; padding:clamp(16px,1.8vw,28px); }
+.neighbor-game__heading { padding:clamp(12px,1.5vw,24px) 0 clamp(14px,1.7vw,28px); }
+.neighbor-game .neighbor-game__heading h2 { font-size:clamp(42px,5vw,82px); }
+.neighbor-game__cards { gap:clamp(9px,1.1vw,18px); }
+.neighbor-card { height:clamp(215px,19vw,275px); padding:clamp(12px,1.1vw,18px); }
+.neighbor-card__portrait { height:clamp(90px,9vw,125px); }
+.neighbor-card__portrait svg { width:min(100%,118px); }
+.neighbor-card__name { font-size:clamp(19px,1.45vw,26px); margin-top:6px; }
+.neighbor-card__hint { margin-top:4px; }
+.neighbor-card__action { margin-top:9px; padding:8px 15px; }
+.neighbor-reveal { min-height:0; padding:clamp(13px,1.3vw,20px); margin-top:clamp(9px,1vw,16px); }
+.neighbor-reveal__body { margin:10px 0 8px; }
+.neighbor-reveal__rating { margin:2px 0 8px; gap:12px; }
+.neighbor-reveal__rating strong { font-size:clamp(30px,3.3vw,50px); }
+.neighbor-reveal__body > strong { font-size:clamp(17px,1.45vw,24px); }
+.neighbor-reveal__body p { margin-top:5px; }
+.neighbor-game__footer { margin-top:0; padding-top:12px; }
+@media(max-width:950px) { .neighbor-card { height:245px; } .neighbor-card__portrait { height:115px; } }
+@media(max-width:600px) { .neighbor-game__content { padding:16px 12px 28px; } .neighbor-card { height:205px; } .neighbor-card__portrait { height:85px; } .neighbor-card__portrait svg { width:85px; } .neighbor-card__name { font-size:18px; } }
