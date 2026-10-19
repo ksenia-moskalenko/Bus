@@ -63,6 +63,37 @@
         <p>В общественном транспорте личное пространство становится особенно заметным. Здесь приходится делить ограниченную территорию с незнакомцами, постоянно подстраиваясь под обстоятельства. Даже небольшое расстояние между пассажирами может влиять на ощущение комфорта, свободы и безопасности.</p>
         <p class="proxemics-editorial__closing">Получается, что выбор места в автобусе — это не такое простое действие, как кажется на первый взгляд. За ним скрываются негласные правила, которые мы соблюдаем, даже не задумываясь об этом.</p>
       </div>
+      <div class="distance-lab" id="distance-lab">
+        <div class="distance-lab__head"><span>ЭКСПЕРИМЕНТ / 01</span><span>ПОПРОБУЙ ИЗМЕНИТЬ ДИСТАНЦИЮ</span></div>
+        <div class="distance-lab__intro">
+          <h3>Где тебе<br>комфортно?</h3>
+          <p>Перетаскивай чёрную точку. Посмотри, как меняется твоё личное пространство в зависимости от того, что рядом.</p>
+        </div>
+        <div class="distance-lab__canvas">
+          <svg id="distance-map" viewBox="0 0 800 540" role="group" aria-label="Интерактивная схема личного пространства. Перетащите чёрную точку.">
+            <g class="distance-lab__guides" stroke="#111" stroke-width="1.2" fill="none">
+              <path d="M210 146 L285 169 M590 146 L515 169 M235 340 L297 303 M565 340 L503 303 M400 376 L400 440"/>
+            </g>
+            <g class="distance-lab__labels" fill="#111">
+              <text x="190" y="133" text-anchor="end">багаж</text>
+              <text x="610" y="128">другие</text><text x="610" y="154">люди</text>
+              <text x="205" y="352" text-anchor="end">окно</text>
+              <text x="595" y="352">выход</text>
+              <text x="400" y="480" text-anchor="middle">место</text>
+            </g>
+            <circle id="distance-outer" cx="400" cy="255" r="135" fill="none" stroke="#111" stroke-width="1.7" stroke-dasharray="4 6"/>
+            <circle id="distance-inner" cx="400" cy="255" r="91" fill="none" stroke="#111" stroke-width="2"/>
+            <line id="distance-stem" x1="400" y1="255" x2="400" y2="303" stroke="#111" stroke-width="1"/>
+            <circle id="distance-dot" cx="400" cy="255" r="19" fill="#050505" tabindex="0" role="slider" aria-label="Твоё положение" aria-valuetext="В центре" aria-description="Перетаскивай точку или используй стрелки на клавиатуре"/>
+          </svg>
+          <div class="distance-lab__readout" aria-live="polite">
+            <span class="distance-lab__readout-label">ТВОЙ ВЫБОР / <span id="distance-direction">ЦЕНТР</span></span>
+            <strong id="distance-message">Пока всё в равновесии.</strong>
+            <span id="distance-detail">Сдвинь точку к одному из факторов, чтобы увидеть, как он влияет на ощущение пространства.</span>
+          </div>
+        </div>
+        <div class="distance-lab__bottom"><span>● — ТЫ</span><span>— ЛИЧНАЯ ЗОНА</span><span>┄ ВНЕШНЯЯ ГРАНИЦА</span></div>
+      </div>
       <div class="proxemics-editorial__footer"><span>АВТОБУС / ИССЛЕДОВАНИЕ ДИСТАНЦИИ</span><span>02 — 03</span></div>
     </div>
   </section>
