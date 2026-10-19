@@ -1282,3 +1282,11 @@ body::-webkit-scrollbar {
   bottom: -11px;
   left: -8px;
 }
+
+/* Result card matches the displayed bus width and has a complete frame. */
+.seat-result {
+  box-sizing: border-box;
+  width: 96%;
+  align-self: center;
+  border: 1px solid #111;
+}
