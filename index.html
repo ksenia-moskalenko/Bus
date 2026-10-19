@@ -6,7 +6,18 @@
   <script defer src="javascripts/scripts.js"></script>
 </head>
 <body>
-  <main class="scroll-story">
+  <nav class="section-nav" aria-label="Разделы лонгрида">
+    <a class="section-nav__link is-active" href="#seat-section" data-section="seat-section" aria-current="location">
+      <span class="section-nav__name">Выбери место</span><span class="section-nav__type">игра в автобусе</span>
+    </a>
+    <a class="section-nav__link" href="#proxemics-section" data-section="proxemics-section">
+      <span class="section-nav__name">Проксемика</span><span class="section-nav__type">статья</span>
+    </a>
+    <a class="section-nav__link" href="#rating-section" data-section="rating-section">
+      <span class="section-nav__name">Рейтинг соседей</span><span class="section-nav__type">игра-рейтинг</span>
+    </a>
+  </nav>
+  <main class="scroll-story" id="seat-section">
     <div class="story-stage">
       <div class="story-left" aria-hidden="true"></div>
       <section class="story-right" aria-label="Выбор места в автобусе">
@@ -29,5 +40,21 @@
       </section>
     </div>
   </main>
+  <section class="longread-section" id="proxemics-section" aria-labelledby="proxemics-heading">
+    <div class="longread-section__inner">
+      <span class="longread-section__eyebrow">02 / СТАТЬЯ</span>
+      <h2 id="proxemics-heading">Проксемика</h2>
+      <p>В автобусе мы выбираем не просто свободное сиденье. Мы решаем, насколько близко готовы оказаться к незнакомому человеку, удобно ли будет выйти и где получится сохранить немного личного пространства.</p>
+      <p>Эти негласные правила дистанции изучает проксемика — то, как люди используют пространство при общении.</p>
+    </div>
+  </section>
+  <section class="longread-section" id="rating-section" aria-labelledby="rating-heading">
+    <div class="longread-section__inner">
+      <span class="longread-section__eyebrow">03 / ИГРА-РЕЙТИНГ</span>
+      <h2 id="rating-heading">Рейтинг соседей</h2>
+      <p>Кто окажется рядом: человек в наушниках, пассажир с огромной сумкой или тот, кто смотрит видео на полной громкости?</p>
+      <p class="longread-section__note">Интерактивный рейтинг соседей — следующий раздел лонгрида.</p>
+    </div>
+  </section>
 </body>
 </html>
