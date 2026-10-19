@@ -23,7 +23,7 @@ body { margin: 0; background: var(--page-bg); color: #050505; }
 }
 .prompt-start { opacity: calc(1 - var(--transition, 0)); }
 .prompt-select { position: absolute; top: 0; opacity: var(--transition, 0); }
-.prompt-line { display: block; width: 1px; height: 61px; background: currentColor; }
+.prompt-line { display: block; width: 1px; height: 61px; background: currentColor; opacity: calc(1 - var(--bus-enter, 0)); }
 .hero-title {
   position: absolute; bottom: -.025em; right: 0; margin: 0;
   font-size: clamp(70px, 14vw, 230px); font-weight: 900;
