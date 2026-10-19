@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 :root { --page-bg: #f0f1ed; --grid-gap: 20px; }
 html, body { min-height: 100%; }
 body { margin: 0; background: var(--page-bg); color: #050505; }
@@ -65,4 +66,18 @@ body { margin: 0; background: var(--page-bg); color: #050505; }
   .hero-title { font-size: 18vw; }
   .seat-experience { top: 27%; bottom: 6%; }
   .seat-result { min-height: 150px; }
+=======
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #fffff3;
+  font-family: "Iosevka Charon Mono";
+}
+h1 {
+  font-size: 15vw;
+  font-family: "Blast";
+  color: #7e9c9c;
+  display: flex;
+>>>>>>> Stashed changes
 }

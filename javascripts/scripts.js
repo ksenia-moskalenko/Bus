@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const stage = document.querySelector('.story-stage');
 const story = document.querySelector('.scroll-story');
 const buttons = document.getElementById('seat-buttons');
@@ -62,3 +63,5 @@ rows.forEach(([x,y,w,h],i) => {
   });
   buttons.append(button);
 });
+=======
+>>>>>>> Stashed changes
