@@ -7,9 +7,15 @@ const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
 function updateScroll() {
   const maxScroll = Math.max(1, story.offsetHeight - innerHeight);
   const fraction = clamp(-story.getBoundingClientRect().top / maxScroll, 0, 1);
-  const transition = clamp((fraction - .10) / .55, 0, 1);
-  stage.style.setProperty('--transition', transition.toFixed(4));
-  stage.classList.toggle('is-interactive', transition > .98);
+  // 1: автобус выезжает справа; 2: снизу поднимается блок и уходит заголовок.
+  const busEnter = clamp((fraction - .10) / .34, 0, 1);
+  const resultEnter = clamp((fraction - .49) / .25, 0, 1);
+  const titleExit = clamp((fraction - .49) / .25, 0, 1);
+  stage.style.setProperty('--transition', busEnter.toFixed(4));
+  stage.style.setProperty('--bus-enter', busEnter.toFixed(4));
+  stage.style.setProperty('--result-enter', resultEnter.toFixed(4));
+  stage.style.setProperty('--title-exit', titleExit.toFixed(4));
+  stage.classList.toggle('is-interactive', busEnter > .98 && resultEnter > .98);
 }
 addEventListener('scroll', updateScroll, { passive: true });
 addEventListener('resize', updateScroll);
