@@ -148,7 +148,7 @@ updateSectionNav();
   function render(x, y) {
     const dx = x - 400, dy = y - 255;
     const length = Math.hypot(dx, dy);
-    const scale = length > 115 ? 115 / length : 1;
+    const scale = length > 55 ? 55 / length : 1;
     position = { x: 400 + dx * scale, y: 255 + dy * scale };
     const px = position.x, py = position.y;
     dot.setAttribute('cx', px); dot.setAttribute('cy', py);
