@@ -569,3 +569,6 @@ body::-webkit-scrollbar {
   font-size: clamp(90px, 14vw, 280px);
   transform: translateY(calc(var(--title-exit, 0) * 110%)) scaleX(var(--hero-scale-x, 1)) scaleY(1.48);
 }
+
+/* Align hero lettering baseline with the bottom edge of the left frame. */
+.hero-title { bottom: -3px; }
