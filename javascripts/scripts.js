@@ -209,3 +209,62 @@ updateSectionNav();
   });
   render(400, 255);
 })();
+
+
+/* Рейтинг соседей: сначала впечатление, затем неприятный сюрприз. */
+(() => {
+  const cards = [...document.querySelectorAll('.neighbor-card')];
+  const panel = document.getElementById('neighbor-reveal');
+  if (!cards.length || !panel) return;
+  const scenarios = {
+    headphones: {
+      title: 'ОПА. ТЫ ТОЖЕ СЛУШАЕШЬ ЕГО МУЗЫКУ.',
+      text: 'Он в наушниках. Казалось бы, идеальный сосед. Но басы пробиваются наружу так, что ты уже знаешь весь припев. И нет, это не твой плейлист.',
+      score: 'КОМФОРТ −60 / ТИШИНА −100'
+    },
+    bag: {
+      title: 'ЕГО СУМКА КУПИЛА ВТОРОЙ БИЛЕТ?',
+      text: 'Человек садится рядом, а сумку ставит между вами. Она медленно захватывает твоё сиденье. Через две остановки у тебя осталось полтора локтя пространства.',
+      score: 'ЛИЧНОЕ ПРОСТРАНСТВО −80'
+    },
+    talker: {
+      title: 'ТЕПЕРЬ ТЫ ЗНАЕШЬ ВСЮ ЕГО ЖИЗНЬ.',
+      text: '«А вы до конечной?» — начало разговора, который уже не остановить. Ты узнаёшь про дачу, ремонт, погоду и двоюродную сестру, хотя просто ехала домой.',
+      score: 'СОЦИАЛЬНАЯ БАТАРЕЯ −95'
+    },
+    sleeper: {
+      title: 'ТВОЁ ПЛЕЧО ТЕПЕРЬ ПОДУШКА.',
+      text: 'Сначала он просто клюёт носом. Потом медленно наклоняется в твою сторону. На следующем повороте вы уже едете как старые друзья.',
+      score: 'СВОБОДА ДВИЖЕНИЯ −70'
+    }
+  };
+  const opened = new Set();
+  const close = () => {
+    panel.hidden = true;
+    cards.forEach(card => { card.classList.remove('is-selected'); card.setAttribute('aria-expanded', 'false'); });
+  };
+  cards.forEach((card, index) => card.addEventListener('click', () => {
+    const key = card.dataset.neighbor;
+    const item = scenarios[key];
+    if (!item) return;
+    opened.add(key);
+    cards.forEach(other => {
+      const active = other === card;
+      other.classList.toggle('is-selected', active);
+      other.setAttribute('aria-expanded', String(active));
+    });
+    document.getElementById('neighbor-reveal-tag').textContent = 'СЮРПРИЗ / 0' + (index + 1);
+    document.getElementById('neighbor-reveal-title').textContent = item.title;
+    document.getElementById('neighbor-reveal-text').textContent = item.text;
+    document.getElementById('neighbor-reveal-score').textContent = item.score;
+    document.getElementById('neighbor-progress').textContent = String(opened.size);
+    panel.hidden = false;
+    if (window.matchMedia('(max-width: 950px)').matches) panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }));
+  document.getElementById('neighbor-close').addEventListener('click', close);
+  document.getElementById('neighbor-again').addEventListener('click', () => {
+    close();
+    cards[0].focus({preventScroll:true});
+    document.getElementById('neighbor-cards').scrollIntoView({behavior:'smooth',block:'center'});
+  });
+})();
