@@ -1710,3 +1710,6 @@ body.has-scrolled .section-nav { opacity:1; visibility:visible; pointer-events:a
  .neighbor-game__heading h2,.closeness-section h2,.journey-finale--compact h2,
  .distance-lab__intro h3 { font-size:clamp(42px,8vw,72px); }
 }
+
+/* Consistent 2% tracking for site text; preserve oversized display lettering. */
+body, body p, body span, body a, body button, body label, body input, body strong, body figcaption { letter-spacing:0.02em; }
