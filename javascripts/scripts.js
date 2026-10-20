@@ -254,7 +254,7 @@ updateSectionNav();
     caption.textContent = 'РЕЙТИНГ КОМФОРТАБЕЛЬНОСТИ';
     title.textContent = 'КТО СЯДЕТ РЯДОМ?';
     description.textContent = 'Выбери пассажира сверху — здесь появится история твоей поездки.';
-    percent.textContent = '—';
+    percent.textContent = '0%';
     fill.style.width = '0%';
   };
   cards.forEach((card, index) => card.addEventListener('click', () => {
