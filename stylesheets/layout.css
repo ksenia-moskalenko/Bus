@@ -1300,3 +1300,35 @@ body::-webkit-scrollbar {
   .section-nav { gap: 5px; }
   .section-nav__name { font-size: clamp(10px, 2.5vw, 12px); }
 }
+
+
+/* Эксперимент: незнакомец приближается при движении ползунка. */
+.closeness-section { display:block; padding:0; align-items:initial; border-top:1px solid #111; }
+.closeness-inner { padding:clamp(20px,2vw,38px); width:100%; box-sizing:border-box; }
+.closeness-topline { display:flex; justify-content:space-between; gap:18px; font-size:clamp(11px,.82vw,15px); font-weight:550; }
+.closeness-section h2 { margin:clamp(38px,5vw,80px) 0 20px; font-size:clamp(65px,8vw,150px); line-height:.85; letter-spacing:-.075em; font-weight:700; }
+.closeness-section .closeness-intro { max-width:650px; font-size:clamp(18px,1.6vw,28px); margin:0; }
+.closeness-scene { position:relative; height:clamp(265px,29vw,460px); margin-top:clamp(30px,4vw,65px); overflow:hidden; }
+.closeness-person { position:absolute; top:14px; width:clamp(120px,18vw,225px); display:flex; flex-direction:column; align-items:center; gap:16px; transform:translateX(-50%); }
+.closeness-person--you { left:18%; }
+.closeness-person--stranger { left:calc(82% - var(--closeness-progress, 0) * 48%); transition:left .1s linear; }
+.closeness-circle { box-sizing:border-box; width:100%; aspect-ratio:1; border:2px dashed #111; border-radius:50%; display:grid; place-items:center; background:var(--page-bg); }
+.closeness-person--stranger .closeness-circle { background:rgb(160 162 159 / calc(var(--closeness-progress, 0) * .7)); }
+.closeness-circle svg { width:55%; height:55%; fill:none; }
+.closeness-person strong { font-size:clamp(17px,1.4vw,24px); font-weight:700; }
+.closeness-controls { border-top:1px solid #111; padding-top:20px; }
+.closeness-controls label { display:block; font-size:clamp(11px,.9vw,15px); font-weight:650; margin-bottom:16px; }
+#closeness-slider { display:block; width:100%; margin:0; height:22px; cursor:ew-resize; accent-color:#111; }
+.closeness-scale { display:flex; justify-content:space-between; font-size:12px; margin-top:12px; }
+.closeness-feedback { border-top:1px solid #111; margin-top:35px; padding:22px 0 80px; }
+.closeness-feedback strong { display:block; font-size:clamp(28px,3.4vw,60px); line-height:1; letter-spacing:-.055em; }
+.closeness-section .closeness-feedback p { font-size:clamp(16px,1.3vw,23px); max-width:650px; margin:13px 0 0; }
+@media(max-width:700px) {
+ .closeness-section h2 { font-size:clamp(55px,11vw,85px); }
+ .closeness-topline span:last-child { text-align:right; }
+ .closeness-scene { height:245px; }
+ .closeness-person { width:clamp(94px,27vw,135px); }
+ .closeness-person--you { left:19%; }
+ .closeness-person--stranger { left:calc(81% - var(--closeness-progress, 0) * 40%); }
+ .closeness-feedback { padding-bottom:100px; }
+}
