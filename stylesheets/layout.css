@@ -1443,3 +1443,16 @@ body::-webkit-scrollbar {
  .journey-finale__restart { font-size:clamp(27px,6vw,45px); }
 }
 @media(prefers-reduced-motion:reduce) { .journey-finale__track i.journey-finale__last { animation:none; } }
+
+
+/* Final interactive return ticket replaces the generic stop-dot timeline. */
+.journey-finale__ticket { color:inherit; text-decoration:none; display:flex; flex-direction:column; min-height:clamp(220px,23vw,340px); border:1px solid #111; position:relative; overflow:hidden; transition:background .3s ease,color .3s ease; }
+.journey-finale__ticket-top,.journey-finale__ticket-bottom { display:flex; justify-content:space-between; gap:12px; padding:14px 17px; font-size:clamp(10px,.8vw,14px); font-weight:650; }
+.journey-finale__ticket-top { border-bottom:1px dashed currentColor; }
+.journey-finale__ticket-bottom { border-top:1px dashed currentColor; margin-top:auto; }
+.journey-finale__ticket-main { display:flex; align-items:center; justify-content:space-between; gap:10px; flex:1; padding:18px; }
+.journey-finale__ticket-main > span:last-child { font-size:clamp(50px,6vw,116px); line-height:.82; letter-spacing:-.09em; font-weight:750; text-align:right; }
+.journey-finale__ticket-symbol { font-size:clamp(80px,10vw,180px); line-height:1; font-weight:350; transition:transform .35s cubic-bezier(.2,.8,.2,1); }
+.journey-finale__ticket:hover,.journey-finale__ticket:focus-visible { background:#111; color:#f0f1ed; }
+.journey-finale__ticket:hover .journey-finale__ticket-symbol,.journey-finale__ticket:focus-visible .journey-finale__ticket-symbol { transform:translate(-12px,-12px) rotate(-10deg); }
+@media(max-width:850px) { .journey-finale__ticket { min-height:230px; } .journey-finale__ticket-main > span:last-child { font-size:clamp(52px,10vw,90px); } .journey-finale__ticket-symbol { font-size:clamp(75px,17vw,130px); } }
