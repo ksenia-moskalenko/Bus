@@ -1519,3 +1519,6 @@ body::-webkit-scrollbar {
 .closeness-section { min-height:0; height:auto; align-items:stretch; }
 .closeness-inner { padding-bottom:clamp(14px,1.5vw,24px); }
 @media(max-width:700px) { .closeness-feedback { padding-bottom:12px; } }
+
+/* Add exactly 8px between the distance experiment and the final section. */
+.closeness-inner { padding-bottom:calc(clamp(14px,1.5vw,24px) + 8px); }
