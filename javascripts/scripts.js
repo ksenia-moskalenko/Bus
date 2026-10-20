@@ -301,28 +301,44 @@ updateSectionNav();
 })();
 
 
-/* Интерактив личной дистанции. */
+/* Scroll-controlled personal distance: stranger approaches, you retreat, they keep following. */
 (() => {
-  const slider = document.getElementById('closeness-slider');
-  const scene = document.getElementById('closeness-scene');
-  const status = document.getElementById('closeness-status');
-  const description = document.getElementById('closeness-description');
-  if (!slider || !scene || !status || !description) return;
-  function updateCloseness() {
-    const amount = Number(slider.value);
-    scene.style.setProperty('--closeness-progress', String(amount / 100));
-    const stage = amount < 25
-      ? ['Пока комфортно', 'Между вами достаточно пространства. Присутствие другого человека почти не ощущается.']
-      : amount < 55
-      ? ['Он становится ближе', 'Ты начинаешь замечать незнакомца и следить за тем, насколько близко он подошёл.']
-      : amount < 80
-      ? ['Личная зона нарушена', 'Расстояние сокращается. В пустом автобусе такая близость уже могла бы показаться странной.']
-      : ['Слишком близко', 'Незнакомец почти вплотную. Но в переполненном автобусе мы воспринимаем ту же дистанцию иначе.'];
-    status.textContent = stage[0];
-    description.textContent = stage[1];
-  }
-  slider.addEventListener('input', updateCloseness);
-  updateCloseness();
+ const section=document.getElementById('closeness-section');
+ const scene=document.getElementById('closeness-scene');
+ const status=document.getElementById('closeness-status');
+ const description=document.getElementById('closeness-description');
+ if(!section||!scene||!status||!description)return;
+ const clamp=(n)=>Math.max(0,Math.min(1,n));
+ let lastStage=-1;
+ let ticking=false;
+ function render(){
+  ticking=false;
+  const rect=section.getBoundingClientRect();
+  const distance=Math.max(1,rect.height-window.innerHeight);
+  const progress=clamp(-rect.top/distance);
+  // First the stranger moves alone. After 45%, you move away,
+  // but the stranger keeps approaching and closes the gap.
+  const retreat=clamp((progress-.45)/.55);
+  const approach=clamp(progress);
+  scene.style.setProperty('--stranger-approach',approach.toFixed(4));
+  scene.style.setProperty('--you-retreat',retreat.toFixed(4));
+  section.style.setProperty('--scroll-progress',progress.toFixed(4));
+  const stage=progress<.18?0:progress<.45?1:progress<.72?2:3;
+  if(stage===lastStage)return;
+  lastStage=stage;
+  const messages=[
+   ['Пока комфортно','Между вами достаточно пространства. Присутствие другого человека почти не ощущается.'],
+   ['Он приближается','Незнакомец сокращает расстояние. Ты начинаешь замечать его присутствие.'],
+   ['Ты отодвигаешься','Ты пытаешься сохранить личное пространство, но незнакомец продолжает подходить ближе.'],
+   ['Отойти не получается','Ты отдаляешься, а он всё равно приближается. В автобусе личные границы не всегда зависят только от тебя.']
+  ];
+  status.textContent=messages[stage][0];
+  description.textContent=messages[stage][1];
+ }
+ function requestRender(){if(!ticking){ticking=true;requestAnimationFrame(render);}}
+ window.addEventListener('scroll',requestRender,{passive:true});
+ window.addEventListener('resize',requestRender);
+ render();
 })();
 
 
