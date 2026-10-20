@@ -1659,16 +1659,17 @@ body.has-scrolled .section-nav { opacity:1; visibility:visible; pointer-events:a
  .seat-result { width:90%; }
 }
  
-/* Controlled typography: 2% tracking only on reading text, never on layout or headings. */
-.proxemics-editorial__body > p:not(.proxemics-editorial__lead):not(.proxemics-editorial__closing),
+/* Body copy: normal tracking. Display headings retain their designed tracking. */
+.proxemics-editorial__body p,
 .proxemics-editorial__definition p,
-.neighbor-game__heading > p,
+.neighbor-game__heading p,
 .neighbor-card__hint,
-.closeness-intro,
+.closeness-section p,
 .closeness-feedback p,
 .journey-finale__headline-row p,
-.seat-result p {
-  letter-spacing:.02em;
+.seat-result p,
+.distance-lab p {
+  letter-spacing:normal;
 }
 
 /* Photograph in article: self-contained, no changes to existing editorial grid. */
