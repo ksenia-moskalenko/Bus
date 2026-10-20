@@ -344,7 +344,7 @@ updateSectionNav();
 
 /* Reveal section navigation only after scrolling away from the first screen. */
 (() => {
- const update=()=>document.body.classList.toggle('has-scrolled',window.scrollY>12);
+ const update=()=>document.body.classList.toggle('has-scrolled', Boolean(document.querySelector('.story-stage')?.classList.contains('is-interactive')) || window.scrollY >= (document.querySelector('.scroll-story')?.offsetHeight || Infinity) - window.innerHeight);
  window.addEventListener('scroll',update,{passive:true});
  update();
 })();
