@@ -1522,3 +1522,30 @@ body::-webkit-scrollbar {
 
 /* Add exactly 8px between the distance experiment and the final section. */
 .closeness-inner { padding-bottom:calc(clamp(14px,1.5vw,24px) + 8px); }
+
+
+/* Align the final section to the same left/right grid as the experiment above. */
+.longread-section.journey-finale--compact {
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  width:auto;
+  padding:0;
+}
+.journey-finale--compact .journey-finale__top,
+.journey-finale--compact .journey-finale__footer,
+.journey-finale--compact .journey-finale__body {
+  box-sizing:border-box;
+  width:100%;
+  margin-left:0;
+  margin-right:0;
+  padding-left:clamp(20px,2vw,38px);
+  padding-right:clamp(20px,2vw,38px);
+}
+.journey-finale--compact .journey-finale__headline-row {
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(22px,3vw,55px);
+}
+@media(max-width:700px) {
+ .journey-finale--compact .journey-finale__headline-row { grid-template-columns:1fr; }
+}
