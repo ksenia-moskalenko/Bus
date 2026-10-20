@@ -1506,3 +1506,10 @@ body::-webkit-scrollbar {
  .closeness-feedback { grid-row:5; padding:12px 0; margin:0 0 8px; }
  .closeness-controls { grid-row:6; }
 }
+
+
+/* Pull the final section upward and remove excess vertical whitespace. */
+.journey-finale--compact .journey-finale__body { padding-top:12px; padding-bottom:14px; }
+.journey-finale--compact .journey-finale__headline-row { margin-top:10px; margin-bottom:14px; }
+.journey-finale--compact h2 { font-size:clamp(46px,6.3vw,112px); }
+.journey-finale--compact .journey-finale__top,.journey-finale--compact .journey-finale__footer { padding-top:9px; padding-bottom:9px; }
