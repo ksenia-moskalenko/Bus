@@ -19,6 +19,9 @@
     <a class="section-nav__link" href="#frames-section" data-section="frames-section">
       <span class="section-nav__name">Одно расстояние</span><span class="section-nav__type">статья</span>
     </a>
+    <a class="section-nav__link" href="#closeness-section" data-section="closeness-section">
+      <span class="section-nav__name">Личная дистанция</span><span class="section-nav__type">эксперимент</span>
+    </a>
   </nav>
   <main class="scroll-story" id="seat-section">
     <div class="story-stage">
@@ -132,6 +135,23 @@
         <aside class="proxemics-editorial__definition"><span class="proxemics-editorial__definition-label">СЛОВАРЬ / ФРЕЙМ</span><p><strong>Фрейм</strong> — контекст, через который мы понимаем происходящее и оцениваем поведение других.</p></aside>
         <p class="proxemics-editorial__closing">Например, человек занимает соседнее сиденье своей сумкой. В полупустом автобусе это может восприниматься как обычное желание расположиться поудобнее. Но когда свободных мест больше нет, тот же жест приобретает другой смысл: пассажир словно заявляет, что его вещи важнее чужого права сесть. Само действие не изменилось, изменился контекст.</p>
       </div>
+    </div>
+  </section>
+  <section class="longread-section closeness-section" id="closeness-section" aria-labelledby="closeness-heading">
+    <div class="closeness-inner">
+      <div class="closeness-topline"><span>ЭКСПЕРИМЕНТ / ДИСТАНЦИЯ</span><span>ПОДВИНЬ НЕЗНАКОМЦА БЛИЖЕ</span></div>
+      <h2 id="closeness-heading">Слишком<br>близко?</h2>
+      <p class="closeness-intro">Двигай ползунок и посмотри, в какой момент чужое присутствие начинает ощущаться иначе.</p>
+      <div class="closeness-scene" id="closeness-scene">
+        <div class="closeness-person closeness-person--you"><div class="closeness-circle"><svg viewBox="0 0 150 150" aria-hidden="true"><use href="images/avatars.svg#headphones"></use></svg></div><strong>ты</strong></div>
+        <div class="closeness-person closeness-person--stranger" id="closeness-stranger"><div class="closeness-circle"><svg viewBox="0 0 150 150" aria-hidden="true"><use href="images/avatars.svg#headphones"></use></svg></div><strong>незнакомец</strong></div>
+      </div>
+      <div class="closeness-controls">
+        <label for="closeness-slider">РАССТОЯНИЕ МЕЖДУ ВАМИ</label>
+        <input id="closeness-slider" type="range" min="0" max="100" value="0" step="1" aria-describedby="closeness-feedback" />
+        <div class="closeness-scale"><span>ДАЛЕКО</span><span>БЛИЗКО</span></div>
+      </div>
+      <div class="closeness-feedback" id="closeness-feedback" aria-live="polite"><strong id="closeness-status">Пока комфортно</strong><p id="closeness-description">Между вами достаточно пространства. Присутствие другого человека почти не ощущается.</p></div>
     </div>
   </section>
 </body>
