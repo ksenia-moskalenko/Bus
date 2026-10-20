@@ -1702,3 +1702,29 @@ body.has-scrolled .section-nav { opacity:1; visibility:visible; pointer-events:a
   letter-spacing:.02em;
 }
 .editorial-photo figcaption span:last-child { max-width:55%; text-align:right; }
+
+/* Scroll-driven personal-space story: no manual slider. */
+.closeness-section { height:240svh; min-height:0; position:relative; display:block; }
+.closeness-inner {
+ position:sticky; top:0; height:100svh; min-height:0;
+ overflow:hidden; box-sizing:border-box;
+ align-content:center;
+}
+.closeness-person--you { left:calc(18% - var(--you-retreat,0) * 12%); transition:none; }
+.closeness-person--stranger { left:calc(82% - var(--stranger-approach,0) * 66%); transition:none; }
+.closeness-controls__label { display:block; font-size:clamp(11px,.9vw,15px); font-weight:650; margin-bottom:12px; }
+.closeness-progress-track { width:100%; height:8px; border:1px solid #111; border-radius:20px; overflow:hidden; box-sizing:border-box; }
+.closeness-progress-track > span { display:block; width:calc(var(--scroll-progress,0) * 100%); height:100%; background:#111; }
+.closeness-scale { margin-top:8px; }
+@media(max-width:700px) {
+ .closeness-section { height:240svh; }
+ .closeness-inner { justify-content:center; align-content:center; overflow:hidden; }
+ .closeness-person--you { left:calc(19% - var(--you-retreat,0) * 9%); }
+ .closeness-person--stranger { left:calc(81% - var(--stranger-approach,0) * 59%); }
+}
+@media(max-height:620px) and (min-width:701px) {
+ .closeness-inner { align-content:start; padding-top:12px; }
+ .closeness-topline { margin-bottom:8px; }
+ .closeness-scene { height:120px; }
+ .closeness-person { width:95px; }
+}
