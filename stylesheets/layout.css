@@ -1456,3 +1456,24 @@ body::-webkit-scrollbar {
 .journey-finale__ticket:hover,.journey-finale__ticket:focus-visible { background:#111; color:#f0f1ed; }
 .journey-finale__ticket:hover .journey-finale__ticket-symbol,.journey-finale__ticket:focus-visible .journey-finale__ticket-symbol { transform:translate(-12px,-12px) rotate(-10deg); }
 @media(max-width:850px) { .journey-finale__ticket { min-height:230px; } .journey-finale__ticket-main > span:last-child { font-size:clamp(52px,10vw,90px); } .journey-finale__ticket-symbol { font-size:clamp(75px,17vw,130px); } }
+
+
+/* Compact final stop: one editorial composition and a slim return strip. */
+.journey-finale--compact { min-height:0; }
+.journey-finale--compact .journey-finale__body { display:block; padding:clamp(18px,2vw,32px) clamp(20px,2.2vw,40px) clamp(18px,2vw,32px); }
+.journey-finale--compact .journey-finale__eyebrow { font-size:clamp(10px,.85vw,14px); letter-spacing:.02em; }
+.journey-finale__headline-row { display:grid; grid-template-columns:minmax(0,1.7fr) minmax(160px,.65fr); gap:clamp(20px,3vw,50px); align-items:end; margin:clamp(18px,2vw,34px) 0 clamp(20px,2.5vw,40px); }
+.journey-finale--compact h2 { font-size:clamp(48px,7vw,125px); line-height:.84; margin:0; }
+.journey-finale__headline-row p { font-size:clamp(15px,1.25vw,21px); line-height:1.23; margin:0 0 4px; max-width:360px; }
+.journey-finale__return { display:grid; grid-template-columns:1fr auto; align-items:center; position:relative; gap:8px 20px; padding:13px 18px 16px; background:#111; color:#f0f1ed; text-decoration:none; overflow:hidden; transition:background .25s,color .25s; }
+.journey-finale__return-label { grid-column:1/-1; font-size:clamp(10px,.8vw,13px); letter-spacing:.03em; display:flex; justify-content:space-between; border-bottom:1px solid currentColor; padding-bottom:10px; }
+.journey-finale__return-title { font-size:clamp(30px,4.1vw,70px); font-weight:730; letter-spacing:-.065em; line-height:1; }
+.journey-finale__return-arrow { font-size:clamp(38px,5vw,80px); line-height:.8; transition:transform .3s ease; }
+.journey-finale__return:hover,.journey-finale__return:focus-visible { background:#d7d8d2; color:#111; }
+.journey-finale__return:hover .journey-finale__return-arrow { transform:translate(-10px,-7px); }
+.journey-finale--compact .journey-finale__top,.journey-finale--compact .journey-finale__footer { padding-top:12px; padding-bottom:12px; }
+@media(max-width:700px) {
+ .journey-finale__headline-row { grid-template-columns:1fr; gap:15px; }
+ .journey-finale--compact h2 { font-size:clamp(49px,10.5vw,80px); }
+ .journey-finale__return-title { font-size:clamp(27px,6.3vw,45px); }
+}
