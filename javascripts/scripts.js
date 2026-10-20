@@ -324,3 +324,19 @@ updateSectionNav();
   slider.addEventListener('input', updateCloseness);
   updateCloseness();
 })();
+
+
+/* Inverted dot cursor, following pointer without interfering with controls. */
+(() => {
+ const dot=document.getElementById('invert-cursor');
+ if(!dot || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+ const interactive='a,button,input,select,textarea,[role="button"],.seat-button';
+ document.addEventListener('pointermove', e => {
+   if(e.pointerType && e.pointerType!=='mouse' && e.pointerType!=='pen') return;
+   dot.style.transform=`translate3d(${e.clientX}px,${e.clientY}px,0) translate(-50%,-50%)`;
+   dot.classList.add('is-visible');
+   dot.classList.toggle('is-hovering',Boolean(e.target.closest(interactive)));
+ },{passive:true});
+ document.addEventListener('pointerout',e => { if(!e.relatedTarget) dot.classList.remove('is-visible'); });
+ window.addEventListener('blur',()=>dot.classList.remove('is-visible'));
+})();
