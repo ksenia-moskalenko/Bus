@@ -1601,3 +1601,25 @@ body::-webkit-scrollbar {
  .neighbor-card__hint { margin-top:5px; font-size:clamp(12px,.9vw,16px); }
  .neighbor-card__action { margin-top:auto; padding:9px 13px; font-size:clamp(12px,.9vw,16px); }
 }
+
+
+/* Strict shared grid inside all four square neighbor cards. */
+@media(min-width:951px) {
+ .neighbor-game__cards { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); align-items:stretch; }
+ .neighbor-card {
+   display:grid;
+   grid-template-rows:minmax(0,1fr) auto minmax(2.2em,auto) minmax(2.3em,auto) auto;
+   align-items:start;
+   justify-items:stretch;
+   aspect-ratio:1;
+   height:auto;
+   min-height:0;
+   gap:0;
+ }
+ .neighbor-card__portrait { grid-row:1; align-self:center; justify-self:center; width:100%; height:100%; max-height:clamp(95px,10vw,165px); aspect-ratio:auto; margin:0; }
+ .neighbor-card__portrait svg { width:min(70%,150px); height:100%; }
+ .neighbor-card__number { grid-row:2; margin:0 0 4px; }
+ .neighbor-card__name { grid-row:3; margin:0; line-height:1.03; align-self:start; }
+ .neighbor-card__hint { grid-row:4; margin:5px 0 0; line-height:1.14; }
+ .neighbor-card__action { grid-row:5; margin:8px auto 0; align-self:end; }
+}
