@@ -1353,3 +1353,60 @@ body::-webkit-scrollbar {
  .closeness-person { width:clamp(85px,23vw,115px); }
  .closeness-feedback { padding-bottom:85px; }
 }
+
+
+/* Compact two-column layout: heading and explanation at left, interaction at right. */
+.closeness-inner {
+  display:grid;
+  grid-template-columns:minmax(170px,.72fr) minmax(0,1.55fr);
+  column-gap:clamp(22px,3vw,55px);
+  align-items:start;
+  padding:clamp(18px,2vw,30px);
+}
+.closeness-topline { grid-column:1 / -1; margin-bottom:clamp(16px,2vw,30px); }
+.closeness-section h2 {
+  grid-column:1; grid-row:2;
+  font-size:clamp(44px,5vw,88px);
+  line-height:.87;
+  margin:0;
+}
+.closeness-section .closeness-intro {
+  grid-column:1; grid-row:3;
+  font-size:clamp(15px,1.18vw,21px);
+  line-height:1.2;
+  margin:14px 0 0;
+}
+.closeness-scene {
+  grid-column:2; grid-row:2 / span 2;
+  height:clamp(160px,16vw,235px);
+  margin:0;
+  align-self:center;
+}
+.closeness-person { width:clamp(95px,10vw,145px); top:2px; gap:5px; }
+.closeness-person strong { font-size:clamp(14px,1vw,18px); }
+.closeness-controls {
+  grid-column:2; grid-row:4;
+  padding-top:10px;
+}
+.closeness-feedback {
+  grid-column:1 / -1; grid-row:5;
+  display:grid;
+  grid-template-columns:minmax(170px,.72fr) minmax(0,1.55fr);
+  gap:clamp(22px,3vw,55px);
+  align-items:start;
+  margin-top:18px;
+  padding:14px 0 10px;
+}
+.closeness-feedback strong { font-size:clamp(23px,2.4vw,39px); }
+.closeness-section .closeness-feedback p { margin:0; font-size:clamp(15px,1.18vw,20px); }
+@media(max-width:700px) {
+  .closeness-inner { grid-template-columns:minmax(0,1fr); gap:0; }
+  .closeness-topline { grid-column:1; margin-bottom:16px; }
+  .closeness-section h2 { grid-column:1; grid-row:auto; font-size:clamp(46px,9vw,68px); }
+  .closeness-section .closeness-intro { grid-column:1; grid-row:auto; margin:10px 0 12px; }
+  .closeness-scene { grid-column:1; grid-row:auto; height:155px; }
+  .closeness-person { width:clamp(80px,23vw,110px); }
+  .closeness-controls { grid-column:1; grid-row:auto; }
+  .closeness-feedback { grid-column:1; grid-row:auto; display:block; margin-top:12px; padding:12px 0 70px; }
+  .closeness-section .closeness-feedback p { margin-top:6px; }
+}
