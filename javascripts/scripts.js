@@ -299,3 +299,28 @@ updateSectionNav();
   if (document.fonts) document.fonts.ready.then(fit);
   fit();
 })();
+
+
+/* Интерактив личной дистанции. */
+(() => {
+  const slider = document.getElementById('closeness-slider');
+  const scene = document.getElementById('closeness-scene');
+  const status = document.getElementById('closeness-status');
+  const description = document.getElementById('closeness-description');
+  if (!slider || !scene || !status || !description) return;
+  function updateCloseness() {
+    const amount = Number(slider.value);
+    scene.style.setProperty('--closeness-progress', String(amount / 100));
+    const stage = amount < 25
+      ? ['Пока комфортно', 'Между вами достаточно пространства. Присутствие другого человека почти не ощущается.']
+      : amount < 55
+      ? ['Он становится ближе', 'Ты начинаешь замечать незнакомца и следить за тем, насколько близко он подошёл.']
+      : amount < 80
+      ? ['Личная зона нарушена', 'Расстояние сокращается. В пустом автобусе такая близость уже могла бы показаться странной.']
+      : ['Слишком близко', 'Незнакомец почти вплотную. Но в переполненном автобусе мы воспринимаем ту же дистанцию иначе.'];
+    status.textContent = stage[0];
+    description.textContent = stage[1];
+  }
+  slider.addEventListener('input', updateCloseness);
+  updateCloseness();
+})();
