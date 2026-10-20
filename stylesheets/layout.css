@@ -1513,3 +1513,9 @@ body::-webkit-scrollbar {
 .journey-finale--compact .journey-finale__headline-row { margin-top:10px; margin-bottom:14px; }
 .journey-finale--compact h2 { font-size:clamp(46px,6.3vw,112px); }
 .journey-finale--compact .journey-finale__top,.journey-finale--compact .journey-finale__footer { padding-top:9px; padding-bottom:9px; }
+
+
+/* Remove the empty viewport-height tail after the distance slider. */
+.closeness-section { min-height:0; height:auto; align-items:stretch; }
+.closeness-inner { padding-bottom:clamp(14px,1.5vw,24px); }
+@media(max-width:700px) { .closeness-feedback { padding-bottom:12px; } }
