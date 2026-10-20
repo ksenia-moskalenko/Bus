@@ -1628,3 +1628,24 @@ body::-webkit-scrollbar {
 /* Keep sidebar section links hidden until the first actual page scroll. */
 .section-nav { opacity:0; visibility:hidden; pointer-events:none; transform:translateY(12px); transition:opacity .3s ease,transform .3s ease,visibility .3s; }
 body.has-scrolled .section-nav { opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0); }
+
+
+/* Large editorial heading for the seat-selection screen. */
+.story-right > .prompt-select {
+ position:absolute;
+ z-index:5;
+ top:clamp(26px,3.8vw,68px);
+ left:clamp(20px,2vw,38px);
+ margin:0;
+ font-size:clamp(54px,7.3vw,132px);
+ font-weight:750;
+ letter-spacing:-.075em;
+ line-height:.85;
+ text-transform:none;
+ white-space:normal;
+ opacity:clamp(0,calc((var(--result-enter,0) - .15) * 2),1);
+ pointer-events:none;
+}
+@media(max-width:700px) {
+ .story-right > .prompt-select { top:65px; left:16px; font-size:clamp(45px,10vw,75px); }
+}
