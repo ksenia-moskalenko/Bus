@@ -1576,3 +1576,17 @@ body::-webkit-scrollbar {
 /* Give the finale more breathing room above its headline while keeping the return link close. */
 .journey-finale--compact .journey-finale__body { padding-top:clamp(30px,3vw,48px); }
 .journey-finale--compact .journey-finale__headline-row { margin-top:clamp(22px,2.5vw,38px); margin-bottom:10px; }
+
+
+/* Photo-based neighbor section: preserve the bus photo's proportions. */
+.neighbor-game__backdrop {
+ background-image:url("../images/neighbors-background-new.jpg");
+ background-size:contain;
+ background-position:center center;
+ background-repeat:no-repeat;
+ background-color:#d2d2d0;
+ filter:grayscale(1);
+ transform:none;
+ opacity:1;
+}
+.neighbor-game::before { background:rgba(240,241,237,.16); }
