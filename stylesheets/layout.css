@@ -1290,3 +1290,13 @@ body::-webkit-scrollbar {
   align-self: center;
   border: 1px solid #111;
 }
+
+/* Следующая глава повторяет редакционную сетку «Проксемики». */
+.frames-editorial { border-top: 1px solid #111; }
+.frames-editorial .proxemics-editorial__title { font-size: clamp(46px, 5.8vw, 118px); }
+.frames-editorial .proxemics-editorial__body { padding-bottom: clamp(50px, 7vw, 110px); }
+@media (max-width: 700px) {
+  .frames-editorial .proxemics-editorial__title { font-size: clamp(38px, 8vw, 65px); }
+  .section-nav { gap: 5px; }
+  .section-nav__name { font-size: clamp(10px, 2.5vw, 12px); }
+}
