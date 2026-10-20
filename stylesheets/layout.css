@@ -1590,3 +1590,14 @@ body::-webkit-scrollbar {
  opacity:1;
 }
 .neighbor-game::before { background:rgba(240,241,237,.16); }
+
+
+/* Square neighbor cards so all four sit within the bus photograph. */
+@media(min-width:951px) {
+ .neighbor-card { aspect-ratio:1 / 1; height:auto; min-height:0; padding:clamp(12px,1.2vw,22px); }
+ .neighbor-card__portrait { height:auto; flex:0 0 auto; min-height:0; aspect-ratio:1.65 / 1; margin-bottom:8px; }
+ .neighbor-card__portrait svg { max-height:100%; width:min(75%,170px); }
+ .neighbor-card__name { margin-top:8px; font-size:clamp(19px,1.7vw,31px); }
+ .neighbor-card__hint { margin-top:5px; font-size:clamp(12px,.9vw,16px); }
+ .neighbor-card__action { margin-top:auto; padding:9px 13px; font-size:clamp(12px,.9vw,16px); }
+}
