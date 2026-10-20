@@ -1566,3 +1566,8 @@ body::-webkit-scrollbar {
  .invert-cursor.is-hovering { width:48px; height:48px; }
 }
 @media(hover:none),(pointer:coarse) { .invert-cursor { display:none; } }
+
+
+/* Align the finale's two editorial columns at their top edges. */
+.journey-finale--compact .journey-finale__headline-row { align-items:start; }
+.journey-finale--compact .journey-finale__headline-row > p { align-self:start; margin-top:0; }
