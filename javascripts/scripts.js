@@ -340,3 +340,11 @@ updateSectionNav();
  document.addEventListener('pointerout',e => { if(!e.relatedTarget) dot.classList.remove('is-visible'); });
  window.addEventListener('blur',()=>dot.classList.remove('is-visible'));
 })();
+
+
+/* Reveal section navigation only after scrolling away from the first screen. */
+(() => {
+ const update=()=>document.body.classList.toggle('has-scrolled',window.scrollY>12);
+ window.addEventListener('scroll',update,{passive:true});
+ update();
+})();
