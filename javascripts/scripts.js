@@ -109,7 +109,7 @@ rows.forEach(([x,y,w,h],i) => {
       mother: 'momBoy.png',
       grandma: 'babylya.png',
       grandpa: 'dedushka.png',
-      bag: 'bigBag.png',
+      bag: 'bigBag.png?v=20261021-2',
       talking: 'talkingMan.png',
       headphones: 'boyHeadphones.png'
     }[kind];
