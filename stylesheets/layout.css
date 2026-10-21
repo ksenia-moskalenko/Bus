@@ -2304,7 +2304,7 @@ body.has-scrolled .section-nav {
 
 /* Scroll sequence: keep both dashed circles entirely inside the scene. */
 .closeness-section {
-  height: 240svh;
+  height: 175svh;
   min-height: 0;
   position: relative;
   display: block;
@@ -2334,7 +2334,7 @@ body.has-scrolled .section-nav {
 }
 @media (max-width: 700px) {
   .closeness-section {
-    height: 240svh;
+    height: 175svh;
   }
   .closeness-inner {
     align-content: center;
