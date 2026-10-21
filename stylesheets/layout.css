@@ -3287,3 +3287,30 @@ body::before {
 #rating-section .neighbor-card[data-neighbor="headphones"] .neighbor-card__action {
   margin-top: auto;
 }
+
+/* Second rating card: existing bigBag.png passenger photo. */
+#rating-section .neighbor-card[data-neighbor="bag"] .neighbor-card__portrait {
+  display: flex;
+  width: 100%;
+  height: clamp(90px, 10vw, 160px);
+  min-height: 0;
+  margin: 0 0 8px;
+  align-items: center;
+  justify-content: center;
+}
+#rating-section .neighbor-card[data-neighbor="bag"] .neighbor-card__portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#rating-section .neighbor-card[data-neighbor="bag"] {
+  justify-content: flex-start;
+}
+#rating-section .neighbor-card[data-neighbor="bag"] .neighbor-card__hint {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+#rating-section .neighbor-card[data-neighbor="bag"] .neighbor-card__action {
+  margin-top: auto;
+}
