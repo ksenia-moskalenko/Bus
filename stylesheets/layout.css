@@ -2589,6 +2589,8 @@ body.has-scrolled .section-nav {
   aspect-ratio: 1/1;
   height: auto;
   object-fit: cover;
+  margin: clamp(25px, 3vw, 55px) 2px 10px;
+  transform: translateX(165px);
 }
 
 /* Keep the small prose paragraphs aligned to the reference guide.
