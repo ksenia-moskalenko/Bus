@@ -2564,7 +2564,7 @@ body.has-scrolled .section-nav {
   width: clamp(70px, 10.5%, 135px);
   aspect-ratio: 1/1;
   margin: clamp(25px, 3vw, 55px) 2px 10px;
-  transform: translateX(50px);
+  transform: translateX(165px);
   padding: 0;
 }
 #proxemics-section
@@ -2606,18 +2606,17 @@ body.has-scrolled .section-nav {
   }
 }
 
-
 /* Temporary visible 12-column layout guide: 20px side margins and gutters. */
 .layout-grid-overlay {
-  position:fixed;
-  inset:0 20px;
-  display:grid;
-  grid-template-columns:repeat(12,minmax(0,1fr));
-  gap:20px;
-  pointer-events:none;
-  z-index:9999;
+  position: fixed;
+  inset: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 20px;
+  pointer-events: none;
+  z-index: 9999;
 }
 .layout-grid-overlay > span {
-  min-width:0;
-  background:rgba(220,35,85,.12);
+  min-width: 0;
+  background: rgba(220, 35, 85, 0.12);
 }
