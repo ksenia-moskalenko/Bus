@@ -1316,10 +1316,10 @@ body::-webkit-scrollbar {
 .closeness-person--stranger .closeness-circle { background:rgb(160 162 159 / calc(var(--closeness-progress, 0) * .7)); }
 .closeness-circle svg { width:55%; height:55%; fill:none; }
 .closeness-person strong { font-size:clamp(17px,1.4vw,24px); font-weight:700; }
-.closeness-controls { border-top:1px solid #111; padding-top:20px; }
-.closeness-controls label { display:block; font-size:clamp(11px,.9vw,15px); font-weight:650; margin-bottom:16px; }
-#closeness-slider { display:block; width:100%; margin:0; height:22px; cursor:ew-resize; accent-color:#111; }
-.closeness-scale { display:flex; justify-content:space-between; font-size:12px; margin-top:12px; }
+
+
+
+
 .closeness-feedback { border-top:1px solid #111; margin-top:35px; padding:22px 0 80px; }
 .closeness-feedback strong { display:block; font-size:clamp(28px,3.4vw,60px); line-height:1; letter-spacing:-.055em; }
 .closeness-section .closeness-feedback p { font-size:clamp(16px,1.3vw,23px); max-width:650px; margin:13px 0 0; }
@@ -1341,9 +1341,9 @@ body::-webkit-scrollbar {
 .closeness-scene { height:clamp(175px,18vw,270px); margin-top:16px; }
 .closeness-person { width:clamp(100px,12vw,160px); gap:7px; top:6px; }
 .closeness-person strong { font-size:clamp(15px,1.1vw,20px); }
-.closeness-controls { padding-top:12px; }
-.closeness-controls label { margin-bottom:8px; }
-.closeness-scale { margin-top:5px; }
+
+
+
 .closeness-feedback { margin-top:15px; padding:12px 0 22px; }
 .closeness-feedback strong { font-size:clamp(25px,2.5vw,44px); }
 .closeness-section .closeness-feedback p { margin-top:6px; }
@@ -1384,10 +1384,7 @@ body::-webkit-scrollbar {
 }
 .closeness-person { width:clamp(95px,10vw,145px); top:2px; gap:5px; }
 .closeness-person strong { font-size:clamp(14px,1vw,18px); }
-.closeness-controls {
-  grid-column:2; grid-row:4;
-  padding-top:10px;
-}
+
 .closeness-feedback {
   grid-column:1 / -1; grid-row:5;
   display:grid;
@@ -1406,7 +1403,7 @@ body::-webkit-scrollbar {
   .closeness-section .closeness-intro { grid-column:1; grid-row:auto; margin:10px 0 12px; }
   .closeness-scene { grid-column:1; grid-row:auto; height:155px; }
   .closeness-person { width:clamp(80px,23vw,110px); }
-  .closeness-controls { grid-column:1; grid-row:auto; }
+  
   .closeness-feedback { grid-column:1; grid-row:auto; display:block; margin-top:12px; padding:12px 0 70px; }
   .closeness-section .closeness-feedback p { margin-top:6px; }
 }
@@ -1499,12 +1496,12 @@ body::-webkit-scrollbar {
  }
  .closeness-feedback strong { font-size:clamp(24px,2.1vw,36px); }
  .closeness-section .closeness-feedback p { margin:0; max-width:100%; font-size:clamp(14px,1.08vw,19px); line-height:1.25; }
- .closeness-controls { grid-column:2; grid-row:5; padding-top:12px; }
+ 
 }
 @media(max-width:700px) {
  .closeness-scene { grid-row:4; }
  .closeness-feedback { grid-row:5; padding:12px 0; margin:0 0 8px; }
- .closeness-controls { grid-row:6; }
+ 
 }
 
 
@@ -1718,3 +1715,6 @@ body.has-scrolled .section-nav { opacity:1; visibility:visible; pointer-events:a
  .closeness-person--stranger { left:calc(75% - var(--stranger-approach,0) * 52%); }
  .closeness-feedback { grid-row:auto; }
 }
+
+/* Removed the manual distance slider entirely. */
+#closeness-slider,.closeness-controls,.closeness-scale,.closeness-progress-track { display:none !important; }
