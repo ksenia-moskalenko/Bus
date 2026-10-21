@@ -3036,3 +3036,12 @@ body.has-scrolled .section-nav {
   line-height:1.12;
   text-align:left;
 }
+
+
+/* Remove the empty space after the distance diagram, bringing the neighbor photo up to its bottom rule. */
+#proxemics-section .distance-lab {
+  margin-bottom:0;
+}
+#proxemics-section .proxemics-editorial__inner {
+  padding-bottom:0;
+}
