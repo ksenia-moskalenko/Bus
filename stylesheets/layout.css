@@ -3244,3 +3244,14 @@ body.has-scrolled .section-nav {
 .passenger-layer .passenger-mother {
   transform: translate(-50%, -90%);
 }
+
+/* Continuous left vertical line across the boundary between these sections. */
+#rating-section::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  height: 2px;
+  border-left: 1px solid #111;
+  pointer-events: none;
+}
