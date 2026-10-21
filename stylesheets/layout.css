@@ -3449,12 +3449,6 @@ body::before {
   }
 }
 
-/* Shorten the empty tail after the distance scene; keep sections in normal flow. */
-#closeness-section {
-  height: 155svh;
-}
-@media (max-width: 700px) {
-  #closeness-section {
-    height: 170svh;
-  }
-}
+/* Shorter scroll section so the finale follows the experiment without overlap. */
+#closeness-section { height: 135svh; }
+@media (max-width: 700px) { #closeness-section { height: 145svh; } }
