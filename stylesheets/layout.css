@@ -1789,3 +1789,21 @@ body.has-scrolled .section-nav { opacity:1; visibility:visible; pointer-events:a
  #proxemics-section .proxemics-editorial__definition p { font-size:clamp(25px,5vw,39px); }
  #proxemics-section .proxemics-editorial__body > .proxemics-editorial__closing { font-size:clamp(24px,4.7vw,39px); }
 }
+
+
+/* Two original user-uploaded photographs, set as small inline editorial inserts. */
+#proxemics-section .proxemics-editorial__paragraph-with-photo::after,
+#proxemics-section .proxemics-editorial__observation::after { content:""; display:block; clear:both; }
+#proxemics-section .proxemics-editorial__paragraph-with-photo .editorial-photo {
+ float:right; width:clamp(74px,9.5vw,155px); margin:5px 0 8px 13px;
+}
+#proxemics-section .proxemics-editorial__paragraph-with-photo .editorial-photo img {
+ display:block; width:100%; aspect-ratio:3/4; height:auto; object-fit:cover;
+}
+#proxemics-section .proxemics-editorial__body > .proxemics-editorial__observation {
+ grid-column:2/12; display:block;
+}
+#proxemics-section .proxemics-editorial__inline-photo {
+ display:block; float:right; width:clamp(74px,9.5vw,155px); height:auto;
+ aspect-ratio:3/4; object-fit:cover; margin:5px 0 8px 13px; filter:grayscale(1);
+}
