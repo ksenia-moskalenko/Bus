@@ -1842,3 +1842,34 @@ body.has-scrolled .section-nav { opacity:1; visibility:visible; pointer-events:a
  height:auto;
  object-fit:cover;
 }
+
+
+/* Align the right edge of all smaller prose paragraphs to the editorial guide. */
+@media (min-width:701px) {
+ #proxemics-section .proxemics-editorial__body > p:not(.proxemics-editorial__lead):not(.proxemics-editorial__closing),
+ #proxemics-section .proxemics-editorial__paragraph-with-photo,
+ #proxemics-section .proxemics-editorial__body > .proxemics-editorial__observation {
+   grid-column:2/11;
+   min-width:0;
+ }
+ #proxemics-section .proxemics-editorial__paragraph-with-photo {
+   position:relative;
+   overflow:visible;
+ }
+ #proxemics-section .proxemics-editorial__paragraph-with-photo .editorial-photo {
+   position:absolute;
+   float:none;
+   top:clamp(15px,2vw,35px);
+   left:calc(100% + clamp(16px,2vw,38px));
+   margin:0;
+   width:clamp(70px,9vw,135px);
+ }
+ #proxemics-section .proxemics-editorial__paragraph-with-photo p {
+   width:100%;
+ }
+ #proxemics-section .proxemics-editorial__observation .proxemics-editorial__inline-photo {
+   float:none;
+   position:relative;
+   margin:0 0 10px 15px;
+ }
+}
