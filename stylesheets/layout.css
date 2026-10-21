@@ -3244,8 +3244,3 @@ body.has-scrolled .section-nav {
 .passenger-layer .passenger-mother {
   transform: translate(-50%, -90%);
 }
-
-/* More breathing room between the distance legend and the next section heading. */
-#rating-section .neighbor-game__heading {
-  padding-top: 72px;
-}
