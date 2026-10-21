@@ -3260,39 +3260,3 @@ body::before {
   pointer-events: none;
   z-index: 10;
 }
-
-/* The exact same four PNG passengers shown on the bus seats. */
-#rating-section .neighbor-card__portrait {
-  display: flex;
-  flex: 0 0 auto;
-  width: 100%;
-  height: clamp(85px, 10vw, 160px);
-  min-height: 0;
-  margin: 0 0 10px;
-  align-items: center;
-  justify-content: center;
-}
-#rating-section .neighbor-card__portrait img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  object-position: center;
-}
-#rating-section .neighbor-card {
-  justify-content: flex-start;
-}
-#rating-section .neighbor-card__hint {
-  margin-top: 8px;
-  margin-bottom: 12px;
-}
-#rating-section .neighbor-card__action {
-  margin-top: auto;
-}
-@media (min-width: 951px) {
-  #rating-section .neighbor-card {
-    display: flex;
-    flex-direction: column;
-  }
-}
