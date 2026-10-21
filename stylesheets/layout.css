@@ -3245,13 +3245,18 @@ body.has-scrolled .section-nav {
   transform: translate(-50%, -90%);
 }
 
-/* Continuous vertical line along the full neighbor section. */
-#rating-section::after {
+/* One continuous vertical line from the top to the bottom of the entire page. */
+body {
+  position: relative;
+}
+body::before {
   content: "";
   position: absolute;
-  left: -1px;
   top: 0;
   bottom: 0;
-  border-left: 1px solid #111;
+  left: calc((100% - 3 * var(--grid-gap)) / 4 + var(--grid-gap) / 2);
+  width: 1px;
+  background: #111;
   pointer-events: none;
+  z-index: 10;
 }
