@@ -3120,39 +3120,33 @@ body.has-scrolled .section-nav {
   height: 190%;
 }
 
-/* Женщина с сумкой */
-.passenger-bag {
-  transform: translate(-10%, -30%) !important;
+/* Independent photo layer: seat button translations no longer move passenger images. */
+.passenger-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
-
-/* Говорящий мужчина */
-.passenger-talking {
-  transform: translate(-30%, -69%) !important;
+.passenger-layer .occupied-passenger {
+  position: absolute;
+  inset: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  background: none;
+  filter: none;
+  overflow: visible;
 }
-/* Бабушка */
-.passenger-grandma {
-  transform: translate(-50%, -60%) !important;
+.passenger-layer .occupied-passenger__image {
+  display: block;
+  width: 155%;
+  height: 165%;
+  object-fit: contain;
+  max-width: none;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.28));
 }
-
-/* Дедушка */
-.passenger-grandpa {
-  transform: translate(-80%, -50%) !important;
-}
-
-/* Мальчик в наушниках */
-.passenger-headphones {
-  transform: translate(-10%, -50%) !important;
-}
-
-/* Спящий мужчина */
-.passenger-sleeping {
-  transform: translate(-20%, -100%) !important;
-}
-
-/* Мама с ребёнком */
-.passenger-mother {
-  transform: translate(-50%, -50%) !important;
-}
-.seat-button:nth-child(1) {
-  translate: 0px -10px;
+.passenger-layer .passenger-mother .occupied-passenger__image {
+  width: 195%;
+  height: 190%;
 }

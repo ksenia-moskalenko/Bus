@@ -65,6 +65,11 @@ const occupiedSeats = new Map([
   [27, 'grandpa']
 ]);
 
+// Фотографии лежат в отдельном слое, чтобы перемещение кнопок мест не двигало пассажиров.
+const passengerLayer = document.createElement('div');
+passengerLayer.className = 'passenger-layer';
+buttons.parentElement.append(passengerLayer);
+
 rows.forEach(([x,y,w,h],i) => {
   const button = document.createElement('button');
   button.className = 'seat-button';
@@ -92,7 +97,8 @@ rows.forEach(([x,y,w,h],i) => {
     avatar.alt = '';
     avatar.draggable = false;
     passenger.append(avatar);
-    button.append(passenger);
+    Object.assign(passenger.style, {left:x+'%', top:y+'%', width:w+'%', height:h+'%'});
+    passengerLayer.append(passenger);
     button.classList.add('is-occupied');
     button.disabled = true;
     button.setAttribute('aria-label', 'Место занято');
