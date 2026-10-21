@@ -56,12 +56,11 @@ function typeText(text) {
 }
 // Постоянные пассажиры. Индексы соответствуют массиву rows.
 const occupiedSeats = new Map([
-  [0, 'sleeping'],
-  [9, 'mother'],
+  [4, 'headphones'],
+  [12, 'sleeping'],
   [17, 'grandma'],
-  [20, 'grandpa'],
-  [22, 'bag'],
-  [27, 'headphones']
+  [21, 'mother'],
+  [27, 'grandpa']
 ]);
 
 rows.forEach(([x,y,w,h],i) => {
@@ -76,12 +75,18 @@ rows.forEach(([x,y,w,h],i) => {
     const kind = occupiedSeats.get(i);
     passenger.classList.add('passenger-' + kind);
     passenger.setAttribute('aria-hidden', 'true');
-    const avatar = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    avatar.setAttribute('viewBox', '0 0 150 150');
-    const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-    const avatarKind = { sleeping: 'sleeper', mother: 'mother', grandma: 'grandma', grandpa: 'talker', bag: 'bag', headphones: 'headphones' }[kind];
-    use.setAttribute('href', 'images/avatars.svg#' + avatarKind);
-    avatar.append(use);
+    const avatar = document.createElement('img');
+    avatar.className = 'occupied-passenger__image';
+    const avatarFile = {
+      sleeping: 'sleapyMan.png',
+      mother: 'momBoy.png',
+      grandma: 'babylya.png',
+      grandpa: 'dedushka.png',
+      headphones: 'boyHeadphones.png'
+    }[kind];
+    avatar.src = 'images/' + avatarFile;
+    avatar.alt = '';
+    avatar.draggable = false;
     passenger.append(avatar);
     button.append(passenger);
     button.classList.add('is-occupied');
