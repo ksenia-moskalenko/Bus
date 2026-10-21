@@ -2563,7 +2563,8 @@ body.has-scrolled .section-nav {
   float: right;
   width: clamp(70px, 10.5%, 135px);
   aspect-ratio: 1/1;
-  margin: clamp(25px, 3vw, 55px) 0 2px 10px;
+  margin: clamp(25px, 3vw, 55px) 2px 10px;
+  transform: translateX(50px);
   padding: 0;
 }
 #proxemics-section
