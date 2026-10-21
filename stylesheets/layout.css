@@ -3074,3 +3074,9 @@ body.has-scrolled .section-nav {
   border-left:1px solid #111;
   margin-top:0;
 }
+
+
+/* Align the first inline article photo with the first line of its paragraph. */
+#proxemics-section .proxemics-editorial__paragraph-with-photo .editorial-photo {
+  margin-top:0;
+}
