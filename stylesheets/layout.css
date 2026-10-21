@@ -3411,3 +3411,10 @@ body::before {
 
 /* Remove outline only from the neighbor rating result panel. */
 #rating-section .neighbor-reveal { border: none; }
+
+/* Move the distance experiment content toward the top divider, preserving scroll interaction. */
+@media (min-width: 701px) {
+  #closeness-section .closeness-inner {
+    align-content: start;
+  }
+}
