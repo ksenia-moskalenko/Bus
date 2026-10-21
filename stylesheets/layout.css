@@ -3222,12 +3222,25 @@ body.has-scrolled .section-nav {
   translate: -28px -7px;
 }
 
-
 /* Individual passenger photo positions — edit these independently of seat buttons. */
-.passenger-layer .passenger-bag { transform: translate(-50%, -50%); }
-.passenger-layer .passenger-talking { transform: translate(-50%, -50%); }
-.passenger-layer .passenger-grandma { transform: translate(-50%, -50%); }
-.passenger-layer .passenger-grandpa { transform: translate(-50%, -50%); }
-.passenger-layer .passenger-headphones { transform: translate(-50%, -50%); }
-.passenger-layer .passenger-sleeping { transform: translate(-50%, -50%); }
-.passenger-layer .passenger-mother { transform: translate(-50%, -50%); }
+.passenger-layer .passenger-bag {
+  transform: translate(10%, -50%);
+}
+.passenger-layer .passenger-talking {
+  transform: translate(0%, -80%);
+}
+.passenger-layer .passenger-grandma {
+  transform: translate(-50%, -80%);
+}
+.passenger-layer .passenger-grandpa {
+  transform: translate(-90%, -70%);
+}
+.passenger-layer .passenger-headphones {
+  transform: translate(10%, -50%);
+}
+.passenger-layer .passenger-sleeping {
+  transform: translate(0%, -50%);
+}
+.passenger-layer .passenger-mother {
+  transform: translate(-50%, -90%);
+}
