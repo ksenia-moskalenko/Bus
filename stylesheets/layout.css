@@ -3448,15 +3448,3 @@ body::before {
     align-content: start;
   }
 }
-
-/* Preserve full scroll animation while using the bottom of the visible experiment screen. */
-@media (min-width: 701px) {
-  #closeness-section .closeness-inner {
-    grid-template-rows: auto auto auto minmax(0, 1fr) auto;
-    align-content: stretch;
-  }
-  #closeness-section .closeness-feedback {
-    grid-row: 5;
-    align-self: end;
-  }
-}
