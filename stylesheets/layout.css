@@ -3260,3 +3260,53 @@ body::before {
   pointer-events: none;
   z-index: 10;
 }
+
+/* Passenger photos and visible select buttons in the four rating cards. */
+#rating-section .neighbor-card__portrait {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  width: 100%;
+  height: clamp(90px, 10vw, 160px);
+  margin: 0 0 8px;
+}
+#rating-section .neighbor-card__portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+#rating-section .neighbor-card__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 9px 16px;
+  background: #111;
+  color: #fff;
+  font-size: clamp(12px, 0.9vw, 16px);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+}
+#rating-section .neighbor-card__action::after {
+  content: none;
+}
+@media (min-width: 951px) {
+  #rating-section .neighbor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #rating-section .neighbor-card__hint {
+    margin: 8px 0 14px;
+  }
+}
+@media (max-width: 600px) {
+  #rating-section .neighbor-card__portrait {
+    height: 85px;
+  }
+}
