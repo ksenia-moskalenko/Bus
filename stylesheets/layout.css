@@ -3501,3 +3501,16 @@ body::before {
 #closeness-section .closeness-person--stranger .closeness-circle {
   background-color: rgb(160 162 159 / calc(0.08 + var(--stranger-approach, 0) * 0.72));
 }
+
+/* Goffman portrait at the beginning of the paragraph about frame theory. */
+#frames-section .gofman-portrait {
+  display: block;
+  width: clamp(110px, 12vw, 185px);
+  height: auto;
+  float: left;
+  margin: 4px 20px 12px 0;
+  filter: grayscale(1);
+}
+@media (max-width: 700px) {
+  #frames-section .gofman-portrait { width: 110px; margin-right: 14px; }
+}
