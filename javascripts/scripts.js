@@ -57,7 +57,7 @@ function typeText(text) {
 // Постоянные пассажиры. Индексы соответствуют массиву rows.
 const occupiedSeats = new Map([
   [4, 'headphones'],
-  [0, 'bag'],
+  [1, 'bag'],
   [12, 'sleeping'],
   [10, 'talking'],
   [17, 'grandma'],
