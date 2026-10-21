@@ -3245,13 +3245,13 @@ body.has-scrolled .section-nav {
   transform: translate(-50%, -90%);
 }
 
-/* Continuous left vertical line across the boundary between these sections. */
+/* Continuous vertical line along the full neighbor section. */
 #rating-section::after {
   content: "";
   position: absolute;
   left: -1px;
-  top: -1px;
-  height: 2px;
+  top: 0;
+  bottom: 0;
   border-left: 1px solid #111;
   pointer-events: none;
 }
