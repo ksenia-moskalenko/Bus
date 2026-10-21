@@ -3078,7 +3078,7 @@ body.has-scrolled .section-nav {
 }
 #rating-section {
   border-left: 1px solid #111;
-  margin-top: 0;
+  margin-top: 20;
 }
 
 /* Align the first inline article photo with the first line of its paragraph. */
