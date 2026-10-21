@@ -1650,7 +1650,7 @@ body.has-scrolled .section-nav { opacity:1; visibility:visible; pointer-events:a
 
 /* Seat-selection composition: reserve clear space for the large heading. */
 @media(min-width:701px) {
- .story-right > .prompt-select { font-size:clamp(52px,6.4vw,115px); line-height:.84; }
+ .story-right > .prompt-select { top:clamp(8px,1.2vw,20px); font-size:clamp(46px,5.2vw,94px); line-height:.86; }
  .seat-experience { top:30%; bottom:2%; }
  .bus-image { width:90%; }
  .seat-result { width:90%; }
