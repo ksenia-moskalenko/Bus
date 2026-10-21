@@ -3448,3 +3448,13 @@ body::before {
     align-content: start;
   }
 }
+
+/* Shorten the empty tail after the distance scene; keep sections in normal flow. */
+#closeness-section {
+  height: 155svh;
+}
+@media (max-width: 700px) {
+  #closeness-section {
+    height: 170svh;
+  }
+}
