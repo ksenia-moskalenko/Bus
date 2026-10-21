@@ -3245,7 +3245,6 @@ body.has-scrolled .section-nav {
   transform: translate(-50%, -90%);
 }
 
-
 /* Continuous left rule across the gap before the neighbor section. */
 #rating-section {
   --rating-section-gap: 80px;
