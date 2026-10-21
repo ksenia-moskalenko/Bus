@@ -1718,3 +1718,74 @@ body.has-scrolled .section-nav { opacity:1; visibility:visible; pointer-events:a
 
 /* Removed the manual distance slider entirely. */
 #closeness-slider,.closeness-controls,.closeness-scale,.closeness-progress-track { display:none !important; }
+
+
+/* Proxemics article — reference-based narrow editorial rhythm.
+   Scoped to this article only; interactive distance lab remains unchanged. */
+#proxemics-section .proxemics-editorial__inner { padding:clamp(12px,1.25vw,24px) clamp(16px,1.7vw,34px) 36px; }
+#proxemics-section .proxemics-editorial__topline { display:block; font-size:clamp(10px,.7vw,13px); }
+#proxemics-section .proxemics-editorial__topline span:last-child { display:none; }
+#proxemics-section .proxemics-editorial__title {
+ margin:8px 0 32px; max-width:100%;
+ font-size:clamp(38px,4.4vw,85px); line-height:.99;
+ letter-spacing:-.052em; font-weight:700; hyphens:none;
+}
+#proxemics-section .proxemics-editorial__interlude {
+ display:flex; justify-content:center; align-items:flex-start;
+ min-height:58px; margin:0 0 18px; padding:0;
+}
+#proxemics-section .proxemics-editorial__interlude .proxemics-editorial__asterisk { display:none; }
+#proxemics-section .proxemics-editorial__interlude .proxemics-editorial__index,
+#proxemics-section .proxemics-editorial__interlude .proxemics-editorial__annotation {
+ font-size:clamp(8px,.57vw,11px); line-height:1.15; letter-spacing:0; font-weight:450;
+}
+#proxemics-section .proxemics-editorial__body {
+ display:grid; grid-template-columns:repeat(12,minmax(0,1fr));
+ column-gap:clamp(8px,1vw,18px); row-gap:0; align-items:start;
+}
+#proxemics-section .proxemics-editorial__body > .proxemics-editorial__lead {
+ grid-column:1/-1; margin:0 0 clamp(40px,5vw,86px);
+ font-size:clamp(27px,3vw,58px); font-weight:650; line-height:1.1; letter-spacing:-.045em;
+}
+#proxemics-section .proxemics-editorial__body > p:not(.proxemics-editorial__lead):not(.proxemics-editorial__closing),
+#proxemics-section .proxemics-editorial__paragraph-with-photo p {
+ grid-column:2/12; width:100%; max-width:none; margin:0 0 clamp(22px,2.7vw,48px);
+ font-size:clamp(19px,2.05vw,37px); font-weight:450; line-height:1.12; letter-spacing:normal;
+}
+#proxemics-section .proxemics-editorial__paragraph-with-photo {
+ grid-column:2/12; display:block; min-width:0; margin:0;
+}
+#proxemics-section .proxemics-editorial__paragraph-with-photo p { margin-bottom:clamp(22px,2.7vw,48px); }
+#proxemics-section .proxemics-editorial__paragraph-with-photo .editorial-photo {
+ float:right; width:clamp(75px,10vw,165px); margin:6px 0 10px 16px;
+ grid-column:auto; display:block;
+}
+#proxemics-section .editorial-photo img {
+ width:100%; height:auto; max-height:none; aspect-ratio:3/4; object-fit:cover; filter:grayscale(1);
+}
+#proxemics-section .editorial-photo figcaption { display:none; }
+#proxemics-section .proxemics-editorial__definition {
+ grid-column:1/-1; margin:clamp(6px,1vw,16px) 0 clamp(25px,3vw,55px);
+ padding:10px 0 14px; border-top:1px solid #111; border-bottom:1px solid #111;
+ background:transparent; width:100%; max-width:none;
+}
+#proxemics-section .proxemics-editorial__definition-label {
+ display:block; font-size:clamp(9px,.7vw,13px); font-weight:500; letter-spacing:0;
+}
+#proxemics-section .proxemics-editorial__definition p {
+ margin:4px 0 0; max-width:none;
+ font-size:clamp(27px,3.1vw,60px); line-height:1.05; letter-spacing:-.035em; font-weight:400;
+}
+#proxemics-section .proxemics-editorial__definition strong { font-weight:700; }
+#proxemics-section .proxemics-editorial__body > .proxemics-editorial__closing {
+ grid-column:1/-1; margin:clamp(25px,3vw,55px) 0 clamp(35px,4vw,75px);
+ font-size:clamp(28px,3.05vw,59px); line-height:1.09; font-weight:650; letter-spacing:-.04em;
+}
+@media(max-width:700px) {
+ #proxemics-section .proxemics-editorial__title { font-size:clamp(30px,6vw,49px); }
+ #proxemics-section .proxemics-editorial__body > .proxemics-editorial__lead { font-size:clamp(23px,4.5vw,38px); }
+ #proxemics-section .proxemics-editorial__body > p:not(.proxemics-editorial__lead):not(.proxemics-editorial__closing),
+ #proxemics-section .proxemics-editorial__paragraph-with-photo p { font-size:clamp(17px,3.4vw,25px); }
+ #proxemics-section .proxemics-editorial__definition p { font-size:clamp(25px,5vw,39px); }
+ #proxemics-section .proxemics-editorial__body > .proxemics-editorial__closing { font-size:clamp(24px,4.7vw,39px); }
+}
