@@ -3045,3 +3045,18 @@ body.has-scrolled .section-nav {
 #proxemics-section .proxemics-editorial__inner {
   padding-bottom:0;
 }
+
+
+/* Seamless transition from the distance diagram into the bus photograph. */
+#rating-section {
+  border-top:0;
+}
+#proxemics-section .distance-lab {
+  border-bottom:0;
+}
+#proxemics-section .proxemics-editorial__inner {
+  padding-bottom:0;
+}
+#rating-section .neighbor-game__backdrop {
+  top:0;
+}
