@@ -3022,3 +3022,17 @@ body.has-scrolled .section-nav {
   white-space:nowrap;
 }
 #proxemics-section .proxemics-editorial__interlude .proxemics-editorial__asterisk { display:none; }
+
+
+/* Three-line annotation between the observation and closing paragraphs. */
+#proxemics-section .proxemics-editorial__between-note {
+  grid-column:1/-1;
+  width:max-content;
+  max-width:calc(100% - 32px);
+  margin:clamp(18px,2.2vw,38px) auto clamp(24px,3vw,55px);
+  color:#888;
+  font-size:clamp(10px,.85vw,15px);
+  font-weight:600;
+  line-height:1.12;
+  text-align:left;
+}
