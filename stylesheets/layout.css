@@ -3085,3 +3085,30 @@ body.has-scrolled .section-nav {
 #proxemics-section .proxemics-editorial__inline-photo {
   margin-top:0;
 }
+
+
+/* Photographic cutout heads positioned on the occupied bus seats. */
+.seat-button.is-occupied .occupied-passenger {
+  inset:auto;
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:155%;
+  height:165%;
+  transform:translate(-50%,-50%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:none;
+  filter:none;
+  overflow:visible;
+}
+.seat-button.is-occupied .occupied-passenger__image {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  pointer-events:none;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.28));
+}
+.seat-button.is-occupied .passenger-mother { width:195%; height:190%; }
