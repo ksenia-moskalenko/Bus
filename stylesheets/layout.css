@@ -3150,3 +3150,74 @@ body.has-scrolled .section-nav {
   width: 195%;
   height: 190%;
 }
+/* Место 1 */
+.seat-button:nth-child(1) {
+  translate: 40px -5px;
+}
+/* Место 3 */
+.seat-button:nth-child(3) {
+  translate: 40px 5px;
+}
+/* Место 4 */
+.seat-button:nth-child(4) {
+  translate: 40px 5px;
+}
+/* Место 6 */
+.seat-button:nth-child(6) {
+  translate: 27px -5px;
+}
+/* Место 7 */
+.seat-button:nth-child(7) {
+  translate: 27px -20px;
+}
+.seat-button:nth-child(8) {
+  translate: 27px 0px;
+}
+.seat-button:nth-child(9) {
+  translate: 27px -4px;
+}
+.seat-button:nth-child(10) {
+  translate: 27px -4px;
+}
+.seat-button:nth-child(12) {
+  translate: 23px 0px;
+}
+.seat-button:nth-child(14) {
+  translate: 6px -6px;
+}
+.seat-button:nth-child(15) {
+  translate: 7px -14px;
+}
+.seat-button:nth-child(16) {
+  translate: 23px 0px;
+}
+.seat-button:nth-child(17) {
+  translate: 21px -3px;
+}
+.seat-button:nth-child(19) {
+  translate: -3px -8px;
+}
+.seat-button:nth-child(20) {
+  translate: 10px 0px;
+}
+.seat-button:nth-child(21) {
+  translate: 10px 0px;
+}
+.seat-button:nth-child(23) {
+  translate: -15px -10px;
+}
+.seat-button:nth-child(24) {
+  translate: -22px 0px;
+}
+.seat-button:nth-child(25) {
+  translate: -22px -3px;
+}
+.seat-button:nth-child(26) {
+  translate: -28px -6px;
+}
+.seat-button:nth-child(27) {
+  translate: -28px -16px;
+}
+.seat-button:nth-child(29) {
+  translate: -28px -7px;
+}
