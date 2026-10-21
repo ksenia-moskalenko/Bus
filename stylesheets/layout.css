@@ -2678,3 +2678,65 @@ body.has-scrolled .section-nav {
   #frames-section .proxemics-editorial__definition p { font-size:clamp(25px,5vw,39px); }
   #frames-section .proxemics-editorial__body > .proxemics-editorial__closing { font-size:clamp(24px,4.7vw,39px); }
 }
+
+
+/* Neighbor-rating section: reference composition, retaining existing interactions. */
+#rating-section .neighbor-game__content { padding:8px clamp(20px,3vw,48px) 42px; min-height:100svh; }
+#rating-section .neighbor-game__top { display:none; }
+#rating-section .neighbor-game__heading {
+  padding:16px 0 28px; display:grid; grid-template-columns:2fr 1fr;
+  gap:20px; align-items:end;
+}
+#rating-section .neighbor-game__heading h2 {
+  font-size:clamp(65px,7vw,120px); line-height:.82; letter-spacing:-.065em;
+}
+#rating-section .neighbor-game__heading p {
+  max-width:480px; margin:0 0 4px; font-size:clamp(19px,1.75vw,30px); line-height:1.13;
+}
+#rating-section .neighbor-game__cards { grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
+#rating-section .neighbor-card {
+  display:flex; flex-direction:column; justify-content:flex-end; align-items:stretch;
+  box-sizing:border-box; aspect-ratio:1/1; min-height:0; height:auto;
+  padding:clamp(18px,1.7vw,28px); border:0;
+  background:rgba(245,237,234,.94); color:#111;
+}
+#rating-section .neighbor-card__portrait { display:none; }
+#rating-section .neighbor-card__number { margin:0 0 4px; color:#666; font-size:clamp(12px,.95vw,17px); }
+#rating-section .neighbor-card__name {
+  margin:0; font-size:clamp(24px,2.1vw,37px); line-height:1.04; letter-spacing:-.055em;
+}
+#rating-section .neighbor-card__hint { margin:22px 0 24px; font-size:clamp(15px,1.2vw,22px); line-height:1.2; }
+#rating-section .neighbor-card__action {
+  margin:0; padding:0; border:0; background:transparent; color:inherit;
+  align-self:flex-end; text-align:right; font-size:0; line-height:1;
+}
+#rating-section .neighbor-card__action::after { content:"↗"; font-size:20px; }
+#rating-section .neighbor-card:hover,
+#rating-section .neighbor-card:focus-visible,
+#rating-section .neighbor-card.is-selected { background:rgba(226,217,213,.97); color:#111; }
+#rating-section .neighbor-reveal {
+  display:block; box-sizing:border-box; margin-top:18px; padding:20px 32px 22px;
+  background:rgba(245,237,234,.94); color:#111; border:2px solid #111; animation:none;
+}
+#rating-section .neighbor-reveal__body { margin:0; }
+#rating-section .neighbor-reveal__caption { margin:0; font-size:clamp(13px,1.05vw,18px); }
+#rating-section .neighbor-reveal__rating {
+  display:flex; align-items:center; gap:18px; margin:0 0 2px;
+}
+#rating-section .neighbor-reveal__rating strong { font-size:clamp(54px,4.7vw,82px); line-height:.95; }
+#rating-section .neighbor-reveal__body > strong {
+  font-size:clamp(23px,2vw,36px); line-height:1.05; letter-spacing:-.04em;
+}
+#rating-section .neighbor-reveal__body p { margin:12px 0 0; font-size:clamp(16px,1.35vw,24px); max-width:none; }
+@media(max-width:950px) {
+  #rating-section .neighbor-game__heading { grid-template-columns:1fr 1fr; }
+  #rating-section .neighbor-game__cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:600px) {
+  #rating-section .neighbor-game__heading { grid-template-columns:1fr; }
+  #rating-section .neighbor-game__cards { gap:12px; }
+  #rating-section .neighbor-card { padding:14px; }
+  #rating-section .neighbor-card__name { font-size:clamp(19px,5vw,28px); }
+  #rating-section .neighbor-card__hint { margin:12px 0; font-size:13px; }
+  #rating-section .neighbor-reveal { padding:16px; }
+}
