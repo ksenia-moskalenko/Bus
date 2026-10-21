@@ -2304,7 +2304,7 @@ body.has-scrolled .section-nav {
 
 /* Scroll sequence: keep both dashed circles entirely inside the scene. */
 .closeness-section {
-  height: 175svh;
+  height: 240svh;
   min-height: 0;
   position: relative;
   display: block;
@@ -2334,7 +2334,7 @@ body.has-scrolled .section-nav {
 }
 @media (max-width: 700px) {
   .closeness-section {
-    height: 175svh;
+    height: 240svh;
   }
   .closeness-inner {
     align-content: center;
@@ -3446,5 +3446,17 @@ body::before {
 @media (min-width: 701px) {
   #closeness-section .closeness-inner {
     align-content: start;
+  }
+}
+
+/* Preserve full scroll animation while using the bottom of the visible experiment screen. */
+@media (min-width: 701px) {
+  #closeness-section .closeness-inner {
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+    align-content: stretch;
+  }
+  #closeness-section .closeness-feedback {
+    grid-row: 5;
+    align-self: end;
   }
 }
