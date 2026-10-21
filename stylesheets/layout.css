@@ -3527,3 +3527,22 @@ body::before {
 #frames-section .gofman-portrait {
   margin-top: 48px;
 }
+
+/* Match Goffman photo to the earlier square article photos: size and right guide. */
+#frames-section .gofman-portrait {
+  display: block;
+  float: right;
+  width: clamp(70px, 10.5%, 135px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin: 48px 2px 10px 16px;
+  transform: translateX(165px);
+}
+@media (max-width: 700px) {
+  #frames-section .gofman-portrait {
+    width: clamp(70px, 10.5%, 135px);
+    transform: none;
+    margin: 16px 0 10px 12px;
+  }
+}
