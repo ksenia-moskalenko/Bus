@@ -3080,3 +3080,8 @@ body.has-scrolled .section-nav {
 #proxemics-section .proxemics-editorial__paragraph-with-photo .editorial-photo {
   margin-top:0;
 }
+
+/* Align second inline photo with the first line of its paragraph. */
+#proxemics-section .proxemics-editorial__inline-photo {
+  margin-top:0;
+}
