@@ -2740,3 +2740,28 @@ body.has-scrolled .section-nav {
   #rating-section .neighbor-card__hint { margin:12px 0; font-size:13px; }
   #rating-section .neighbor-reveal { padding:16px; }
 }
+
+
+/* Fit the entire neighbor composition inside the bus-photo viewport on desktop. */
+@media (min-width:951px) {
+  #rating-section.neighbor-game { height:100svh; min-height:0; }
+  #rating-section .neighbor-game__content {
+    height:100%; min-height:0; padding:8px clamp(20px,3vw,48px) 20px;
+    display:grid; grid-template-rows:auto minmax(0,1fr) auto;
+    gap:clamp(10px,1.3vh,18px);
+  }
+  #rating-section .neighbor-game__heading { padding:0; align-items:end; }
+  #rating-section .neighbor-game__heading h2 { font-size:clamp(56px, min(7vw,12vh), 120px); }
+  #rating-section .neighbor-game__cards { min-height:0; align-items:stretch; }
+  #rating-section .neighbor-card {
+    aspect-ratio:auto; height:100%; min-height:0;
+    padding:clamp(12px,1.4vw,22px);
+  }
+  #rating-section .neighbor-card__hint { margin:clamp(10px,2vh,22px) 0; }
+  #rating-section .neighbor-reveal {
+    margin:0; padding:clamp(10px,1.6vh,20px) clamp(18px,2vw,32px);
+  }
+  #rating-section .neighbor-reveal__rating strong { font-size:clamp(45px,6.5vh,75px); }
+  #rating-section .neighbor-reveal__body > strong { font-size:clamp(22px,3vh,34px); }
+  #rating-section .neighbor-reveal__body p { margin-top:6px; }
+}
