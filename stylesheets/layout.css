@@ -3262,7 +3262,9 @@ body::before {
 }
 
 /* Only the first neighbor card: the requested existing bus passenger photo. */
-#rating-section .neighbor-card[data-neighbor="headphones"] .neighbor-card__portrait {
+#rating-section
+  .neighbor-card[data-neighbor="headphones"]
+  .neighbor-card__portrait {
   display: flex;
   width: 100%;
   height: clamp(90px, 10vw, 160px);
@@ -3271,7 +3273,10 @@ body::before {
   align-items: center;
   justify-content: center;
 }
-#rating-section .neighbor-card[data-neighbor="headphones"] .neighbor-card__portrait img {
+#rating-section
+  .neighbor-card[data-neighbor="headphones"]
+  .neighbor-card__portrait
+  img {
   display: block;
   width: 100%;
   height: 100%;
@@ -3280,11 +3285,15 @@ body::before {
 #rating-section .neighbor-card[data-neighbor="headphones"] {
   justify-content: flex-start;
 }
-#rating-section .neighbor-card[data-neighbor="headphones"] .neighbor-card__hint {
+#rating-section
+  .neighbor-card[data-neighbor="headphones"]
+  .neighbor-card__hint {
   margin-top: 8px;
   margin-bottom: 12px;
 }
-#rating-section .neighbor-card[data-neighbor="headphones"] .neighbor-card__action {
+#rating-section
+  .neighbor-card[data-neighbor="headphones"]
+  .neighbor-card__action {
   margin-top: auto;
 }
 
@@ -3298,7 +3307,10 @@ body::before {
   align-items: center;
   justify-content: center;
 }
-#rating-section .neighbor-card[data-neighbor="bag"] .neighbor-card__portrait img {
+#rating-section
+  .neighbor-card[data-neighbor="bag"]
+  .neighbor-card__portrait
+  img {
   display: block;
   width: 100%;
   height: 100%;
@@ -3316,7 +3328,9 @@ body::before {
 }
 
 /* Third rating card: existing talkingMan.png passenger photo. */
-#rating-section .neighbor-card[data-neighbor="talker"] .neighbor-card__portrait {
+#rating-section
+  .neighbor-card[data-neighbor="talker"]
+  .neighbor-card__portrait {
   display: flex;
   width: 100%;
   height: clamp(90px, 10vw, 160px);
@@ -3325,7 +3339,10 @@ body::before {
   align-items: center;
   justify-content: center;
 }
-#rating-section .neighbor-card[data-neighbor="talker"] .neighbor-card__portrait img {
+#rating-section
+  .neighbor-card[data-neighbor="talker"]
+  .neighbor-card__portrait
+  img {
   display: block;
   width: 100%;
   height: 100%;
@@ -3343,7 +3360,9 @@ body::before {
 }
 
 /* Fourth rating card: existing sleapyMan.png passenger photo. */
-#rating-section .neighbor-card[data-neighbor="sleeper"] .neighbor-card__portrait {
+#rating-section
+  .neighbor-card[data-neighbor="sleeper"]
+  .neighbor-card__portrait {
   display: flex;
   width: 100%;
   height: clamp(90px, 10vw, 160px);
@@ -3352,7 +3371,10 @@ body::before {
   align-items: center;
   justify-content: center;
 }
-#rating-section .neighbor-card[data-neighbor="sleeper"] .neighbor-card__portrait img {
+#rating-section
+  .neighbor-card[data-neighbor="sleeper"]
+  .neighbor-card__portrait
+  img {
   display: block;
   width: 100%;
   height: 100%;
@@ -3389,9 +3411,15 @@ body::before {
   padding: clamp(12px, 1.2vw, 20px);
 }
 @media (max-width: 600px) {
-  #rating-section .neighbor-card__name { font-size: 17px; }
-  #rating-section .neighbor-card__hint { font-size: 11px; }
-  #rating-section .neighbor-card__portrait { height: 85px; }
+  #rating-section .neighbor-card__name {
+    font-size: 17px;
+  }
+  #rating-section .neighbor-card__hint {
+    font-size: 11px;
+  }
+  #rating-section .neighbor-card__portrait {
+    height: 85px;
+  }
 }
 
 /* Smaller type in the bottom neighbor result panel; panel dimensions unchanged. */
@@ -3410,7 +3438,9 @@ body::before {
 }
 
 /* Remove outline only from the neighbor rating result panel. */
-#rating-section .neighbor-reveal { border: none; }
+#rating-section .neighbor-reveal {
+  border: none;
+}
 
 /* Move the distance experiment content toward the top divider, preserving scroll interaction. */
 @media (min-width: 701px) {
