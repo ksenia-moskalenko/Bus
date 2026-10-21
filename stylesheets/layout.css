@@ -3489,3 +3489,15 @@ body::before {
     margin-top: 18px;
   }
 }
+
+/* Lower the animated figures toward the divider beneath the scene. */
+@media (min-width: 701px) {
+  #closeness-section .closeness-scene {
+    margin-top: 52px;
+    height: clamp(180px, 18vw, 265px);
+  }
+}
+/* The stranger's distance circle becomes grey as they approach. */
+#closeness-section .closeness-person--stranger .closeness-circle {
+  background-color: rgb(160 162 159 / calc(0.08 + var(--stranger-approach, 0) * 0.72));
+}
