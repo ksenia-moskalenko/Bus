@@ -3244,3 +3244,19 @@ body.has-scrolled .section-nav {
 .passenger-layer .passenger-mother {
   transform: translate(-50%, -90%);
 }
+
+
+/* Continuous left rule across the gap before the neighbor section. */
+#rating-section {
+  --rating-section-gap: 80px;
+  margin-top: var(--rating-section-gap);
+}
+#rating-section::after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--rating-section-gap));
+  left: -1px;
+  height: var(--rating-section-gap);
+  border-left: 1px solid #111;
+  pointer-events: none;
+}
