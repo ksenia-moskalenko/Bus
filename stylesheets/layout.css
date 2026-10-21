@@ -2786,3 +2786,29 @@ body.has-scrolled .section-nav {
   background-size: cover;
   background-color: transparent;
 }
+
+
+/* Frames article: two small labels side by side, centered in right half. */
+#frames-section .proxemics-editorial__interlude {
+  width:50%;
+  margin:0 0 18px auto;
+  min-height:58px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:clamp(22px,2.5vw,48px);
+  text-align:left;
+}
+#frames-section .proxemics-editorial__interlude .proxemics-editorial__index,
+#frames-section .proxemics-editorial__interlude .proxemics-editorial__annotation {
+  flex:0 1 auto;
+  color:#888;
+  text-align:left;
+}
+@media(max-width:700px) {
+  #frames-section .proxemics-editorial__interlude {
+    width:100%;
+    justify-content:center;
+    gap:18px;
+  }
+}
