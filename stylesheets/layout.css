@@ -3514,3 +3514,11 @@ body::before {
 @media (max-width: 700px) {
   #frames-section .gofman-portrait { width: 110px; margin-right: 14px; }
 }
+
+/* Match the square inline photos used in the preceding article. */
+#frames-section .gofman-portrait {
+  width: clamp(70px, 10.5%, 135px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
