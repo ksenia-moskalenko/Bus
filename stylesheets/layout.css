@@ -2780,3 +2780,9 @@ body.has-scrolled .section-nav {
     margin-top:8px;
   }
 }
+
+/* Remove grey bands above and below the neighbor section photo. */
+#rating-section .neighbor-game__backdrop {
+  background-size: cover;
+  background-color: transparent;
+}
