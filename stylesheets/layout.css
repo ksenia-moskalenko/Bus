@@ -3522,3 +3522,8 @@ body::before {
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
+
+/* Lower only Goffman's photo; keep its size and left-side text wrap. */
+#frames-section .gofman-portrait {
+  margin-top: 48px;
+}
