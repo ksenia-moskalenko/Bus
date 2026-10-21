@@ -57,7 +57,9 @@ function typeText(text) {
 // Постоянные пассажиры. Индексы соответствуют массиву rows.
 const occupiedSeats = new Map([
   [4, 'headphones'],
+  [0, 'bag'],
   [12, 'sleeping'],
+  [10, 'talking'],
   [17, 'grandma'],
   [21, 'mother'],
   [27, 'grandpa']
@@ -82,6 +84,8 @@ rows.forEach(([x,y,w,h],i) => {
       mother: 'momBoy.png',
       grandma: 'babylya.png',
       grandpa: 'dedushka.png',
+      bag: 'bigBag.png',
+      talking: 'talkingMan.png',
       headphones: 'boyHeadphones.png'
     }[kind];
     avatar.src = 'images/' + avatarFile;
