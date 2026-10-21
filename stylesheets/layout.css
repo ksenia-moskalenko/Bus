@@ -3368,3 +3368,28 @@ body::before {
 #rating-section .neighbor-card[data-neighbor="sleeper"] .neighbor-card__action {
   margin-top: auto;
 }
+
+/* Compact typography for all four passenger rating cards. */
+#rating-section .neighbor-card__number {
+  font-size: clamp(10px, 0.72vw, 12px);
+  line-height: 1.2;
+}
+#rating-section .neighbor-card__name {
+  font-size: clamp(18px, 1.45vw, 26px);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+#rating-section .neighbor-card__hint {
+  font-size: clamp(11px, 0.83vw, 14px);
+  line-height: 1.25;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+#rating-section .neighbor-card {
+  padding: clamp(12px, 1.2vw, 20px);
+}
+@media (max-width: 600px) {
+  #rating-section .neighbor-card__name { font-size: 17px; }
+  #rating-section .neighbor-card__hint { font-size: 11px; }
+  #rating-section .neighbor-card__portrait { height: 85px; }
+}
