@@ -3393,3 +3393,18 @@ body::before {
   #rating-section .neighbor-card__hint { font-size: 11px; }
   #rating-section .neighbor-card__portrait { height: 85px; }
 }
+
+/* Smaller type in the bottom neighbor result panel; panel dimensions unchanged. */
+#rating-section .neighbor-reveal__caption {
+  font-size: clamp(11px, 0.85vw, 14px);
+}
+#rating-section .neighbor-reveal__rating strong {
+  font-size: clamp(40px, 3.5vw, 60px);
+}
+#rating-section .neighbor-reveal__body > strong {
+  font-size: clamp(18px, 1.5vw, 26px);
+}
+#rating-section .neighbor-reveal__body p {
+  font-size: clamp(13px, 1.05vw, 18px);
+  line-height: 1.35;
+}
