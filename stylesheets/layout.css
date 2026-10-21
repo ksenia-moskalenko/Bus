@@ -3448,3 +3448,11 @@ body::before {
     align-content: start;
   }
 }
+
+/* Bring the finale forward without shortening the 240svh distance animation. */
+#final-section {
+  position: relative;
+  z-index: 2;
+  margin-top: -65svh;
+  background: var(--page-bg);
+}
