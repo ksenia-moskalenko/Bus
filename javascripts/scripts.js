@@ -137,16 +137,22 @@ rows.forEach(([x,y,w,h],i) => {
 const navLinks = [...document.querySelectorAll('.section-nav__link')];
 const navSections = navLinks.map(link => document.getElementById(link.dataset.section));
 function updateSectionNav() {
-  const focusLine = window.scrollY + window.innerHeight * .42;
+  const focusLine = window.innerHeight * .42;
   let active = 0;
   navSections.forEach((section, index) => {
-    if (section && section.offsetTop <= focusLine) active = index;
+    if (section && section.getBoundingClientRect().top <= focusLine) active = index;
   });
   navLinks.forEach((link, index) => {
     const selected = index === active;
+    // Each entry is unlocked only when its corresponding section is reached.
+    // Previous entries remain available for navigation.
+    const reached = index <= active;
+    link.classList.toggle('is-revealed', reached);
     link.classList.toggle('is-active', selected);
     if (selected) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
+    if (reached) link.removeAttribute('tabindex');
+    else link.setAttribute('tabindex', '-1');
   });
 }
 navLinks.forEach((link, index) => {
