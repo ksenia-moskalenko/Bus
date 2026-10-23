@@ -4185,6 +4185,6 @@ h6,
 /* Align the first line of the scroll-distance description with the marked baseline. */
 @media (min-width: 701px) {
   #scroll-closeness-section .closeness-intro {
-    margin-top: 21px;
+    margin-top: 15px;
   }
 }
