@@ -4215,3 +4215,8 @@ h6,
 #final-section #final-heading {
   letter-spacing: -0.03em;
 }
+
+/* Lift the bottom captions on all four passenger cards by 5px. */
+#rating-section .neighbor-card__hint {
+  transform: translateY(-5px);
+}
