@@ -470,8 +470,14 @@ updateSectionNav();
   }
   function move(event) {
     const r = bus.getBoundingClientRect();
-    x = clamp((event.clientX - r.left) / r.width * 100, 9, 91);
-    y = clamp((event.clientY - r.top) / r.height * 100, 23, 77);
+    if (window.matchMedia('(max-width: 700px)').matches) {
+      // Rotated 90 degrees clockwise: screen Y maps to bus X, reversed screen X to bus Y.
+      x = clamp((event.clientY - r.top) / r.height * 100, 9, 91);
+      y = clamp((r.right - event.clientX) / r.width * 100, 23, 77);
+    } else {
+      x = clamp((event.clientX - r.left) / r.width * 100, 9, 91);
+      y = clamp((event.clientY - r.top) / r.height * 100, 23, 77);
+    }
     render();
   }
   you.addEventListener('pointerdown', e => {
@@ -525,4 +531,27 @@ updateSectionNav();
  const update=()=>document.body.classList.toggle('has-scrolled', Boolean(document.querySelector('.story-stage')?.classList.contains('is-interactive')) || window.scrollY >= (document.querySelector('.scroll-story')?.offsetHeight || Infinity) - window.innerHeight);
  window.addEventListener('scroll',update,{passive:true});
  update();
+})();
+
+/* Mobile navigation only; desktop sidebar behavior is untouched. */
+(() => {
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const nav = document.querySelector('.section-nav');
+  if (!toggle || !nav) return;
+  const backdrop = document.createElement('button');
+  backdrop.type = 'button';
+  backdrop.className = 'mobile-menu-backdrop';
+  backdrop.setAttribute('aria-label', 'Закрыть меню');
+  document.body.appendChild(backdrop);
+  const setOpen = open => {
+    nav.classList.toggle('mobile-menu-open', open);
+    backdrop.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Закрыть меню разделов' : 'Открыть меню разделов');
+  };
+  toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  backdrop.addEventListener('click', () => setOpen(false));
+  nav.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+  window.matchMedia('(min-width: 701px)').addEventListener('change', e => { if (e.matches) setOpen(false); });
 })();
