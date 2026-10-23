@@ -3843,3 +3843,17 @@ body::before {
   #scroll-closeness-section h2 {font-size:clamp(42px,9vw,68px);}
   #scroll-closeness-section .closeness-scene {height:190px;margin-top:24px;}
 }
+
+/* Monochrome bus diagram and lighter, differentiated passenger outlines. */
+#context-bus .context-window { background: #c9c9c9; }
+#context-bus .context-person__dot {
+  border-width: 1.5px;
+  box-shadow: 0 0 0 3px rgb(0 0 0 / 12%);
+}
+#context-bus .context-person--you .context-person__dot {
+  width: clamp(39px, 4.3vw, 62px);
+  border-width: 1.5px;
+  border-style: dashed;
+  box-shadow: 0 0 0 9px rgb(0 0 0 / 11%);
+}
+#context-bus .context-crowd__dot { border-width: 1px; }
