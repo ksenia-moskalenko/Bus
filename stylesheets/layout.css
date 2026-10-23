@@ -4146,3 +4146,26 @@ h6,
     font-size: clamp(23px, 5.2vw, 46px);
   }
 }
+
+/* Align the scroll-distance explanation to the right-hand editorial columns. */
+@media (min-width: 701px) {
+  #scroll-closeness-section .closeness-inner {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(8px, 1vw, 18px);
+  }
+  #scroll-closeness-section h2 {
+    grid-column: 1 / 7;
+  }
+  #scroll-closeness-section .closeness-intro {
+    grid-column: 7 / 12;
+    grid-row: 2;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    align-self: start;
+  }
+  #scroll-closeness-section .closeness-scene,
+  #scroll-closeness-section .closeness-feedback {
+    grid-column: 1 / -1;
+  }
+}
