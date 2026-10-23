@@ -3946,3 +3946,11 @@ body::before {
 #rating-section .neighbor-reveal {
   background: var(--page-bg, #f0f1ed);
 }
+
+/* Natural font spacing for headings and the "Начнём сначала?" link. */
+h1, h2, h3, h4, h5, h6,
+#rating-section .neighbor-card__name,
+#rating-section .neighbor-reveal__body > strong,
+#final-section .journey-finale__return-title {
+  letter-spacing: normal !important;
+}
