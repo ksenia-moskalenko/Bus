@@ -4205,3 +4205,13 @@ h6,
     left: max(calc(18% - var(--you-retreat, 0) * 5%), calc(clamp(105px, 26vw, 145px) / 2 + 27px));
   }
 }
+
+/* Consistent tracking for the six main section headings. */
+.story-stage .prompt-select,
+#proxemics-section .proxemics-editorial__title,
+#rating-section .neighbor-game__heading h2,
+#frames-section .proxemics-editorial__title,
+#scroll-closeness-section h2,
+#final-section #final-heading {
+  letter-spacing: -0.02em;
+}
