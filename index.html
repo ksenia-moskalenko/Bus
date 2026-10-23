@@ -2,8 +2,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Автобус</title>
-  <link rel="stylesheet" href="stylesheets/style.css?v=20261021c" />
-  <script defer src="javascripts/scripts.js?v=20261021d"></script>
+  <link rel="stylesheet" href="stylesheets/style.css?v=20261023b" />
+  <script defer src="javascripts/scripts.js?v=20261023b"></script>
 </head>
 <body>
   <div class="layout-grid-overlay" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
@@ -140,16 +140,43 @@
       </div>
     </div>
   </section>
-  <section class="longread-section closeness-section" id="closeness-section" aria-labelledby="closeness-heading">
+  <section class="longread-section closeness-section bus-context" id="closeness-section" aria-labelledby="closeness-heading">
     <div class="closeness-inner">
-      <div class="closeness-topline"><span>ЭКСПЕРИМЕНТ / ДИСТАНЦИЯ</span><span>ЛИСТАЙ ВНИЗ — ДИСТАНЦИЯ МЕНЯЕТСЯ</span></div>
-      <h2 id="closeness-heading">Слишком<br>близко?</h2>
-      <p class="closeness-intro">Листай вниз: сначала незнакомец подходит ближе, потом ты пытаешься отодвинуться, но он продолжает приближаться.</p>
-      <div class="closeness-scene" id="closeness-scene">
-        <div class="closeness-person closeness-person--you"><div class="closeness-circle"><svg viewBox="0 0 150 150" aria-hidden="true"><use href="images/avatars.svg#headphones"></use></svg></div><strong>ты</strong></div>
-        <div class="closeness-person closeness-person--stranger" id="closeness-stranger"><div class="closeness-circle"><svg viewBox="0 0 150 150" aria-hidden="true"><use href="images/avatars.svg#headphones"></use></svg></div><strong>незнакомец</strong></div>
+      <div class="closeness-topline"><span>ЭКСПЕРИМЕНТ / ОБСТОЯТЕЛЬСТВА</span><span>ОДНА ДИСТАНЦИЯ — РАЗНЫЕ ОЩУЩЕНИЯ</span></div>
+      <h2 id="closeness-heading">Одно расстояние —<br>разные ощущения</h2>
+      <p class="closeness-intro">Передвинь свою точку в автобусе. Потом переключи обстоятельства, не меняя расстояние, и посмотри, как меняется смысл близости.</p>
+      <div class="context-tabs" role="group" aria-label="Обстоятельства поездки">
+        <button type="button" class="context-tab is-active" data-context="empty" aria-pressed="true">Пусто</button>
+        <button type="button" class="context-tab" data-context="rush" aria-pressed="false">Час пик</button>
+        <button type="button" class="context-tab" data-context="friend" aria-pressed="false">Друг</button>
       </div>
-      <div class="closeness-feedback" id="closeness-feedback" aria-live="polite"><strong id="closeness-status">Пока комфортно</strong><p id="closeness-description">Между вами достаточно пространства. Присутствие другого человека почти не ощущается.</p></div>
+      <div class="context-layout">
+        <div class="context-bus-wrap">
+          <div class="context-bus-label"><span>САЛОН / ВИД СВЕРХУ</span><span>ПЕРЕТАСКИВАЙ ТОЧКУ «ТЫ»</span></div>
+          <div class="context-bus" id="context-bus" aria-label="Схема автобуса с сиденьями, окнами, дверями и перемещаемой точкой">
+            <div class="context-window context-window--top"><span>ОКНА</span></div>
+            <div class="context-window context-window--bottom"><span>ОКНА</span></div>
+            <div class="context-driver">ВОДИТЕЛЬ</div>
+            <div class="context-seats" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="context-door context-door--one">ДВЕРЬ</div>
+            <div class="context-door context-door--two">ДВЕРЬ</div>
+            <div class="context-crowd" id="context-crowd" aria-hidden="true"></div>
+            <div class="context-person context-person--other" id="context-other"><span class="context-person__dot"></span><span class="context-person__label" id="context-other-label">НЕЗНАКОМЕЦ</span></div>
+            <div class="context-person context-person--you" id="context-you" role="slider" tabindex="0" aria-label="Твоё положение в автобусе" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" aria-valuetext="Перетащи меня мышкой или используй стрелки"><span class="context-person__dot"></span><span class="context-person__label">ТЫ ↗</span></div>
+          </div>
+          <p class="context-hint">Двигай точку мышкой или пальцем. Стрелки клавиатуры тоже работают.</p>
+        </div>
+        <div class="context-copy" aria-live="polite">
+          <span class="context-copy__eyebrow">СИТУАЦИЯ / <span id="context-count">01</span></span>
+          <h3 id="context-title">Пустой автобус</h3>
+          <p id="context-description">Вокруг полно свободных мест. Если незнакомец подходит слишком близко, ты можешь задуматься: почему он выбрал именно это место?</p>
+          <div class="context-distance"><span>РАССТОЯНИЕ МЕЖДУ ВАМИ</span><strong id="context-distance-value">—</strong></div>
+          <p class="context-note">Попробуй оставить точку на том же месте и сменить обстоятельства. Ощущения индивидуальны — здесь нет единственно правильной дистанции.</p>
+        </div>
+      </div>
     </div>
   </section>
 
