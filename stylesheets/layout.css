@@ -4134,3 +4134,15 @@ h6,
   color: #888;
   text-align: left;
 }
+
+/* Keep the seat-selection heading on one line without horizontal overflow. */
+.story-stage .prompt-select {
+  white-space: nowrap;
+  font-size: clamp(32px, 5.2vw, 94px);
+  letter-spacing: -0.075em;
+}
+@media (max-width: 700px) {
+  .story-stage .prompt-select {
+    font-size: clamp(23px, 5.2vw, 46px);
+  }
+}
