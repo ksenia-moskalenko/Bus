@@ -3923,7 +3923,7 @@ body::before {
   overflow: hidden;
 }
 #scroll-closeness-section .closeness-person--you {
-  left: calc(18% + var(--you-retreat, 0) * 9%);
+  left: calc(18% - var(--you-retreat, 0) * 9%);
 }
 #scroll-closeness-section .closeness-person--stranger {
   left: calc(82% - var(--stranger-approach, 0) * 48%);
