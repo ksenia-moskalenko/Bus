@@ -3940,3 +3940,9 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   .section-nav .section-nav__link.is-revealed { animation: none; }
 }
+
+/* Match the four neighbor cards and result panel to the site's background. */
+#rating-section .neighbor-card,
+#rating-section .neighbor-reveal {
+  background: var(--page-bg, #f0f1ed);
+}
