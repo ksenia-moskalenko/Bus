@@ -2609,7 +2609,7 @@ body.has-scrolled .section-nav {
 }
 
 /* Temporary visible 12-column layout guide: 20px side margins and gutters. */
-/* .layout-grid-overlay {
+.layout-grid-overlay {
   position: fixed;
   inset: 0 20px;
   display: grid;
@@ -2621,7 +2621,7 @@ body.has-scrolled .section-nav {
 .layout-grid-overlay > span {
   min-width: 0;
   background: rgba(220, 35, 85, 0.12);
-} */
+}
 
 /* Frames article: match the typography and 12-column placements of the first article. */
 #frames-section .proxemics-editorial__inner {
@@ -2827,7 +2827,7 @@ body.has-scrolled .section-nav {
 #rating-section .neighbor-card:hover,
 #rating-section .neighbor-card:focus-visible,
 #rating-section .neighbor-card.is-selected {
-  background: #d7d8d2;
+  background: rgba(226, 217, 213, 0.97);
   color: #111;
 }
 #rating-section .neighbor-reveal {
@@ -3923,7 +3923,10 @@ body::before {
   overflow: hidden;
 }
 #scroll-closeness-section .closeness-person--you {
-  left: max(calc(18% - var(--you-retreat, 0) * 5%), calc(clamp(130px, 15vw, 195px) / 2 + 27px));
+  left: max(
+    calc(18% - var(--you-retreat, 0) * 5%),
+    calc(clamp(130px, 15vw, 195px) / 2 + 27px)
+  );
 }
 #scroll-closeness-section .closeness-person--stranger {
   left: calc(82% - var(--stranger-approach, 0) * 48%);
@@ -4202,7 +4205,10 @@ h6,
 /* Keep the retreating circle completely inside the scene on narrow screens. */
 @media (max-width: 700px) {
   #scroll-closeness-section .closeness-person--you {
-    left: max(calc(18% - var(--you-retreat, 0) * 5%), calc(clamp(105px, 26vw, 145px) / 2 + 27px));
+    left: max(
+      calc(18% - var(--you-retreat, 0) * 5%),
+      calc(clamp(105px, 26vw, 145px) / 2 + 27px)
+    );
   }
 }
 
