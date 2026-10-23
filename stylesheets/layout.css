@@ -4169,3 +4169,8 @@ h6,
     grid-column: 1 / -1;
   }
 }
+
+/* Natural letter spacing for the changing distance-feedback headline. */
+#scroll-closeness-section .closeness-feedback strong {
+  letter-spacing: normal;
+}
