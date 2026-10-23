@@ -4213,27 +4213,31 @@ h6,
 }
 
 /* Consistent tracking for the six main section headings. */
-.story-stage .prompt-select,
+/* .story-stage .prompt-select,
 #proxemics-section .proxemics-editorial__title,
 #rating-section .neighbor-game__heading h2,
 #frames-section .proxemics-editorial__title,
 #scroll-closeness-section h2,
 #final-section #final-heading {
   letter-spacing: -0.03em;
-}
+} */
 
 /* Lift the bottom captions on all four passenger cards by 5px. */
-#rating-section .neighbor-card__hint {
+/* #rating-section .neighbor-card__hint {
   transform: translateY(-5px);
-}
+} */
 
 /* Proxemics: place existing square photos flush to the left of grid column one. */
 @media (min-width: 701px) {
   #proxemics-section .proxemics-editorial__paragraph-with-photo {
     display: contents;
   }
-  #proxemics-section .proxemics-editorial__paragraph-with-photo .editorial-photo,
-  #proxemics-section .proxemics-editorial__body > .proxemics-editorial__inline-photo {
+  #proxemics-section
+    .proxemics-editorial__paragraph-with-photo
+    .editorial-photo,
+  #proxemics-section
+    .proxemics-editorial__body
+    > .proxemics-editorial__inline-photo {
     grid-column: 1 / 2;
     justify-self: start;
     align-self: start;
@@ -4246,8 +4250,13 @@ h6,
     float: none;
     transform: translate(-4px, 7px);
   }
-  #proxemics-section .proxemics-editorial__paragraph-with-photo .editorial-photo img,
-  #proxemics-section .proxemics-editorial__body > .proxemics-editorial__inline-photo {
+  #proxemics-section
+    .proxemics-editorial__paragraph-with-photo
+    .editorial-photo
+    img,
+  #proxemics-section
+    .proxemics-editorial__body
+    > .proxemics-editorial__inline-photo {
     display: block;
     width: 100%;
     height: auto;
@@ -4256,7 +4265,9 @@ h6,
     filter: grayscale(1);
   }
   #proxemics-section .proxemics-editorial__paragraph-with-photo p,
-  #proxemics-section .proxemics-editorial__body > .proxemics-editorial__observation {
+  #proxemics-section
+    .proxemics-editorial__body
+    > .proxemics-editorial__observation {
     grid-column: 2 / 11;
     margin-top: 0;
   }
