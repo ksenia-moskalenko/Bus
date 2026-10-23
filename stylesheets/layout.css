@@ -3962,3 +3962,12 @@ h1, h2, h3, h4, h5, h6,
     margin-top: 0;
   }
 }
+
+/* Lift the complete bus interactive (image, seat hit areas and passenger portraits)
+   as one unit; preserve every seat's existing calculated coordinates and
+   the horizontal scroll entrance animation. */
+@media (min-width: 701px) {
+  .story-stage .bus-interactive {
+    top: -clamp(110px, 12vh, 180px);
+  }
+}
