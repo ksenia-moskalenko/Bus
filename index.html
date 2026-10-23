@@ -2,8 +2,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Автобус</title>
-  <link rel="stylesheet" href="stylesheets/style.css?v=20261023b" />
-  <script defer src="javascripts/scripts.js?v=20261023b"></script>
+  <link rel="stylesheet" href="stylesheets/style.css?v=20261023c" />
+  <script defer src="javascripts/scripts.js?v=20261023c"></script>
 </head>
 <body>
   <div class="layout-grid-overlay" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
@@ -72,75 +72,7 @@
         <div class="proxemics-editorial__between-note">У ОКНА МОЖНО БЫТЬ РЯДОМ<br>С ДРУГИМИ И ПРИ ЭТОМ<br>ОСТАВАТЬСЯ НАЕДИНЕ С СОБОЙ</div>
         <p class="proxemics-editorial__closing">Получается, что выбор места в автобусе — это не такое простое действие, как кажется на первый взгляд. За ним скрываются негласные правила, которые мы соблюдаем, даже не задумываясь об этом.</p>
       </div>
-      <div class="distance-lab" id="distance-lab">
-        <div class="distance-lab__head"><span>ЭКСПЕРИМЕНТ</span></div>
-        <div class="distance-lab__intro">
-          <h3>Где тебе<br>комфортно?</h3>
-          <p>Перетаскивай чёрную точку. Посмотри, как меняется твоё личное пространство в зависимости от того, что рядом.</p>
-        </div>
-        <div class="distance-lab__canvas">
-          <svg id="distance-map" viewBox="0 0 800 540" role="group" aria-label="Интерактивная схема личного пространства. Перетащите чёрную точку.">
-            <g class="distance-lab__guides" stroke="#111" stroke-width="1.2" fill="none">
-              <path d="M206.0 142.9 L266.5 179.5 M594.0 142.9 L533.5 179.5 M206.0 367.1 L266.5 330.5 M594.0 367.1 L533.5 330.5 M400 409 L400 479"/>
-            </g>
-            <g class="distance-lab__labels" fill="#111">
-              <text x="190" y="133" text-anchor="end">багаж</text>
-              <text x="610" y="128">другие</text><text x="610" y="154">люди</text>
-              <text x="190" y="385" text-anchor="end">окно</text>
-              <text x="610" y="385">выход</text>
-              <text x="400" y="515" text-anchor="middle">место</text>
-            </g>
-            <circle id="distance-outer" cx="400" cy="255" r="135" fill="none" stroke="#111" stroke-width="1.7" stroke-dasharray="4 6"/>
-            <circle id="distance-inner" cx="400" cy="255" r="91" fill="none" stroke="#111" stroke-width="2"/>
-            <line id="distance-stem" x1="400" y1="255" x2="400" y2="303" stroke="#111" stroke-width="1"/>
-            <circle id="distance-dot" cx="400" cy="255" r="19" fill="#050505" tabindex="0" role="slider" aria-label="Твоё положение" aria-valuetext="В центре" aria-description="Перетаскивай точку или используй стрелки на клавиатуре"/>
-          </svg>
-          <div class="distance-lab__readout" aria-live="polite">
-            <span class="distance-lab__readout-label">ТВОЙ ВЫБОР / <span id="distance-direction">ЦЕНТР</span></span>
-            <strong id="distance-message">Пока всё в равновесии.</strong>
-            <span id="distance-detail">Сдвинь точку к одному из факторов, чтобы увидеть, как он влияет на ощущение пространства.</span>
-          </div>
-        </div>
-        <div class="distance-lab__bottom"><span>● — ТЫ</span><span>— ЛИЧНАЯ ЗОНА</span><span>┄ ВНЕШНЯЯ ГРАНИЦА</span></div>
-      </div>
-    </div>
-  </section>
-  <section class="longread-section neighbor-game" id="rating-section" aria-labelledby="rating-heading">
-    <div class="neighbor-game__backdrop" aria-hidden="true"></div>
-    <div class="neighbor-game__content">
-      <div class="neighbor-game__top"><span>РЕЙТИНГ СОСЕДЕЙ</span><span>СОСЕД — ЭТО ЛОТЕРЕЯ</span></div>
-      <div class="neighbor-game__heading"><h2 id="rating-heading">Кто сядет<br>рядом?</h2><p>Четыре случайных попутчика. Выбирай соседа и узнай рейтинг комфорта своей поездки.</p></div>
-      <div class="neighbor-game__cards" id="neighbor-cards">
-        <button class="neighbor-card" type="button" data-neighbor="headphones" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/boyHeadphones.png" alt="Мальчик в наушниках" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">В наушниках</span><span class="neighbor-card__hint">На вид — идеальный сосед</span><span class="neighbor-card__action">ВЫБРАТЬ ↗</span></button>
-        <button class="neighbor-card" type="button" data-neighbor="bag" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/bigBag.png?v=20261021-2" alt="Девушка с большой сумкой" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">С большой сумкой</span><span class="neighbor-card__hint">Вроде бы просто багаж</span><span class="neighbor-card__action">ВЫБРАТЬ ↗</span></button>
-        <button class="neighbor-card" type="button" data-neighbor="talker" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/talkingMan.png" alt="Говорящий пассажир" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">Общительный</span><span class="neighbor-card__hint">Улыбается и смотрит на тебя</span><span class="neighbor-card__action">ВЫБРАТЬ ↗</span></button>
-        <button class="neighbor-card" type="button" data-neighbor="sleeper" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/sleapyMan.png" alt="Спящий пассажир" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">Сонный</span><span class="neighbor-card__hint">Кажется, сейчас уснёт</span><span class="neighbor-card__action">ВЫБРАТЬ ↗</span></button>
-      </div>
-      <div class="neighbor-reveal" id="neighbor-reveal" aria-live="polite">
-        <div class="neighbor-reveal__body"><span class="neighbor-reveal__caption">РЕЙТИНГ КОМФОРТАБЕЛЬНОСТИ ПОЕЗДКИ</span><div class="neighbor-reveal__rating"><strong id="neighbor-reveal-percent">0%</strong><div class="neighbor-reveal__track"><span id="neighbor-reveal-fill"></span></div></div><strong id="neighbor-reveal-title"></strong><p id="neighbor-reveal-text"></p></div>
-        </div>
-      
-    </div>
-  </section>
-  <section class="longread-section proxemics-editorial frames-editorial" id="frames-section" aria-labelledby="frames-heading">
-    <div class="proxemics-editorial__inner">
-      <div class="proxemics-editorial__topline"><span>ФРЕЙМЫ</span><span>КОНТЕКСТ МЕНЯЕТ ПРАВИЛА</span></div>
-      <h2 class="proxemics-editorial__title" id="frames-heading">Одно расстояние —<br>разные правила</h2>
-      <div class="proxemics-editorial__interlude">
-        <span class="proxemics-editorial__index">ПРАВИЛА СОСЕДСТВА</span>
-        <span class="proxemics-editorial__asterisk" aria-hidden="true">✳</span>
-        <span class="proxemics-editorial__annotation">ОДНО И ТО ЖЕ ДЕЙСТВИЕ<br>МОЖЕТ ЗНАЧИТЬ РАЗНОЕ</span>
-      </div>
-      <div class="proxemics-editorial__body">
-        <p class="proxemics-editorial__lead">Почему в пустом автобусе нам кажется странным, когда незнакомец садится вплотную, а в переполненном мы спокойно стоим плечом к плечу? Физическое расстояние между людьми может быть одинаковым, но воспринимается совершенно по-разному.</p>
-        <p>Дело в том, что мы оцениваем не только близость другого человека, но и ситуацию, в которой оказались.</p>
-        <img class="gofman-portrait" src="images/gofman.jpg" alt="Эрвинг Гофман" loading="lazy"><p>Социолог Эрвинг Гофман предложил теорию фреймов — способов, с помощью которых люди распознают и интерпретируют происходящее. Фрейм помогает ответить на вопрос: «Что здесь происходит?» Именно от ответа зависит, какое поведение мы считаем уместным, а какое — нарушением негласных правил.</p>
-        <aside class="proxemics-editorial__definition"><span class="proxemics-editorial__definition-label">СЛОВАРЬ</span><p><strong>Фрейм</strong> — контекст, через который мы понимаем происходящее и оцениваем поведение других.</p></aside>
-        <p class="proxemics-editorial__closing">Например, человек занимает соседнее сиденье своей сумкой. В полупустом автобусе это может восприниматься как обычное желание расположиться поудобнее. Но когда свободных мест больше нет, тот же жест приобретает другой смысл: пассажир словно заявляет, что его вещи важнее чужого права сесть. Само действие не изменилось, изменился контекст.</p>
-      </div>
-    </div>
-  </section>
-  <section class="longread-section closeness-section bus-context" id="closeness-section" aria-labelledby="closeness-heading">
+      <div class="closeness-section bus-context" id="closeness-section" aria-labelledby="closeness-heading">
     <div class="closeness-inner">
       <div class="closeness-topline"><span>ЭКСПЕРИМЕНТ / ОБСТОЯТЕЛЬСТВА</span><span>ОДНА ДИСТАНЦИЯ — РАЗНЫЕ ОЩУЩЕНИЯ</span></div>
       <h2 id="closeness-heading">Одно расстояние —<br>разные ощущения</h2>
@@ -178,8 +110,45 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
+    </div>
+  </section>
+  <section class="longread-section neighbor-game" id="rating-section" aria-labelledby="rating-heading">
+    <div class="neighbor-game__backdrop" aria-hidden="true"></div>
+    <div class="neighbor-game__content">
+      <div class="neighbor-game__top"><span>РЕЙТИНГ СОСЕДЕЙ</span><span>СОСЕД — ЭТО ЛОТЕРЕЯ</span></div>
+      <div class="neighbor-game__heading"><h2 id="rating-heading">Кто сядет<br>рядом?</h2><p>Четыре случайных попутчика. Выбирай соседа и узнай рейтинг комфорта своей поездки.</p></div>
+      <div class="neighbor-game__cards" id="neighbor-cards">
+        <button class="neighbor-card" type="button" data-neighbor="headphones" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/boyHeadphones.png" alt="Мальчик в наушниках" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">В наушниках</span><span class="neighbor-card__hint">На вид — идеальный сосед</span><span class="neighbor-card__action">ВЫБРАТЬ ↗</span></button>
+        <button class="neighbor-card" type="button" data-neighbor="bag" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/bigBag.png?v=20261021-2" alt="Девушка с большой сумкой" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">С большой сумкой</span><span class="neighbor-card__hint">Вроде бы просто багаж</span><span class="neighbor-card__action">ВЫБРАТЬ ↗</span></button>
+        <button class="neighbor-card" type="button" data-neighbor="talker" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/talkingMan.png" alt="Говорящий пассажир" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">Общительный</span><span class="neighbor-card__hint">Улыбается и смотрит на тебя</span><span class="neighbor-card__action">ВЫБРАТЬ ↗</span></button>
+        <button class="neighbor-card" type="button" data-neighbor="sleeper" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/sleapyMan.png" alt="Спящий пассажир" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">Сонный</span><span class="neighbor-card__hint">Кажется, сейчас уснёт</span><span class="neighbor-card__action">ВЫБРАТЬ ↗</span></button>
+      </div>
+      <div class="neighbor-reveal" id="neighbor-reveal" aria-live="polite">
+        <div class="neighbor-reveal__body"><span class="neighbor-reveal__caption">РЕЙТИНГ КОМФОРТАБЕЛЬНОСТИ ПОЕЗДКИ</span><div class="neighbor-reveal__rating"><strong id="neighbor-reveal-percent">0%</strong><div class="neighbor-reveal__track"><span id="neighbor-reveal-fill"></span></div></div><strong id="neighbor-reveal-title"></strong><p id="neighbor-reveal-text"></p></div>
+        </div>
+      
+    </div>
+  </section>
+  <section class="longread-section proxemics-editorial frames-editorial" id="frames-section" aria-labelledby="frames-heading">
+    <div class="proxemics-editorial__inner">
+      <div class="proxemics-editorial__topline"><span>ФРЕЙМЫ</span><span>КОНТЕКСТ МЕНЯЕТ ПРАВИЛА</span></div>
+      <h2 class="proxemics-editorial__title" id="frames-heading">Одно расстояние —<br>разные правила</h2>
+      <div class="proxemics-editorial__interlude">
+        <span class="proxemics-editorial__index">ПРАВИЛА СОСЕДСТВА</span>
+        <span class="proxemics-editorial__asterisk" aria-hidden="true">✳</span>
+        <span class="proxemics-editorial__annotation">ОДНО И ТО ЖЕ ДЕЙСТВИЕ<br>МОЖЕТ ЗНАЧИТЬ РАЗНОЕ</span>
+      </div>
+      <div class="proxemics-editorial__body">
+        <p class="proxemics-editorial__lead">Почему в пустом автобусе нам кажется странным, когда незнакомец садится вплотную, а в переполненном мы спокойно стоим плечом к плечу? Физическое расстояние между людьми может быть одинаковым, но воспринимается совершенно по-разному.</p>
+        <p>Дело в том, что мы оцениваем не только близость другого человека, но и ситуацию, в которой оказались.</p>
+        <img class="gofman-portrait" src="images/gofman.jpg" alt="Эрвинг Гофман" loading="lazy"><p>Социолог Эрвинг Гофман предложил теорию фреймов — способов, с помощью которых люди распознают и интерпретируют происходящее. Фрейм помогает ответить на вопрос: «Что здесь происходит?» Именно от ответа зависит, какое поведение мы считаем уместным, а какое — нарушением негласных правил.</p>
+        <aside class="proxemics-editorial__definition"><span class="proxemics-editorial__definition-label">СЛОВАРЬ</span><p><strong>Фрейм</strong> — контекст, через который мы понимаем происходящее и оцениваем поведение других.</p></aside>
+        <p class="proxemics-editorial__closing">Например, человек занимает соседнее сиденье своей сумкой. В полупустом автобусе это может восприниматься как обычное желание расположиться поудобнее. Но когда свободных мест больше нет, тот же жест приобретает другой смысл: пассажир словно заявляет, что его вещи важнее чужого права сесть. Само действие не изменилось, изменился контекст.</p>
+      </div>
+    </div>
+  </section>
   <section class="longread-section journey-finale journey-finale--compact" id="final-section" aria-labelledby="final-heading">
     
     <div class="journey-finale__body">
