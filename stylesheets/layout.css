@@ -2827,7 +2827,7 @@ body.has-scrolled .section-nav {
 #rating-section .neighbor-card:hover,
 #rating-section .neighbor-card:focus-visible,
 #rating-section .neighbor-card.is-selected {
-  background: rgba(226, 217, 213, 0.97);
+  background: #d7d8d2;
   color: #111;
 }
 #rating-section .neighbor-reveal {
