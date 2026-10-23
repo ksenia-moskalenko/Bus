@@ -3777,3 +3777,18 @@ body::before {
   .context-person__label { font-size: 8px; }
   .context-copy h3 { margin-top: 15px; }
 }
+
+/* The new experiment now occupies the old distance-lab slot inside proxemics. */
+#proxemics-section #closeness-section.bus-context {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: clamp(80px, 12vw, 200px) 0 0;
+  border-top: 1px solid #111;
+  border-bottom: 0;
+  box-sizing: border-box;
+}
+#proxemics-section #closeness-section.bus-context .closeness-inner {
+  width: 100%;
+  padding: 18px 0 36px;
+}
