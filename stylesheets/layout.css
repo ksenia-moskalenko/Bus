@@ -3909,3 +3909,34 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   .section-nav .section-nav__link { transition: none; }
 }
+
+/* Sidebar grows upward from the bottom edge as chapters are reached. */
+.section-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  bottom: clamp(22px, 4vh, 56px);
+  max-height: calc(100svh - 28px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.section-nav::-webkit-scrollbar { display: none; }
+.section-nav .section-nav__link:not(.is-revealed) {
+  display: none;
+}
+.section-nav .section-nav__link.is-revealed {
+  display: flex;
+  flex-shrink: 0;
+  animation: section-nav-rise .38s ease-out both;
+}
+@keyframes section-nav-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: .48; transform: translateY(0); }
+}
+.section-nav .section-nav__link.is-revealed.is-active {
+  animation: none;
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-nav .section-nav__link.is-revealed { animation: none; }
+}
