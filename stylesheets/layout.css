@@ -3792,3 +3792,54 @@ body::before {
   width: 100%;
   padding: 18px 0 36px;
 }
+
+/* Restored standalone scroll experiment before "Конечная". */
+#scroll-closeness-section.closeness-section--scroll {
+  display: block;
+  position: relative;
+  height: 135svh;
+  min-height: 760px;
+  border-top: 1px solid #111;
+  padding: 0;
+}
+#scroll-closeness-section .closeness-inner {
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  height: 100svh;
+  width: 100%;
+  padding: 18px clamp(20px,2vw,38px) 12px;
+  display: grid;
+  grid-template-columns: minmax(170px,.72fr) minmax(0,1.55fr);
+  grid-template-rows: auto auto auto auto;
+  align-content: start;
+  row-gap: 0;
+}
+#scroll-closeness-section .closeness-topline { grid-column:1/-1;grid-row:1; }
+#scroll-closeness-section h2 { grid-column:1;grid-row:2;margin:22px 0 12px;font-size:clamp(48px,5.5vw,100px); }
+#scroll-closeness-section .closeness-intro { grid-column:2;grid-row:2;align-self:start;margin:0;font-size:clamp(16px,1.25vw,22px); }
+#scroll-closeness-section .closeness-scene {
+  grid-column:1/-1;
+  grid-row:3;
+  position:relative;
+  height:clamp(180px,18vw,265px);
+  width:100%;
+  margin-top:52px;
+  overflow:hidden;
+}
+#scroll-closeness-section .closeness-person--you {
+  left:calc(18% + var(--you-retreat,0) * 9%);
+}
+#scroll-closeness-section .closeness-person--stranger {
+  left:calc(82% - var(--stranger-approach,0) * 48%);
+}
+#scroll-closeness-section .closeness-person--stranger .closeness-circle {
+  background-color:rgb(160 162 159 / calc(.08 + var(--stranger-approach,0) * .72));
+}
+#scroll-closeness-section .closeness-feedback { grid-column:1/-1;grid-row:4;margin-top:18px; }
+@media(max-width:700px) {
+  #scroll-closeness-section.closeness-section--scroll {height:145svh;min-height:680px;}
+  #scroll-closeness-section .closeness-inner {display:block;padding:18px;}
+  #scroll-closeness-section h2 {font-size:clamp(42px,9vw,68px);}
+  #scroll-closeness-section .closeness-scene {height:190px;margin-top:24px;}
+}
