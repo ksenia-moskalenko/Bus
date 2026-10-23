@@ -4181,3 +4181,10 @@ h6,
     margin-top: 0;
   }
 }
+
+/* Align the first line of the scroll-distance description with the marked baseline. */
+@media (min-width: 701px) {
+  #scroll-closeness-section .closeness-intro {
+    margin-top: 24px;
+  }
+}
