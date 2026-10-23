@@ -4261,3 +4261,20 @@ h6,
     margin-top: 0;
   }
 }
+
+/* Goffman portrait: anchor to the first column instead of auto-placement in column 11. */
+@media (min-width: 701px) {
+  #frames-section .proxemics-editorial__body > .gofman-portrait {
+    grid-column: 1 / 2;
+    justify-self: start;
+    align-self: start;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    margin: 0;
+    float: none;
+    transform: translateX(-4px);
+    object-fit: cover;
+  }
+}
