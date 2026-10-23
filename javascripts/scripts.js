@@ -336,44 +336,82 @@ updateSectionNav();
 })();
 
 
-/* Scroll-controlled personal distance: stranger approaches, you retreat, they keep following. */
+/* Interactive circumstance comparison: drag your position, keep it across scenarios. */
 (() => {
- const section=document.getElementById('closeness-section');
- const scene=document.getElementById('closeness-scene');
- const status=document.getElementById('closeness-status');
- const description=document.getElementById('closeness-description');
- if(!section||!scene||!status||!description)return;
- const clamp=(n)=>Math.max(0,Math.min(1,n));
- let lastStage=-1;
- let ticking=false;
- function render(){
-  ticking=false;
-  const rect=section.getBoundingClientRect();
-  const distance=Math.max(1,rect.height-window.innerHeight);
-  const progress=clamp(-rect.top/distance);
-  // First the stranger moves alone. After 45%, you move away,
-  // but the stranger keeps approaching and closes the gap.
-  const retreat=clamp((progress-.45)/.55);
-  const approach=clamp(progress);
-  scene.style.setProperty('--stranger-approach',approach.toFixed(4));
-  scene.style.setProperty('--you-retreat',retreat.toFixed(4));
-  section.style.setProperty('--scroll-progress',progress.toFixed(4));
-  const stage=progress<.18?0:progress<.45?1:progress<.72?2:3;
-  if(stage===lastStage)return;
-  lastStage=stage;
-  const messages=[
-   ['Пока комфортно','Между вами достаточно пространства. Присутствие другого человека почти не ощущается.'],
-   ['Он приближается','Незнакомец сокращает расстояние. Ты начинаешь замечать его присутствие.'],
-   ['Ты отодвигаешься','Ты пытаешься сохранить личное пространство, но незнакомец продолжает подходить ближе.'],
-   ['Отойти не получается','Ты отдаляешься, а он всё равно приближается. В автобусе личные границы не всегда зависят только от тебя.']
-  ];
-  status.textContent=messages[stage][0];
-  description.textContent=messages[stage][1];
- }
- function requestRender(){if(!ticking){ticking=true;requestAnimationFrame(render);}}
- window.addEventListener('scroll',requestRender,{passive:true});
- window.addEventListener('resize',requestRender);
- render();
+  const bus = document.getElementById('context-bus');
+  const you = document.getElementById('context-you');
+  const other = document.getElementById('context-other');
+  const crowd = document.getElementById('context-crowd');
+  if (!bus || !you || !other || !crowd) return;
+  const title = document.getElementById('context-title');
+  const description = document.getElementById('context-description');
+  const distanceText = document.getElementById('context-distance-value');
+  const otherLabel = document.getElementById('context-other-label');
+  const count = document.getElementById('context-count');
+  const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+  let x = 36, y = 51, context = 'empty', dragging = false;
+  const ox = 62, oy = 51;
+  const messages = {
+    empty: ['01', 'Пустой автобус', 'Вокруг полно свободных мест. Если незнакомец подходит слишком близко, ты можешь задуматься: почему он выбрал именно это место?'],
+    rush: ['02', 'Час пик', 'В автобусе тесно, свободных мест почти нет. То же расстояние может восприниматься иначе: люди оказываются рядом не потому, что так решили.'],
+    friend: ['03', 'Рядом друг', 'Теперь на том же месте находится знакомый человек. Близость может ощущаться спокойнее, хотя расстояние между вами вообще не изменилось.']
+  };
+  [[18,39],[27,61],[40,39],[50,62],[70,40],[78,61],[86,45],[56,35]].forEach(([cx,cy]) => {
+    const dot = document.createElement('span');
+    dot.className = 'context-crowd__dot';
+    dot.style.left = cx + '%';
+    dot.style.top = cy + '%';
+    crowd.appendChild(dot);
+  });
+  function render() {
+    you.style.left = x + '%'; you.style.top = y + '%';
+    other.style.left = ox + '%'; other.style.top = oy + '%';
+    const dx = (x - ox) * bus.clientWidth / 100;
+    const dy = (y - oy) * bus.clientHeight / 100;
+    const d = Math.hypot(dx, dy);
+    const near = d < 95;
+    distanceText.textContent = near ? 'БЛИЗКО' : d < 200 ? 'НА РАССТОЯНИИ' : 'ДАЛЕКО';
+    you.setAttribute('aria-valuenow', String(Math.round(x)));
+    you.setAttribute('aria-valuetext', 'Положение: ' + Math.round(x) + '% по длине салона, ' + Math.round(y) + '% по ширине. ' + distanceText.textContent.toLowerCase());
+    bus.dataset.context = context;
+    otherLabel.textContent = context === 'friend' ? 'ДРУГ' : 'НЕЗНАКОМЕЦ';
+    count.textContent = messages[context][0];
+    title.textContent = messages[context][1];
+    description.textContent = messages[context][2];
+  }
+  function move(event) {
+    const r = bus.getBoundingClientRect();
+    x = clamp((event.clientX - r.left) / r.width * 100, 9, 91);
+    y = clamp((event.clientY - r.top) / r.height * 100, 23, 77);
+    render();
+  }
+  you.addEventListener('pointerdown', e => {
+    dragging = true;
+    you.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+  you.addEventListener('pointermove', e => { if (dragging) move(e); });
+  you.addEventListener('pointerup', () => { dragging = false; });
+  you.addEventListener('pointercancel', () => { dragging = false; });
+  you.addEventListener('keydown', e => {
+    const keys = {ArrowLeft:[-2,0],ArrowRight:[2,0],ArrowUp:[0,-2],ArrowDown:[0,2]};
+    if (!keys[e.key]) return;
+    e.preventDefault();
+    x = clamp(x + keys[e.key][0],9,91);
+    y = clamp(y + keys[e.key][1],23,77);
+    render();
+  });
+  document.querySelectorAll('.context-tab').forEach(tab => tab.addEventListener('click', () => {
+    context = tab.dataset.context;
+    document.querySelectorAll('.context-tab').forEach(button => {
+      const active = button === tab;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    render();
+  }));
+  window.addEventListener('resize', render);
+  render();
 })();
 
 
