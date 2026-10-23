@@ -3923,7 +3923,7 @@ body::before {
   overflow: hidden;
 }
 #scroll-closeness-section .closeness-person--you {
-  left: calc(18% - var(--you-retreat, 0) * 9%);
+  left: max(calc(18% - var(--you-retreat, 0) * 5%), calc(clamp(130px, 15vw, 195px) / 2 + 12px));
 }
 #scroll-closeness-section .closeness-person--stranger {
   left: calc(82% - var(--stranger-approach, 0) * 48%);
@@ -4192,4 +4192,16 @@ h6,
 /* Standard letter spacing for the closing paragraph of the proxemics article. */
 #proxemics-section .proxemics-editorial__body > .proxemics-editorial__closing {
   letter-spacing: normal;
+}
+
+/* Requested letter spacing for the final paragraph about the bag on a seat. */
+#frames-section .proxemics-editorial__body > .proxemics-editorial__closing {
+  letter-spacing: -0.02em;
+}
+
+/* Keep the retreating circle completely inside the scene on narrow screens. */
+@media (max-width: 700px) {
+  #scroll-closeness-section .closeness-person--you {
+    left: max(calc(18% - var(--you-retreat, 0) * 5%), calc(clamp(105px, 26vw, 145px) / 2 + 12px));
+  }
 }
