@@ -1,0 +1,168 @@
+
+/* MOBILE ONLY. Desktop rules live in layout.css and remain unchanged. */
+@media (max-width: 700px) {
+  html, body { width: 100%; max-width: 100%; overflow-x: clip; }
+  body { -webkit-text-size-adjust: 100%; }
+  .mobile-menu-toggle {
+    position: fixed; z-index: 1002; top: max(12px, env(safe-area-inset-top));
+    left: 14px; width: 48px; height: 46px; display: flex;
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 6px; border: 1px solid #111; background: #f0f1ed; cursor: pointer;
+  }
+  .mobile-menu-toggle span { width: 23px; height: 2px; background: #111; transition: transform .2s, opacity .2s; }
+  .mobile-menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(8px) rotate(45deg); }
+  .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .mobile-menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-8px) rotate(-45deg); }
+  .section-nav, .section-nav.is-visible {
+    position: fixed !important; z-index: 1001 !important; inset: 0 !important;
+    width: min(88vw, 360px) !important; height: 100dvh !important;
+    max-height: none !important; box-sizing: border-box;
+    padding: calc(78px + env(safe-area-inset-top)) 18px 30px !important;
+    margin: 0 !important; display: flex !important; flex-direction: column !important;
+    justify-content: flex-start !important; align-items: stretch !important;
+    gap: 0 !important; background: #f0f1ed !important;
+    border: 0 !important; border-right: 1px solid #111 !important;
+    overflow-y: auto !important; opacity: 1 !important; visibility: visible !important;
+    pointer-events: auto !important; transform: translateX(-105%) !important;
+    transition: transform .25s ease !important;
+  }
+  .section-nav.mobile-menu-open { transform: translateX(0) !important; }
+  .section-nav .section-nav__link,
+  .section-nav .section-nav__link:not(.is-revealed) {
+    display: flex !important; flex: 0 0 auto !important;
+    align-items: baseline !important; justify-content: space-between !important;
+    gap: 12px !important; padding: 15px 0 !important;
+    border: 0 !important; border-bottom: 1px solid #111 !important;
+    opacity: 1 !important; visibility: visible !important;
+    pointer-events: auto !important; transform: none !important;
+    animation: none !important; text-align: left !important;
+  }
+  .section-nav__name { font-size: 17px !important; }
+  .section-nav__type { font-size: 10px !important; white-space: normal !important; }
+  .section-nav .section-nav__link:first-child { border-top: 1px solid #111 !important; }
+  .mobile-menu-backdrop {
+    position: fixed; z-index: 1000; inset: 0; background: rgb(0 0 0 / 40%);
+    border: 0; padding: 0; display: none;
+  }
+  .mobile-menu-backdrop.is-open { display: block; }
+  .story-stage {
+    display: block !important; height: 100svh; min-height: 580px;
+    overflow: hidden; border: 0;
+  }
+  .story-stage::before, .story-left { display: none !important; }
+  .story-right { width: 100%; height: 100%; }
+  .story-prompt { top: 72px !important; left: 50%; font-size: 12px; }
+  .story-right > .prompt-select {
+    top: 75px !important; left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: clamp(32px, 9vw, 52px) !important;
+    white-space: nowrap;
+  }
+  .hero-title { right: 12px !important; bottom: 16px !important; font-size: clamp(54px, 14vw, 92px) !important; }
+  .seat-experience {
+    top: 135px !important; bottom: 14px !important; left: 12px !important;
+    right: 12px !important; justify-content: flex-end !important;
+    align-items: center; gap: 12px !important;
+  }
+  /* Rotate the image AND seat hit areas together; pointer targets remain aligned. */
+  .bus-interactive {
+    width: min(136vw, 68svh) !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    transform-origin: center center !important;
+    transform: translateX(calc((1 - var(--bus-enter, 0)) * 115%)) rotate(90deg) !important;
+    margin: 0 !important;
+  }
+  .bus-image { width: 96% !important; transform: translateY(6px) !important; }
+  .seat-buttons { inset: 0; }
+  .seat-button { min-width: 12px; min-height: 12px; }
+  .seat-result {
+    width: 100%; box-sizing: border-box; min-height: 0 !important;
+    padding: 12px !important; margin: 0 !important;
+  }
+  .seat-result p { font-size: clamp(13px, 3.7vw, 17px) !important; line-height: 1.3; }
+  .result-number { font-size: 10px !important; margin-bottom: 6px; }
+  .longread-section {
+    margin-left: 0 !important; border-left: 0 !important;
+    padding: 72px 16px 46px !important; min-height: auto !important;
+    width: 100%; box-sizing: border-box;
+  }
+  .longread-section h2 { font-size: clamp(36px, 10vw, 58px) !important; line-height: .96; margin: 12px 0 24px; }
+  .longread-section p { font-size: clamp(16px, 4.4vw, 21px) !important; line-height: 1.3; }
+  #proxemics-section .proxemics-editorial__inner,
+  #frames-section .proxemics-editorial__inner { padding: 0 !important; width: 100%; }
+  #proxemics-section .proxemics-editorial__body,
+  #frames-section .proxemics-editorial__body {
+    display: block !important; padding-bottom: 0 !important;
+  }
+  #proxemics-section .proxemics-editorial__body > *,
+  #frames-section .proxemics-editorial__body > * { max-width: 100%; }
+  #proxemics-section .proxemics-editorial__body > .proxemics-editorial__lead,
+  #frames-section .proxemics-editorial__body > .proxemics-editorial__lead {
+    font-size: clamp(23px, 6vw, 31px) !important; margin-bottom: 26px;
+  }
+  #proxemics-section .proxemics-editorial__paragraph-with-photo { display: flow-root !important; }
+  #proxemics-section .proxemics-editorial__paragraph-with-photo .editorial-photo,
+  #proxemics-section .proxemics-editorial__inline-photo,
+  #frames-section .gofman-portrait {
+    width: 90px !important; height: 90px !important; aspect-ratio: 1 !important;
+    object-fit: cover; float: left !important;
+    margin: 4px 13px 8px 0 !important; transform: none !important;
+  }
+  #proxemics-section .proxemics-editorial__paragraph-with-photo .editorial-photo img {
+    width: 100%; height: 100%; aspect-ratio: 1; object-fit: cover;
+  }
+  #proxemics-section .proxemics-editorial__definition p,
+  #frames-section .proxemics-editorial__definition p { font-size: clamp(21px, 5.5vw, 30px) !important; }
+  #rating-section { display: block !important; padding: 72px 12px 40px !important; }
+  #rating-section .neighbor-game__content { padding: 0 !important; min-height: 0 !important; }
+  #rating-section .neighbor-game__heading { display: block; padding: 0 4px 24px; }
+  #rating-section .neighbor-game__heading h2 { font-size: clamp(46px, 12vw, 72px) !important; margin: 0; }
+  #rating-section .neighbor-game__cards {
+    display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important; width: 100%;
+  }
+  #rating-section .neighbor-card {
+    aspect-ratio: 1 / 1 !important; height: auto !important; min-height: 0 !important;
+    width: 100%; padding: 9px !important; overflow: hidden;
+  }
+  #rating-section .neighbor-card__portrait,
+  #rating-section .neighbor-card[data-neighbor] .neighbor-card__portrait {
+    height: 38% !important; min-height: 0 !important; margin: 0 0 3px !important;
+  }
+  #rating-section .neighbor-card__portrait img { width: 100%; height: 100%; object-fit: contain; }
+  #rating-section .neighbor-card__number { font-size: 8px !important; margin: 0 0 3px !important; }
+  #rating-section .neighbor-card__name { font-size: clamp(16px, 4.5vw, 22px) !important; line-height: 1 !important; }
+  #rating-section .neighbor-card__hint { font-size: clamp(10px, 2.8vw, 13px) !important; margin: 5px 0 !important; line-height: 1.15 !important; }
+  #rating-section .neighbor-card__action { font-size: 10px !important; margin-top: auto !important; }
+  #rating-section .neighbor-reveal { padding: 14px !important; margin-top: 14px; }
+  #rating-section .neighbor-reveal__rating strong { font-size: 40px !important; }
+  #closeness-section.bus-context { display: block !important; padding: 72px 14px 40px !important; height: auto !important; min-height: 0 !important; }
+  #closeness-section .closeness-inner { display: block !important; width: 100%; padding: 0 !important; }
+  #closeness-section .context-tabs { display: flex; width: 100%; margin: 18px 0; }
+  #closeness-section .context-tab { flex: 1; padding: 12px 4px; font-size: 12px; }
+  #closeness-section .context-layout { display: block !important; margin-bottom: 0; }
+  #closeness-section .context-bus-wrap { width: 100%; margin-bottom: 20px; }
+  #closeness-section .context-bus-label { font-size: 9px; }
+  /* The horizontal coordinate system is rotated as one piece, preserving seat geometry. */
+  #closeness-section .context-bus {
+    width: min(125vw, 510px) !important; height: min(75vw, 305px) !important;
+    transform-origin: top left; transform: translateX(min(75vw, 305px)) rotate(90deg);
+    box-sizing: border-box;
+  }
+  #closeness-section .context-bus-wrap { padding-bottom: min(125vw, 510px); position: relative; }
+  #closeness-section .context-bus-wrap .context-bus {
+    position: absolute; top: 30px; left: 0;
+  }
+  #closeness-section .context-person--you { touch-action: none !important; }
+  #closeness-section .context-person__dot { width: 30px; }
+  #closeness-section .context-person__label { font-size: 8px; }
+  #closeness-section .context-copy h3 { font-size: clamp(25px, 7vw, 36px); }
+  #scroll-closeness-section { padding: 65px 16px 35px !important; }
+  #scroll-closeness-section .closeness-inner { width: 100%; }
+  #scroll-closeness-section .closeness-scene { max-width: 100%; }
+  #final-section { padding: 65px 16px 35px !important; }
+  #final-section .journey-finale { width: 100%; min-width: 0; }
+  #final-section .journey-finale__return { max-width: 100%; }
+}
+@media (min-width: 701px) { .mobile-menu-toggle, .mobile-menu-backdrop { display: none !important; } }
