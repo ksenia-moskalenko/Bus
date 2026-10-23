@@ -4174,3 +4174,10 @@ h6,
 #scroll-closeness-section .closeness-feedback strong {
   letter-spacing: normal;
 }
+
+/* Align the top edges of the scroll-section title and description. */
+@media (min-width: 701px) {
+  #scroll-closeness-section h2 {
+    margin-top: 0;
+  }
+}
