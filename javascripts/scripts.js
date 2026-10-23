@@ -411,7 +411,7 @@ updateSectionNav();
     you.setAttribute('aria-valuetext', 'Положение: ' + Math.round(x) + '% по длине салона, ' + Math.round(y) + '% по ширине. ' + distanceText.textContent.toLowerCase());
     bus.dataset.context = context;
     otherLabel.textContent = context === 'friend' ? 'ДРУГ' : 'НЕЗНАКОМЕЦ';
-    count.textContent = messages[context][0];
+    if (count) count.textContent = messages[context][0];
     title.textContent = messages[context][1];
     description.textContent = messages[context][2];
   }
