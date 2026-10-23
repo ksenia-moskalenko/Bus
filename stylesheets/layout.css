@@ -3954,3 +3954,11 @@ h1, h2, h3, h4, h5, h6,
 #final-section .journey-finale__return-title {
   letter-spacing: normal !important;
 }
+
+/* Align the scroll experiment introduction vertically with its headline. */
+@media (min-width: 701px) {
+  #scroll-closeness-section .closeness-intro {
+    align-self: center;
+    margin-top: 0;
+  }
+}
