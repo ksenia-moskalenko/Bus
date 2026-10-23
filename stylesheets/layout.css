@@ -3888,3 +3888,24 @@ body::before {
 @media (max-width: 700px) {
   #scroll-closeness-section .closeness-person { width: clamp(105px, 26vw, 145px); }
 }
+
+/* Progressive section navigation: each entry appears only after its section is reached. */
+.section-nav .section-nav__link {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .45s ease, transform .45s ease, visibility .45s;
+}
+.section-nav .section-nav__link.is-revealed {
+  opacity: .48;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.section-nav .section-nav__link.is-revealed:hover,
+.section-nav .section-nav__link.is-revealed:focus-visible,
+.section-nav .section-nav__link.is-revealed.is-active { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .section-nav .section-nav__link { transition: none; }
+}
