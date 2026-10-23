@@ -3857,3 +3857,6 @@ body::before {
   box-shadow: 0 0 0 9px rgb(0 0 0 / 11%);
 }
 #context-bus .context-crowd__dot { border-width: 1px; }
+
+/* Remove the horizontal rule above the bus situation heading. */
+#proxemics-section .context-copy { border-top: 0; }
