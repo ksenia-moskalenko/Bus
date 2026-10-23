@@ -2610,6 +2610,7 @@ body.has-scrolled .section-nav {
 
 /* Temporary visible 12-column layout guide: 20px side margins and gutters. */
 .layout-grid-overlay {
+  display: none;
   position: fixed;
   inset: 0 20px;
   display: grid;
