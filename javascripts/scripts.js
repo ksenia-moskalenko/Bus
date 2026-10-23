@@ -405,15 +405,61 @@ updateSectionNav();
     const dx = (x - ox) * bus.clientWidth / 100;
     const dy = (y - oy) * bus.clientHeight / 100;
     const d = Math.hypot(dx, dy);
-    const near = d < 95;
-    distanceText.textContent = near ? 'БЛИЗКО' : d < 200 ? 'НА РАССТОЯНИИ' : 'ДАЛЕКО';
+    // The location is evaluated first; the selected circumstances change its meaning.
+    // Zones correspond to the driver's cabin, window strips, doors and nearby passenger.
+    let zone;
+    if (x <= 18 && y < 47) zone = 'driver';
+    else if (y >= 66 && ((x >= 26 && x <= 49) || x >= 71)) zone = 'door';
+    else if (y <= 30 || y >= 73) zone = 'window';
+    else if (d < Math.min(bus.clientWidth * .16, 125)) zone = 'neighbor';
+    else zone = 'aisle';
+
+    const places = {
+      driver: {
+        label: 'У ВОДИТЕЛЯ',
+        title: 'Рядом с водителем',
+        empty: 'В пустом автобусе место у кабины может давать ощущение контроля: видно, что происходит впереди, и рядом меньше пассажиров.',
+        rush: 'В час пик у водителя может быть спокойнее, чем в середине салона, но проход и переднюю площадку приходится делить с другими.',
+        friend: 'Даже если едешь с другом, место рядом с кабиной может казаться более спокойным: ты ближе к передней части автобуса.'
+      },
+      window: {
+        label: 'У ОКНА',
+        title: 'Место у окна',
+        empty: 'Окно становится личной границей: с одной стороны никто не подойдёт, можно смотреть на улицу и меньше замечать салон.',
+        rush: 'В час пик окно защищает только с одной стороны. С другой могут стоять люди, поэтому привычное место ощущается теснее.',
+        friend: 'С другом рядом у окна можно спокойно разговаривать или просто смотреть на улицу. Знакомый человек меняет ощущение близости.'
+      },
+      door: {
+        label: 'У ВЫХОДА',
+        title: 'Рядом с дверью',
+        empty: 'У двери удобно быстро выйти. Пока автобус пуст, здесь достаточно пространства, но на остановках приходится уступать дорогу.',
+        rush: 'В час пик возле дверей собираются пассажиры. Даже если никто не пытается нарушить твою дистанцию, личного пространства становится меньше.',
+        friend: 'С другом у выхода проще держаться вместе перед остановкой, но поток входящих и выходящих всё равно заставляет двигаться.'
+      },
+      neighbor: {
+        label: context === 'friend' ? 'РЯДОМ С ДРУГОМ' : 'РЯДОМ С ПАССАЖИРОМ',
+        title: context === 'friend' ? 'Рядом друг' : 'Слишком близко к соседу',
+        empty: 'Свободных мест много, поэтому близость незнакомца может казаться неожиданной: почему он оказался именно здесь?',
+        rush: 'В час пик близость незнакомца чаще объясняется теснотой. Расстояние то же, но причина кажется понятнее.',
+        friend: 'На таком же расстоянии находится друг. Близость знакомого человека может ощущаться совсем иначе, чем близость незнакомца.'
+      },
+      aisle: {
+        label: 'В ПРОХОДЕ',
+        title: 'В середине салона',
+        empty: 'В свободном проходе легко выбрать дистанцию самому: можно отойти, не мешая другим.',
+        rush: 'В заполненном салоне проход превращается в общее пространство. Приходится постоянно подстраиваться под движение пассажиров.',
+        friend: 'В середине салона вы можете стоять рядом с другом, но всё равно уступать место тем, кто проходит к дверям.'
+      }
+    };
+    const place = places[zone];
+    distanceText.textContent = place.label;
+    title.textContent = place.title;
+    description.textContent = place[context];
     you.setAttribute('aria-valuenow', String(Math.round(x)));
-    you.setAttribute('aria-valuetext', 'Положение: ' + Math.round(x) + '% по длине салона, ' + Math.round(y) + '% по ширине. ' + distanceText.textContent.toLowerCase());
+    you.setAttribute('aria-valuetext', place.label.toLowerCase() + ', ' + Math.round(x) + '% по длине салона, ' + Math.round(y) + '% по ширине');
     bus.dataset.context = context;
     otherLabel.textContent = context === 'friend' ? 'ДРУГ' : 'НЕЗНАКОМЕЦ';
     if (count) count.textContent = messages[context][0];
-    title.textContent = messages[context][1];
-    description.textContent = messages[context][2];
   }
   function move(event) {
     const r = bus.getBoundingClientRect();
