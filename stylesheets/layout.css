@@ -4112,7 +4112,7 @@ h6,
    the horizontal scroll entrance animation. */
 @media (min-width: 701px) {
   .story-stage .bus-interactive {
-    top: calc(-1 * clamp(110px, 12vh, 180px));
+    top: calc(10px - clamp(110px, 12vh, 180px));
   }
 }
 
