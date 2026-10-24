@@ -596,3 +596,16 @@
     transform: rotate(180deg) !important;
   }
 }
+
+/* Mobile rating cards: keep the arrow, hide its label and lower the text block. */
+@media (max-width: 700px) {
+  #rating-section .neighbor-card .neighbor-card__action {
+    font-size: 0 !important;
+  }
+  #rating-section .neighbor-card__number {
+    margin-top: auto !important;
+  }
+  #rating-section .neighbor-card__hint {
+    margin-bottom: 25px !important;
+  }
+}
