@@ -494,3 +494,14 @@
     text-align: right;
   }
 }
+
+/* Desktop: keep the icon and caption visible while scrolling the whole page. */
+@media (min-width: 701px) {
+  .desktop-intro-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: auto;
+    z-index: 100;
+  }
+}
