@@ -551,7 +551,11 @@
 
 /* Move the entire interactive bus (including passenger imagery and seat hit targets) up 20px on mobile. */
 @media (max-width: 700px) {
+  /* Keep the bus elevated without moving its result panel. */
   #seat-section .story-stage .seat-experience {
-    bottom: 134px !important; /* 120px above original 14px mobile position */
+    bottom: 14px !important;
+  }
+  #seat-section .story-stage .seat-experience .bus-interactive {
+    top: -120px !important;
   }
 }
