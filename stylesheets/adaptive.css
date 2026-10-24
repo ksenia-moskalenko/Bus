@@ -511,3 +511,40 @@
 
 /* Scroll prompt line uses the same gray as its label. */
 .story-prompt .prompt-line { background-color: #888888; }
+
+/* Mobile first screen: centered bus icon and project question. */
+@media (max-width: 700px) {
+  #seat-section .desktop-intro-header {
+    display: flex !important;
+    position: absolute !important;
+    top: 50svh !important;
+    left: 50% !important;
+    right: auto !important;
+    width: min(86vw, 340px) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: translate(-50%, -50%) !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 14px !important;
+    text-align: center !important;
+    pointer-events: none;
+    z-index: 5;
+  }
+  #seat-section .desktop-intro-header__icon {
+    display: block !important;
+    width: 96px !important;
+    height: 72px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+  #seat-section .desktop-intro-header__title {
+    display: block !important;
+    align-self: center !important;
+    font-size: 14px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+    text-align: center !important;
+  }
+}
