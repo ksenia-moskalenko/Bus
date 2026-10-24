@@ -4324,3 +4324,8 @@ h6,
   position: relative;
   left: -5px;
 }
+
+/* Raise the third text line (description) on all four rating cards by 5px. */
+#rating-section .neighbor-card__hint {
+  top: -5px;
+}
