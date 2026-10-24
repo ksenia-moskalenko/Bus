@@ -555,7 +555,13 @@
   #seat-section .story-stage .seat-experience {
     bottom: 14px !important;
   }
+  /* Center the rotated bus in the visible viewport at every phone height. */
   #seat-section .story-stage .seat-experience .bus-interactive {
-    top: -120px !important;
+    position: fixed !important;
+    top: 50svh !important;
+    left: 50vw !important;
+    margin: 0 !important;
+    transform: translate(-50%, -50%) rotate(90deg) !important;
+    transform-origin: center center !important;
   }
 }
