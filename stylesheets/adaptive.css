@@ -552,6 +552,6 @@
 /* Move the entire interactive bus (including passenger imagery and seat hit targets) up 20px on mobile. */
 @media (max-width: 700px) {
   #seat-section .story-stage .seat-experience {
-    bottom: 64px !important; /* 50px above original 14px mobile position */
+    bottom: 134px !important; /* 120px above original 14px mobile position */
   }
 }
