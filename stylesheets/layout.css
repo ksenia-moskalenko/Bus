@@ -4316,3 +4316,11 @@ h6,
   align-self: auto;
   line-height: 1;
 }
+
+/* Shift passenger card text 10px left, without moving the arrows. */
+#rating-section .neighbor-card__number,
+#rating-section .neighbor-card__name,
+#rating-section .neighbor-card__hint {
+  position: relative;
+  left: -10px;
+}
