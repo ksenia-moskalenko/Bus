@@ -505,3 +505,6 @@
     z-index: 100;
   }
 }
+
+/* Match the gray caption color in the reference screenshot. */
+.prompt-start { color: #888888; text-transform: none; }
