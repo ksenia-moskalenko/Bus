@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Автобус</title>
   <link rel="icon" type="image/png" href="images/favicon-square.png?v=2" />
-  <link rel="stylesheet" href="stylesheets/style.css?v=20261025driverlabel1" />
+  <link rel="stylesheet" href="stylesheets/style.css?v=20261025svgicons1" />
   <script defer src="javascripts/scripts.js?v=20261024mobile1"></script>
 </head>
 <body>
@@ -52,7 +52,7 @@
       <h2 id="proxemics-heading" class="proxemics-editorial__title">В автобусе мы постоянно регулируем расстояние между собой</h2>
       <div class="proxemics-editorial__interlude">
         <span class="proxemics-editorial__index">Личное пространство</span>
-        <span class="proxemics-editorial__asterisk" aria-hidden="true">✳</span>
+        <span class="proxemics-editorial__asterisk" aria-hidden="true"><svg class="ui-star-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="8" aria-hidden="true" focusable="false"><path d="M50 3v94M3 50h94M17 17l66 66M83 17 17 83"/></svg></span>
         <span class="proxemics-editorial__annotation">почему одно свободное место<br>кажется удобнее другого?</span>
       </div>
       <div class="proxemics-editorial__body">
@@ -90,7 +90,7 @@
             <div class="context-door context-door--two">ДВЕРЬ</div>
             <div class="context-crowd" id="context-crowd" aria-hidden="true"></div>
             <div class="context-person context-person--other" id="context-other"><span class="context-person__dot"></span><span class="context-person__label" id="context-other-label">НЕЗНАКОМЕЦ</span></div>
-            <div class="context-person context-person--you" id="context-you" role="slider" tabindex="0" aria-label="Твоё положение в автобусе" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" aria-valuetext="Перетащи меня мышкой или используй стрелки"><span class="context-person__dot"></span><span class="context-person__label">ТЫ ↗</span></div>
+            <div class="context-person context-person--you" id="context-you" role="slider" tabindex="0" aria-label="Твоё положение в автобусе" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" aria-valuetext="Перетащи меня мышкой или используй стрелки"><span class="context-person__dot"></span><span class="context-person__label">ТЫ <svg class="ui-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true" focusable="false"><path d="M5 19 19 5M7 5h12v12"/></svg></span></div>
           </div>
           
         </div>
@@ -112,10 +112,10 @@
       <div class="neighbor-game__top"><span>РЕЙТИНГ СОСЕДЕЙ</span><span>СОСЕД — ЭТО ЛОТЕРЕЯ</span></div>
       <div class="neighbor-game__heading"><h2 id="rating-heading">Кто сядет<br>рядом?</h2></div>
       <div class="neighbor-game__cards" id="neighbor-cards">
-        <button class="neighbor-card" type="button" data-neighbor="headphones" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/boyHeadphones.png" alt="Мальчик в наушниках" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">В наушниках</span><span class="neighbor-card__hint">На вид — идеальный сосед</span><span class="neighbor-card__action">ВЫБРАТЬ ↗</span></button>
-        <button class="neighbor-card" type="button" data-neighbor="bag" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/bigBag.png?v=20261021-2" alt="Девушка с большой сумкой" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">С большой сумкой</span><span class="neighbor-card__hint">Вроде бы просто багаж</span><span class="neighbor-card__action">ВЫБРАТЬ ↗</span></button>
-        <button class="neighbor-card" type="button" data-neighbor="talker" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/talkingMan.png" alt="Говорящий пассажир" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">Общительный</span><span class="neighbor-card__hint">Улыбается и смотрит на тебя</span><span class="neighbor-card__action">ВЫБРАТЬ ↗</span></button>
-        <button class="neighbor-card" type="button" data-neighbor="sleeper" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/sleapyMan.png" alt="Спящий пассажир" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">Сонный</span><span class="neighbor-card__hint">Кажется, сейчас уснёт</span><span class="neighbor-card__action">ВЫБРАТЬ ↗</span></button>
+        <button class="neighbor-card" type="button" data-neighbor="headphones" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/boyHeadphones.png" alt="Мальчик в наушниках" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">В наушниках</span><span class="neighbor-card__hint">На вид — идеальный сосед</span><span class="neighbor-card__action">ВЫБРАТЬ</span></button>
+        <button class="neighbor-card" type="button" data-neighbor="bag" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/bigBag.png?v=20261021-2" alt="Девушка с большой сумкой" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">С большой сумкой</span><span class="neighbor-card__hint">Вроде бы просто багаж</span><span class="neighbor-card__action">ВЫБРАТЬ</span></button>
+        <button class="neighbor-card" type="button" data-neighbor="talker" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/talkingMan.png" alt="Говорящий пассажир" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">Общительный</span><span class="neighbor-card__hint">Улыбается и смотрит на тебя</span><span class="neighbor-card__action">ВЫБРАТЬ</span></button>
+        <button class="neighbor-card" type="button" data-neighbor="sleeper" aria-expanded="false"><span class="neighbor-card__portrait"><img src="images/sleapyMan.png" alt="Спящий пассажир" loading="lazy"></span><span class="neighbor-card__number">ПАССАЖИР</span><span class="neighbor-card__name">Сонный</span><span class="neighbor-card__hint">Кажется, сейчас уснёт</span><span class="neighbor-card__action">ВЫБРАТЬ</span></button>
       </div>
       <div class="neighbor-reveal" id="neighbor-reveal" aria-live="polite">
         <div class="neighbor-reveal__body"><span class="neighbor-reveal__caption">РЕЙТИНГ КОМФОРТАБЕЛЬНОСТИ ПОЕЗДКИ</span><div class="neighbor-reveal__rating"><strong id="neighbor-reveal-percent">0%</strong><div class="neighbor-reveal__track"><span id="neighbor-reveal-fill"></span></div></div><strong id="neighbor-reveal-title"></strong><p id="neighbor-reveal-text"></p></div>
@@ -129,7 +129,7 @@
       <h2 class="proxemics-editorial__title" id="frames-heading">Одно расстояние —<br>разные правила</h2>
       <div class="proxemics-editorial__interlude">
         <span class="proxemics-editorial__index">Правила соседства</span>
-        <span class="proxemics-editorial__asterisk" aria-hidden="true">✳</span>
+        <span class="proxemics-editorial__asterisk" aria-hidden="true"><svg class="ui-star-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="8" aria-hidden="true" focusable="false"><path d="M50 3v94M3 50h94M17 17l66 66M83 17 17 83"/></svg></span>
         <span class="proxemics-editorial__annotation">одно и то же действие<br>может значить разное</span>
       </div>
       <div class="proxemics-editorial__body">
@@ -163,10 +163,10 @@
       <a class="journey-finale__return" href="#seat-section" aria-label="Вернуться к началу сайта">
         <span class="journey-finale__return-label">ОБРАТНЫЙ БИЛЕТ</span>
         <span class="journey-finale__return-title">Начнём сначала?</span>
-        <span class="journey-finale__return-arrow" aria-hidden="true">↗</span>
+        <span class="journey-finale__return-arrow" aria-hidden="true"><svg class="ui-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true" focusable="false"><path d="M5 19 19 5M7 5h12v12"/></svg></span>
       </a>
     </div>
-    <div class="journey-finale__footer"><span>ХОРОШЕЙ ДОРОГИ ✳</span></div>
+    <div class="journey-finale__footer"><span>ХОРОШЕЙ ДОРОГИ <svg class="ui-star-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="8" aria-hidden="true" focusable="false"><path d="M50 3v94M3 50h94M17 17l66 66M83 17 17 83"/></svg></span></div>
   </section>
   <div class="invert-cursor" id="invert-cursor" aria-hidden="true"></div>
 </body>
