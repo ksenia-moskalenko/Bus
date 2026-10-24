@@ -618,3 +618,18 @@
     transform: translate(4px, 7px);
   }
 }
+
+/* Enlarge passenger faces on mobile without letting them escape their cards. */
+@media (max-width: 700px) {
+  #rating-section .neighbor-card__portrait,
+  #rating-section .neighbor-card[data-neighbor] .neighbor-card__portrait {
+    height: 45% !important;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  #rating-section .neighbor-card__portrait img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+}
