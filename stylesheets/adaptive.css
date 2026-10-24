@@ -633,3 +633,12 @@
     object-fit: contain !important;
   }
 }
+
+/* Lower the four mobile passenger portraits by 15px. */
+@media (max-width: 700px) {
+  #rating-section .neighbor-card__portrait,
+  #rating-section .neighbor-card[data-neighbor] .neighbor-card__portrait {
+    position: relative;
+    top: 15px;
+  }
+}
