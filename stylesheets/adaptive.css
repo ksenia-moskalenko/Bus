@@ -166,3 +166,16 @@
   #final-section .journey-finale__return { max-width: 100%; }
 }
 @media (min-width: 701px) { .mobile-menu-toggle, .mobile-menu-backdrop { display: none !important; } }
+
+/* Mobile: remove the desktop's continuous quarter-width divider. */
+@media (max-width: 700px) {
+  body::before,
+  .story-stage::before { content: none !important; display: none !important; }
+  #proxemics-section,
+  #rating-section,
+  #frames-section,
+  #closeness-section,
+  #scroll-closeness-section,
+  #final-section,
+  .longread-section { border-left: 0 !important; }
+}
