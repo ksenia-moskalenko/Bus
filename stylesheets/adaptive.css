@@ -548,3 +548,10 @@
     text-align: center !important;
   }
 }
+
+/* Move the entire interactive bus (including passenger imagery and seat hit targets) up 20px on mobile. */
+@media (max-width: 700px) {
+  .seat-experience .bus-interactive {
+    transform: translateY(-20px) translateX(calc((1 - var(--bus-enter, 0)) * 115%)) rotate(90deg) !important;
+  }
+}
