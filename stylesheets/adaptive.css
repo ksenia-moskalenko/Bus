@@ -584,3 +584,15 @@
     white-space: nowrap;
   }
 }
+
+/* Mobile: horizontally center the rotated context bus and orient driver label upright. */
+@media (max-width: 700px) {
+  #closeness-section .context-bus-wrap .context-bus {
+    left: 50% !important;
+    transform: translateX(calc(-50% + min(75vw, 305px) / 2)) rotate(90deg) !important;
+  }
+  #closeness-section .context-driver {
+    writing-mode: horizontal-tb !important;
+    transform: rotate(180deg);
+  }
+}
