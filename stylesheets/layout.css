@@ -4304,3 +4304,15 @@ h6,
 .proxemics-editorial__asterisk .ui-star-icon { display:block; width:1em; height:1em; }
 .journey-finale__return-arrow .ui-arrow-icon { display:block; width:1em; height:1em; }
 .journey-finale__footer .ui-star-icon { display:inline-block; width:1em; height:1em; vertical-align:-0.12em; }
+
+/* Keep the arrow inside each passenger card, not below its bottom edge. */
+#rating-section .neighbor-card { position: relative; }
+#rating-section .neighbor-card .neighbor-card__action {
+  position: absolute;
+  right: clamp(12px, 1.2vw, 20px);
+  bottom: clamp(10px, 1vw, 16px);
+  margin: 0 !important;
+  padding: 0 !important;
+  align-self: auto;
+  line-height: 1;
+}
