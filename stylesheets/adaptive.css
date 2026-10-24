@@ -213,3 +213,19 @@
 @media (max-width: 700px) {
   .desktop-intro-header { display: none !important; }
 }
+
+/* Keep both desktop header elements within the left quarter. */
+@media (min-width: 701px) {
+  .desktop-intro-header {
+    right: auto;
+    width: calc((100% - 3 * var(--grid-gap)) / 4 + var(--grid-gap) / 2);
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+  .desktop-intro-header__title {
+    align-self: flex-end;
+    max-width: 100%;
+  }
+}
