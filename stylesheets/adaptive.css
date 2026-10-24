@@ -647,6 +647,10 @@
 @media (max-width: 700px) {
   #frames-heading .frames-title-first-line {
     white-space: nowrap;
-    font-size: min(1em, 8.2vw);
   }
+}
+
+/* Use the same mobile font size on both heading lines. */
+@media (max-width: 700px) {
+  #frames-heading { font-size: min(8.2vw, 36px) !important; }
 }
