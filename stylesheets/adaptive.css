@@ -592,7 +592,7 @@
     transform: translateX(min(75vw, 305px)) rotate(90deg) !important;
   }
   #closeness-section .context-driver {
-    writing-mode: horizontal-tb !important;
-    transform: rotate(180deg);
+    writing-mode: vertical-rl !important;
+    transform: rotate(180deg) !important;
   }
 }
