@@ -642,3 +642,11 @@
     top: 15px;
   }
 }
+
+/* Keep the dash attached to the first line of the frames heading on mobile. */
+@media (max-width: 700px) {
+  #frames-heading .frames-title-first-line {
+    white-space: nowrap;
+    font-size: min(1em, 8.2vw);
+  }
+}
