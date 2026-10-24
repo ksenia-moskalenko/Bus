@@ -229,3 +229,19 @@
     max-width: 100%;
   }
 }
+
+@media (min-width: 701px) {
+  .desktop-intro-header {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .desktop-intro-header__title {
+    align-self: flex-start;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-align: right;
+  }
+}
