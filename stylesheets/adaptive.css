@@ -565,3 +565,22 @@
     transform-origin: center center !important;
   }
 }
+
+/* Mobile: keep all three context buttons fully visible within the available width. */
+@media (max-width: 700px) {
+  #closeness-section .context-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+  #closeness-section .context-tab {
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 12px 2px !important;
+    white-space: nowrap;
+  }
+}
