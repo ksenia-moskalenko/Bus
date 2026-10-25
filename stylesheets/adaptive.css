@@ -138,7 +138,7 @@
     white-space: nowrap;
   }
   .hero-title {
-    right: 12px !important;
+    right: 0px !important;
     bottom: 16px !important;
     font-size: clamp(54px, 14vw, 92px) !important;
   }
@@ -507,10 +507,15 @@
 }
 
 /* Match the gray caption color in the reference screenshot. */
-.prompt-start { color: #888888; text-transform: none; }
+.prompt-start {
+  color: #888888;
+  text-transform: none;
+}
 
 /* Scroll prompt line uses the same gray as its label. */
-.story-prompt .prompt-line { background-color: #888888; }
+.story-prompt .prompt-line {
+  background-color: #888888;
+}
 
 /* Mobile first screen: centered bus icon and project question. */
 @media (max-width: 700px) {
@@ -652,5 +657,14 @@
 
 /* Use the same mobile font size on both heading lines. */
 @media (max-width: 700px) {
-  #frames-heading { font-size: min(8.2vw, 36px) !important; }
+  #frames-heading {
+    font-size: min(8.2vw, 36px) !important;
+  }
+}
+@media (max-width: 700px) {
+  .hero-title {
+    left: 1px !important;
+    right: auto !important;
+    bottom: 0px !important;
+  }
 }
