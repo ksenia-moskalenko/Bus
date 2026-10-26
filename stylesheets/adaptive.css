@@ -668,3 +668,10 @@
     bottom: 0px !important;
   }
 }
+
+/* Mobile seat selection: rotate only passenger portraits, not the bus or seat targets. */
+@media (max-width: 700px) {
+  #seat-section .bus-interactive .passenger-layer .occupied-passenger__image {
+    transform: rotate(-90deg);
+  }
+}
