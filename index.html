@@ -171,7 +171,7 @@
   <!-- Course web-ring: standalone footer after the longread finale -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
   <style>
-    .course-webring { margin-top:64px; padding:24px 0; border-top:1px solid currentColor; font-family:Inter,sans-serif; font-size:16px; line-height:1.5; }
+    .course-webring { margin:64px 0 0 25%; width:75%; box-sizing:border-box; padding:24px clamp(16px, 1.7vw, 34px); border-top:1px solid currentColor; font-family:Inter,sans-serif; font-size:16px; line-height:1.5; }
     .course-webring h2 { margin:0 0 16px; font-family:Inter,sans-serif; font-size:20px; font-weight:600; line-height:1.3; }
     .course-webring__nav { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); gap:12px 24px; align-items:start; }
     .course-webring__nav a { display:flex; align-items:center; min-height:44px; padding:10px 0; box-sizing:border-box; color:inherit; text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere; }
@@ -179,6 +179,7 @@
     .course-webring__nav a:focus-visible { outline:2px solid currentColor; outline-offset:4px; }
     .course-webring--entry .course-webring__nav { grid-template-columns:1fr 1fr; }
     @media (max-width:720px) {
+      .course-webring { margin-left:0; width:100%; }
       .course-webring__nav, .course-webring--entry .course-webring__nav { grid-template-columns:1fr; }
       .course-webring__nav a:last-child { justify-content:flex-start; text-align:left; }
     }
